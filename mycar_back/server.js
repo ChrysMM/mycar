@@ -4,6 +4,8 @@ const app = express();
 var corsOptions = {
   origin: "http://localhost:8081"
 };
+const mongoose = require('mongoose');
+
 app.use(cors(corsOptions));
 // parse requests of content-type - application/json
 app.use(express.json());
@@ -11,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome to My Car App" });
 });
 require("./app/routes/tutorial.routes.js")(app);
 // set port, listen for requests
