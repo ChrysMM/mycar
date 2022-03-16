@@ -2,7 +2,7 @@
   "name": "mycar_back",
   "version": "1.0.0",
   "description": "Node.js Restful CRUD API with Node.js, Express and MySQL",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,5 +13,8 @@
     "express": "^4.17.3",
     "mongoose": "^6.2.6",
     "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
