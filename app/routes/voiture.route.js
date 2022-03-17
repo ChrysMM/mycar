@@ -1,17 +1,19 @@
-const express = require('express');
-const router = express.Router();// on lie une url à l'actions avec les routes
+//const express = require('express');
 
-let Voiture = require('../models/voiture');
-router.route('/').get((req, res) => {// sur / en methode get (url)
-    Category.find((err, voiture) => {
-        if (err) {
-            res.status(500).json({ message: `Error retrieving voitures : ${err}` });
-        }
-        else {
+const { getAll } = require("../models/voiture.model");
 
-            res.json(voiture);
-        }
-    }).populate({path: ' ', select: ' '});
-});
-
-
+ 
+module.exports = app => {
+    const voitures =  require("../controllers/voiture.controller.js");
+    var router = require("express").Router();
+    // creer une nouvel voiture
+    router.post("/", voitures.create);
+    // toutes les voitures
+    router.get("/", voitures.findAll);
+    // recup une voiture par id
+    router.get("/", voitures.findOne);
+    // update une voiture par id
+    router.put("/", voitures.update);
+    // delete une voiture
+    router.delete("/", voitures.delete)
+};
