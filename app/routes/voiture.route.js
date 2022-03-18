@@ -1,6 +1,6 @@
 //const express = require('express');
 
-const { getAll } = require("../models/voiture.model");
+//const { getAll } = require("../models/voiture.model");
 
  
 module.exports = app => {
