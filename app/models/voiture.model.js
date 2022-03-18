@@ -1,8 +1,8 @@
 const sql = require("./db.js");
 
-
-const Voiture = function(Voiture){
-    this.id = this.id.Voiture;
+//Constructeur
+const Voiture = function(voiture){
+     
     this.immatriculation = this.immatriculation.Voiture;
     this.nbrePlace = this.nbrePlace.Voiture;
     this.boite = this.boite.Voiture;
@@ -25,8 +25,8 @@ Voiture.create = (newVoiture, result) => {
         result(err, null);
         return;
       }
-      console.log("created voiture: ", { id: res.insertId, ...newTutorial });
-      result(null, { id: res.insertId, ...newTutorial });
+      console.log("created voiture: ", { id: res.insertId, ...newVoiture });
+      result(null, { id: res.insertId, ...newVoiture });
     });
   };
 
@@ -35,7 +35,7 @@ Voiture.create = (newVoiture, result) => {
 
   //Get toutes les voitures
   Voiture.getAll = (immatriculation, result) => {
-    let query = "SELECT * FROM voitures";
+    let query = "SELECT * FROM voiture";
     if (immatriculation) {
       query += ` WHERE immatriculation LIKE '%${immatriculation}%'`;
     }
@@ -75,7 +75,7 @@ Voiture.create = (newVoiture, result) => {
 //Update par id
 Voiture.updateById = (id, voiture, result) => {
   sql.query(
-    "UPDATE voitures SET immatriculation = ?, nbrPlace = ?, boite = ?, annee = ?, carburant = ?, marque_id = ?, modele_id = ?, statut_id = ?, categorie_id  = ? WHERE id = ?",
+    "UPDATE voiture SET immatriculation = ?, nbrPlace = ?, boite = ?, annee = ?, carburant = ?, marque_id = ?, modele_id = ?, statut_id = ?, categorie_id  = ? WHERE id = ?",
     [voiture.immatriculation, voiture.nbrePlace, voiture.boite, voiture.annee, voiture.carbutant, voiture.marque_id, voiture.modele_id, voiture.statut_id, voiture.categorie_id, id],
     (err, res) => {
       if (err) {
@@ -97,7 +97,7 @@ Voiture.updateById = (id, voiture, result) => {
 
 // delete par id
 Voiture.remove = (id, result) => {
-  sql.query("DELETE FROM voitures WHERE id = ?", id, (err, res) => {
+  sql.query("DELETE FROM voiture WHERE id = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

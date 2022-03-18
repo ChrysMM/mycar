@@ -4,6 +4,7 @@ const { getAll } = require("../models/voiture.model");
 
  
 module.exports = app => {
+
     const voitures =  require("../controllers/voiture.controller.js");
     var router = require("express").Router();
     // creer une nouvel voiture
@@ -11,9 +12,10 @@ module.exports = app => {
     // toutes les voitures
     router.get("/", voitures.findAll);
     // recup une voiture par id
-    router.get("/", voitures.findOne);
+    router.get("/:id", voitures.findOne);
     // update une voiture par id
-    router.put("/", voitures.update);
+    router.put("/:id", voitures.update);
     // delete une voiture
-    router.delete("/", voitures.delete)
+    router.delete("/:id", voitures.delete);
+    app.use('/api/voiture', router);
 };
