@@ -1,17 +1,19 @@
+const { json } = require("express/lib/response");
+const { YEAR } = require("mysql/lib/protocol/constants/types");
 const sql = require("./db.js");
 
 //Constructeur
 const Voiture = function(voiture){
      
-    this.immatriculation = this.immatriculation.Voiture;
-    this.nbrePlace = this.nbrePlace.Voiture;
-    this.boite = this.boite.Voiture;
-    this.annee = this.annee.Voiture;
-    this.carbutant = this.carbutant.Voiture;
-    this.marque_id = this.marque_id.Voiture;
-    this.modele_id = this.modele_id.Voiture;
-    this.statut_id  = this.statut_id.Voiture;
-    this.categorie_id = this.categorie_id.Voiture
+    this.immatriculation = voiture.immatriculation;
+    this.nbrePlace = voiture.nbrePlace;
+    this.boite = voiture.boite;
+    this.annee = voiture.annee;
+    this.carburant = voiture.carburant;
+    this.marque_id = voiture.marque_id;
+    this.modele_id = voiture.modele_id;
+    this.statut_id  = voiture.statut_id;
+    this.categorie_id = voiture.categorie_id
 }
 
 
@@ -19,6 +21,7 @@ const Voiture = function(voiture){
 
 //creation voiture
 Voiture.create = (newVoiture, result) => {
+
     sql.query("INSERT INTO voiture SET ?", newVoiture, (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -75,9 +78,7 @@ Voiture.create = (newVoiture, result) => {
 //Update par id
 Voiture.updateById = (id, voiture, result) => {
   sql.query(
-    "UPDATE voiture SET immatriculation = ?, nbrPlace = ?, boite = ?, annee = ?, carburant = ?, marque_id = ?, modele_id = ?, statut_id = ?, categorie_id  = ? WHERE id = ?",
-    [voiture.immatriculation, voiture.nbrePlace, voiture.boite, voiture.annee, voiture.carbutant, voiture.marque_id, voiture.modele_id, voiture.statut_id, voiture.categorie_id, id],
-    (err, res) => {
+    "UPDATE voiture SET ? WHERE id = ?", [voiture, id], (err, res) => {
       if (err) {
         console.log("error: ", err);
         result(null, err);
