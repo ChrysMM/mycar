@@ -9,8 +9,10 @@
   "author": "Chrystelle",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "sequelize": "^6.17.0",
     "tedious": "^14.3.0"
