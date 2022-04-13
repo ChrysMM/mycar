@@ -1,0 +1,174 @@
+import React from 'react';
+import { Text, View, Button, StyleSheet, Image} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+
+import Fiat500 from "../assets/car_C25.jpg";
+
+import Essence from "../assets/ESSENCE.png";
+import boiteM from "../assets/manuel.png";
+import historique from "../assets/HISTORIQUE.png";
+import profil from "../assets/PROFIL.png";
+import personne from "../assets/PERSONNE.png";
+import mycar from "../assets/My_Car.png";
+
+
+
+export default function Detail() {
+    
+    const navigation = useNavigation();
+
+    function navigateToList() {
+        navigation.navigate("Confirmation");
+    }
+    
+    function navigateHistorique() {
+        navigation.navigate("Historique");
+    }
+    
+    function navigateProfil() {
+        navigation.navigate("Profil");
+    }
+
+    function navigateLogo() {
+        navigation.navigate("Search");
+    }
+        return(
+            
+        <View style={{marginTop: 50}}>
+          
+        <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
+      
+       <View style={style.bloc}  >
+
+         <Text style={style.title}  >Fiat 500</Text>
+          <Image source={Fiat500} style={style.img_voiture}></Image>
+         <Image source={ boiteM } style={style.logo}></Image>
+         <Image source={ Essence } style={style.logo}></Image>
+         <Image source={ personne } style={style.logo}></Image>
+         <Text style={style.annee}>2018</Text>
+
+         <View   >
+         <Text style={style.louer}  onPress= {()=>navigateToList()}>Confirmer</Text>
+       
+         <Text style={style.bande1} onPress= {()=>navigateHistorique()}>
+        <Image source={ historique }   style={style.logobande} ></Image>
+        </Text>
+        <Text style={style.bande2} onPress= {()=>navigateProfil()}>
+        <Image source={ profil }  style={style.logobande}   ></Image>
+        </Text>
+        
+        </View>
+
+        </View>
+
+             </View>
+        ); 
+    }
+
+
+const style = StyleSheet.create({
+    bloc: {
+        shadowOpacity: 0.5,
+        shadowRadius: 11,
+        elevation: 4, 
+        fontSize: 22, 
+        marginBottom: 3,  
+        marginTop: 20, 
+        backgroundColor: '#F5F5F5', 
+        height: 155, 
+        borderRadius: 10, 
+        fontWeight: "bold", 
+        width: 410, 
+        borderWidth: 1, 
+        textAlign: 'center', 
+      
+    }, 
+    bande1: {
+        marginTop: 500,
+        backgroundColor: '#A2273C', 
+        height: 40, 
+        width: 200, 
+    }, 
+
+    bande2: {
+        marginTop: -40,
+        marginLeft: 200, 
+        backgroundColor: '#A2273C', 
+        height: 40, 
+        width: 200, 
+    }, 
+ 
+    title: {
+        fontSize: 22, 
+        color: 'black',
+        fontWeight: "bold", 
+        textAlign: 'center', 
+   
+       
+    }, 
+
+    img_voiture: {
+     
+        width:100,
+        height: 70,
+        marginLeft: 10,
+        marginRight: 10,
+    },
+
+    logo: {
+        width:25,
+        height: 25,
+        marginRight: 10, 
+        marginLeft: 300, 
+        marginTop: -70, 
+        margin: 80, 
+        
+    }, 
+
+    logobande: {
+        width: 40,
+        height: 40,
+        marginRight: 200,
+        marginLeft: 40, 
+    }, 
+
+    annee: {
+        fontSize: 13,
+        marginLeft: 332, 
+        marginTop: -135, 
+        fontWeight: "bold", 
+    }, 
+
+    bande: {
+        marginTop: 500,
+        backgroundColor: '#A2273C', 
+        height: 40, 
+        width: 600, 
+    }, 
+
+    mycar: {
+        marginLeft: 350,
+        marginTop: -200, 
+        marginBottom: 40, 
+        height: 60, 
+        width: 60, 
+     
+    }, 
+    louer: {
+        backgroundColor: '#A2273C', 
+        textAlign: "center", 
+        width: 140, 
+        height:  20, 
+        borderRadius: 7,
+        elevation: 3,
+        marginTop: 200, 
+        color: 'white', 
+        marginLeft: 145, 
+        fontWeight: "bold",
+        paddingTop: 2, 
+        paddingRight: 2, 
+    }, 
+   
+})
+
