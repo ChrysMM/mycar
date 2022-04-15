@@ -16,6 +16,14 @@ const sequelize = new Sequelize(
     }
   }
 );
+
+/************************************************************/
+/*                                                          */
+/* Indiquer que le modèle utilisateur peut appartenir       */
+/* à de nombreux rôles et vice versa.User.belongsToMany     */
+/*                                                          */
+/************************************************************/
+
 const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
