@@ -3,7 +3,11 @@ const config = require("../config/auth.config");
 const User = db.user;
 const Role = db.role;
 const Op = db.Sequelize.Op;
+
+//Génère et vérifie les jetons
 var jwt = require("jsonwebtoken");
+
+//Hachage et comparaison des mots de passe des utilisateurs
 var bcrypt = require("bcryptjs");
 
 /************************************************************/
@@ -39,13 +43,13 @@ exports.signup = (req, res) => {
           }
         }).then(roles => {
           user.setRoles(roles).then(() => {
-            res.send({ message: "User est enregistré!" });
+            res.send({ message: "User enregistré!" });
           });
         });
       } else {
         // user role = 1
         user.setRoles([1]).then(() => {
-          res.send({ message: "User est enregistré!" });
+          res.send({ message: "User enregistré!" });
         });
       }
     })
