@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import  Profil from './components/Profil';
+import  Filtre from './components/Filtre';
 import  Search from './components/Search';
 import  Calendrier from './components/Calendrier';
 import  Confirmation from './components/Confirmation';
@@ -23,14 +24,14 @@ export default function Navigator(){
     <AppStack.Screen name="date" component={date} />
     <AppStack.Screen name="Detail" component={Detail} />
     <AppStack.Screen name="Search" component={Search} />
+    <AppStack.Screen name="Filtre" component={Filtre} />
+    <AppStack.Screen name="Valider" component={Valider} />
     <AppStack.Screen name="Profil" component={Profil} />
     <AppStack.Screen name="Calendrier" component={Calendrier} />
     <AppStack.Screen name="Confirmation" component={Confirmation} />
     <AppStack.Screen name="Historique" component={Historique} />
-    <AppStack.Screen name="Valider" component={Valider} />
-
     </AppStack.Navigator>
-
     </NavigationContainer>
+    
     );
 }

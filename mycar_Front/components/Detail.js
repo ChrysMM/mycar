@@ -74,30 +74,17 @@ const style = StyleSheet.create({
         elevation: 4, 
         fontSize: 22, 
         marginBottom: 3,  
-        marginTop: 20, 
+        marginTop: 100, 
         backgroundColor: '#F5F5F5', 
         height: 155, 
         borderRadius: 10, 
         fontWeight: "bold", 
-        width: 410, 
+        width: 380, 
         borderWidth: 1, 
         textAlign: 'center', 
       
     }, 
-    bande1: {
-        marginTop: 500,
-        backgroundColor: '#A2273C', 
-        height: 40, 
-        width: 200, 
-    }, 
 
-    bande2: {
-        marginTop: -40,
-        marginLeft: 200, 
-        backgroundColor: '#A2273C', 
-        height: 40, 
-        width: 200, 
-    }, 
  
     title: {
         fontSize: 22, 
@@ -121,14 +108,14 @@ const style = StyleSheet.create({
         height: 25,
         marginRight: 10, 
         marginLeft: 300, 
-        marginTop: -70, 
+        marginTop: -65, 
         margin: 80, 
         
     }, 
 
-    logobande: {
-        width: 40,
-        height: 40,
+      logobande: {
+        width: 25,
+        height: 25,
         marginRight: 200,
         marginLeft: 40, 
     }, 
@@ -139,34 +126,75 @@ const style = StyleSheet.create({
         marginTop: -135, 
         fontWeight: "bold", 
     }, 
-
-    bande: {
+    bande1: {
         marginTop: 500,
         backgroundColor: '#A2273C', 
         height: 40, 
-        width: 600, 
+        width: 200, 
+    }, 
+
+   
+    bande2: {
+        marginTop: -40,
+        marginLeft: 200, 
+        backgroundColor: '#A2273C', 
+        height: 40, 
+        width: 200, 
     }, 
 
     mycar: {
-        marginLeft: 350,
-        marginTop: -200, 
+        marginLeft: 300, 
         marginBottom: 40, 
         height: 60, 
         width: 60, 
-     
+    },
+    datear: {
+        fontSize: 10, 
+        color: 'black',
+        backgroundColor: '#F5F5F5', 
+        height: 25,  
+        width: 120, 
+        borderColor: "black",
+        borderWidth: 1, 
+        textAlign: 'center', 
+        marginLeft: 50, 
+        marginTop:-28,
+
+   
     }, 
+    datedep: {
+        fontSize: 10, 
+        color: 'black',
+        backgroundColor: '#F5F5F5', 
+        height: 25,  
+        width: 120, 
+        borderColor: "black",
+        borderWidth: 1, 
+        textAlign: 'center', 
+        marginLeft: 200, 
+        marginTop: -24,
+   
+    },
+
+    filtre:{
+        width:30,
+        height: 30,
+        marginLeft:330, 
+    },
+
+
     louer: {
         backgroundColor: '#A2273C', 
         textAlign: "center", 
         width: 140, 
-        height:  20, 
+        height:  30, 
         borderRadius: 7,
         elevation: 3,
-        marginTop: 200, 
+        marginTop: 250, 
         color: 'white', 
         marginLeft: 145, 
         fontWeight: "bold",
-        paddingTop: 2, 
+        paddingTop: 3, 
         paddingRight: 2, 
     }, 
    

@@ -48,9 +48,10 @@ export default function Connexion() {
         height: 55, 
         borderRadius: 10, 
         fontWeight: "bold", 
-        width: 400, 
+        width: 350, 
         marginLeft: 7, 
         fontStyle: 'italic', 
+        alignItems: 'center'
    
        
     }, 
@@ -66,14 +67,15 @@ export default function Connexion() {
         backgroundColor: '#A2273C', 
         textAlign: "center", 
         width: 120, 
-        height:  25, 
+        height:  30, 
         borderRadius: 7,
         elevation: 3,
-        marginTop: 55, 
+        marginTop: 58, 
         color: 'white', 
         marginLeft: 145, 
         fontWeight: "bold",
-        paddingTop: 1, 
-        paddingRight: 2, 
+        paddingTop: 4, 
+        paddingRight: 3, 
+        alignItems: 'center'
     }, 
     })

@@ -21,11 +21,11 @@ export default class Profil extends React.Component{
 const style =StyleSheet.create({
 
     mycar: {
-        marginLeft: 350,
+        marginLeft: 320,
         marginBottom: 40, 
         height: 60, 
         width: 60, 
-    }, 
+    },
 
     employe: {
         borderRadius: 90, 

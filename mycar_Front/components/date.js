@@ -94,10 +94,10 @@ const style =StyleSheet.create({
         width: 500, 
     }, 
     logobande: {
-        width: 40,
-        height: 40,
-        marginRight: 180,
-        marginLeft: 10, 
+        width: 25,
+        height: 25,
+        marginRight: 200,
+        marginLeft: 40, 
     }, 
  
         

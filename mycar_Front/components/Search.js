@@ -38,14 +38,17 @@ export default function Search() {
     function navigateLogo() {
         navigation.navigate("Search");
     }
-    
+
+    function navigateFiltre() {
+        navigation.navigate("Filtre");
+    }
         return(
             
         <View>
         <Text onPress= {()=>navigateLogo()} ><Image source={mycar} style={style.mycar} ></Image></Text>
 
 
-        <Text onPress={() => this.submit()}><Image source={Filtre} style={style.filtre} ></Image></Text>
+        <Text onPress={() => navigateFiltre()}><Image source={Filtre} style={style.filtre} ></Image></Text>
         <Text  style={style.datear}></Text>
         <Text  style={style.datedep}></Text>
 
@@ -108,6 +111,7 @@ export default function Search() {
         </Text>
         <Text style={style.bande2} onPress= {()=>navigateProfil()}>
         <Image source={ profil }  style={style.logobande}   ></Image>
+        
         </Text>
 
 
@@ -135,7 +139,7 @@ const style = StyleSheet.create({
         height: 155, 
         borderRadius: 10, 
         fontWeight: "bold", 
-        width: 410, 
+        width: 380, 
         borderWidth: 1, 
         textAlign: 'center', 
       
@@ -170,9 +174,9 @@ const style = StyleSheet.create({
     }, 
 
     logobande: {
-        width: 40,
-        height: 40,
-        marginRight: 200,
+        width: 25,
+        height: 25,
+        marginRight: 100,
         marginLeft: 40, 
     }, 
 
@@ -190,7 +194,7 @@ const style = StyleSheet.create({
     }, 
 
     bande2: {
-        marginTop: -40,
+        marginTop: -28,
         marginLeft: 200, 
         backgroundColor: '#A2273C', 
         height: 40, 
@@ -198,8 +202,7 @@ const style = StyleSheet.create({
     }, 
 
     mycar: {
-        marginLeft: 350,
-        marginTop: 10, 
+        marginLeft: 300, 
         marginBottom: 40, 
         height: 60, 
         width: 60, 
@@ -235,7 +238,7 @@ const style = StyleSheet.create({
     filtre:{
         width:30,
         height: 30,
-        marginLeft:370, 
+        marginLeft:330, 
     },
 
    

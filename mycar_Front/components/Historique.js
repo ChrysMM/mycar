@@ -17,9 +17,10 @@ export default class Search extends React.Component{
 }
 
 const style =StyleSheet.create({
-mycar: {
-    
-    height: 60, 
-    width: 60, 
-}
+    mycar: {
+        marginLeft: 320,
+        marginBottom: 40, 
+        height: 60, 
+        width: 60, 
+    },
 })

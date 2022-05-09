@@ -90,8 +90,9 @@ bande1: {
     width: 200, 
 }, 
 
+
 bande2: {
-    marginTop: -40,
+    marginTop: -28,
     marginLeft: 200, 
     backgroundColor: '#A2273C', 
     height: 40, 
@@ -109,11 +110,11 @@ text : {
 louer: {
     backgroundColor: '#A2273C', 
     textAlign: "center", 
-    width: 130, 
-    height:  20, 
+    width: 140, 
+    height:  60, 
     borderRadius: 7,
     elevation: 3,
-    marginTop: 50, 
+    marginTop: 100, 
     color: 'white', 
     marginLeft: 145, 
     fontWeight: "bold",
@@ -121,15 +122,15 @@ louer: {
     paddingRight: 2, 
 }, 
 mycar: {
-    marginLeft: 350,
+    marginLeft: 300, 
     marginBottom: 40, 
     height: 60, 
     width: 60, 
-}, 
+},
 
 logobande: {
-    width: 40,
-    height: 40,
+    width: 25,
+    height: 25,
     marginRight: 200,
     marginLeft: 40, 
 }, 
