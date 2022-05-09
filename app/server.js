@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to My Car App" });
 });
-require("./routes/voiture.route.js")(app);
+require("./routes/voiture.routes.js")(app);
  
  // set port, listen for requests
 const PORT = process.env.PORT || 8080;
@@ -37,6 +37,7 @@ app.listen(PORT, () => {
 
 require('../app/routes/auth.routes')(app);
 require('../app/routes/user.routes')(app);
+require('../app/routes/marque.routes')(app);
 
 
 function initial() {
