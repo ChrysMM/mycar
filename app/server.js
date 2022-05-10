@@ -4,10 +4,15 @@ const app = express();
  
 const db = require("../app/models");
 const Role = db.role;
-db.sequelize.sync({force: true}).then(() => {
-  console.log('Drop and Resync Db');
-  initial();
-});
+//db.sequelize.sync({force: true}).then(() => {
+  //console.log('Drop and Resync Db');
+  //initial();
+//});
+
+ 
+//app.use(...);
+ 
+db.sequelize.sync();
  
  
 var corsOptions = {
@@ -45,7 +50,7 @@ require('../app/routes/statut.routes')(app)
 
 
 function initial() {
-  Role.create({
+ Role.create({
     id: 1,
     name: "user"
   });

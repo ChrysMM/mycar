@@ -5,7 +5,7 @@ const sql = require("./db.js");
 
 //Constructeur
 const Categorie = function(categorie){
-    this.categorie = categorie.nomCategorie
+    this.nomCategorie = categorie.nomCategorie
 }
 
 
