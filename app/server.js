@@ -34,12 +34,13 @@ app.listen(PORT, () => {
 });
 
 
-
+//require("./routes/voiture.routes.js")(app);
 require('../app/routes/auth.routes')(app);
 require('../app/routes/user.routes')(app);
 require('../app/routes/marque.routes')(app);
 require('../app/routes/modele.routes')(app);
 require('../app/routes/categorie.routes')(app)
+require('../app/routes/statut.routes')(app)
 
 
 

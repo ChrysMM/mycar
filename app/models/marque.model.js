@@ -5,7 +5,7 @@ const sql = require("./db.js");
 
 //Constructeur
 const Marque = function(marque){
-    this.marque = marque.nomMarque
+    this.nomMarque = marque.nomMarque
 }
 
 
