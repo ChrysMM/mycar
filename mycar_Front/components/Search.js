@@ -14,6 +14,9 @@ import profil from "../assets/PROFIL.png";
 import personne from "../assets/PERSONNE.png";
 import mycar from "../assets/My_Car.png";
 
+fetch('http://localhost:8080/api/voiture')
+.then(response=> response.json())
+  .then(teams=> this.setState({voiture :  teams})); 
 
 export default function Search() {
     
