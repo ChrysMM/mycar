@@ -120,7 +120,7 @@ const style = StyleSheet.create({
 
     
     bande2: {
-        marginTop: -28,
+        marginTop: -40,
         marginLeft: 200, 
         backgroundColor: '#A2273C', 
         height: 40, 
