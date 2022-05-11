@@ -12,6 +12,9 @@ import  Detail from './components/Detail';
 import  Historique from './components/Historique';
 import  Oublie from './components/Oublie';
 import  Valider from './components/Valider';
+
+
+
 const AppStack = createStackNavigator();
 export default function Navigator(){
  
