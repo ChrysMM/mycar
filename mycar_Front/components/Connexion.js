@@ -6,10 +6,10 @@ import { useNavigation } from '@react-navigation/native';
 
 
 
-fetch('https://localhost:8080/api/test/all')
+fetch('http://localhost:8080/api/test/all')
 .then(response=> response.json())
   .then(teams=> this.setState({user :  teams})); 
-  
+
 export default function Connexion() {
     
     const navigation = useNavigation();
