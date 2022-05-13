@@ -138,7 +138,6 @@ const style = StyleSheet.create({
         fontSize: 22, 
         marginBottom: 3,  
         marginTop: 100, 
-        backgroundColor: '#F5F5F5', 
         height: 155, 
         borderRadius: 10, 
         fontWeight: "bold", 
@@ -213,7 +212,6 @@ const style = StyleSheet.create({
     datear: {
         fontSize: 10, 
         color: 'black',
-        backgroundColor: '#F5F5F5', 
         height: 25,  
         width: 120, 
         borderColor: "black",
@@ -227,7 +225,6 @@ const style = StyleSheet.create({
     datedep: {
         fontSize: 10, 
         color: 'black',
-        backgroundColor: '#F5F5F5', 
         height: 25,  
         width: 120, 
         borderColor: "black",
