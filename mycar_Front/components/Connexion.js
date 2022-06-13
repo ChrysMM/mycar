@@ -4,23 +4,19 @@ import { useNavigation } from '@react-navigation/native';
 
 fetch('http://localhost:8080/api/test/all')
 .then(response=> response.json())
-  .then(teams=> this.setState({user :  teams})); 
+  .then(data=> console.log(data)); 
 
 export default function Connexion() {
     
     const navigation = useNavigation();
-
     function navigateConnexion() {
         navigation.navigate("date");
     }
     function navigateOublie() {
         navigation.navigate("Oublie");
     }
-    
- 
         return(
-    
-<View>
+<View style={style.view}>
     <Text style={style.titleid} >Renseignez vos identifiants</Text>
     <TextInput style={style.title} placeholder="E-mail"></TextInput>
 
@@ -37,6 +33,9 @@ export default function Connexion() {
     
     
     const style =StyleSheet.create({
+        view: {
+            alignItems: "center", 
+        },
         titleid: {
             fontSize: 22,
             fontWeight: "bold",
@@ -76,7 +75,6 @@ export default function Connexion() {
         elevation: 3,
         marginTop: 58, 
         color: 'white', 
-        marginLeft: 145, 
         fontWeight: "bold",
         paddingTop: 4, 
         paddingRight: 3, 

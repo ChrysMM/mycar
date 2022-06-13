@@ -14,12 +14,17 @@ import profil from "../assets/PROFIL.png";
 import personne from "../assets/PERSONNE.png";
 import mycar from "../assets/My_Car.png";
 
-//fetch('http://localhost:8080/api/voiture')
-//.then(response=> response.json())
-  //.then(teams=> this.setState({voiture :  teams})); 
+fetch('http://localhost:8080/api/voiture')
+.then(response=> response.json())
+  .then(teams=> this.setState({voiture :  teams})); 
+
+
+
+
+
+
 
 export default function Search() {
-    
     const navigation = useNavigation();
 
     function navigateSearch() {
@@ -47,13 +52,12 @@ export default function Search() {
     }
         return(
             
-        <View>
+        <View style={style.view}>
         <Text onPress= {()=>navigateLogo()} ><Image source={mycar} style={style.mycar} ></Image></Text>
 
 
         <Text onPress={() => navigateFiltre()}><Image source={Filtre} style={style.filtre} ></Image></Text>
-        <Text  style={style.datear}></Text>
-        <Text  style={style.datedep}></Text>
+
 
         <View style={style.bloc}>
 
@@ -143,7 +147,6 @@ const style = StyleSheet.create({
         fontWeight: "bold", 
         width: 380, 
         borderWidth: 1, 
-        textAlign: 'center', 
       
     }, 
 
@@ -191,7 +194,7 @@ const style = StyleSheet.create({
     bande1: {
         marginTop: 500,
         backgroundColor: '#A2273C', 
-        height: 40, 
+        height: 60000, 
         width: 200, 
     }, 
 
@@ -199,7 +202,7 @@ const style = StyleSheet.create({
         marginTop: -28,
         marginLeft: 200, 
         backgroundColor: '#A2273C', 
-        height: 40, 
+        height: 60000, 
         width: 200, 
     }, 
 
@@ -209,31 +212,6 @@ const style = StyleSheet.create({
         height: 60, 
         width: 60, 
     },
-    datear: {
-        fontSize: 10, 
-        color: 'black',
-        height: 25,  
-        width: 120, 
-        borderColor: "black",
-        borderWidth: 1, 
-        textAlign: 'center', 
-        marginLeft: 50, 
-        marginTop:-28,
-
-   
-    }, 
-    datedep: {
-        fontSize: 10, 
-        color: 'black',
-        height: 25,  
-        width: 120, 
-        borderColor: "black",
-        borderWidth: 1, 
-        textAlign: 'center', 
-        marginLeft: 200, 
-        marginTop: -24,
-   
-    },
 
     filtre:{
         width:30,
@@ -241,5 +219,7 @@ const style = StyleSheet.create({
         marginLeft:330, 
     },
 
-   
+    view:{
+        alignItems:"center",
+    },
 })

@@ -11,12 +11,12 @@ export default function Oublie() {
  
         return(
     
-<View>
+<View style={style.view}>
     <Text style={style.titleid} >Pour recevoir votre mot de passe, veuillez indiquer votre adresse email </Text>
     <TextInput style={style.title} placeholder="E-mail"></TextInput>
 
 
-    <View>
+    <View style={style.view}>
     <Text style={style.connexion}  > Envoyer</Text>
     </View>
 </View>
@@ -40,7 +40,7 @@ export default function Oublie() {
         height: 55, 
         borderRadius: 10, 
         fontWeight: "bold", 
-        width: 400, 
+        width: 300, 
         marginLeft: 7, 
         fontStyle: 'italic', 
    
@@ -63,9 +63,12 @@ export default function Oublie() {
         elevation: 3,
         marginTop: 55, 
         color: 'white', 
-        marginLeft: 145, 
         fontWeight: "bold",
         paddingTop: 1, 
         paddingRight: 2, 
     }, 
+    view:{
+        alignItems: "center", 
+    },
+
     })

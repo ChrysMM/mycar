@@ -26,7 +26,7 @@ export default function Confirmation() {
         return(
             
         
-          <View>
+          <View >
          <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
        
         <View style={style.bloc}>
@@ -43,7 +43,9 @@ export default function Confirmation() {
         <Text style={style.text}>Carburant : </Text>
         <Text style={style.text}>Année : </Text>
         
+        <View  style={style.view}>
         <Text style={style.louer}  onPress= {()=>navigateConfirmation()}>LOUER</Text>
+        </View>
 
 
         <Text style={style.bande1} onPress= {()=>navigateHistorique()}>
@@ -61,6 +63,9 @@ export default function Confirmation() {
         
         
         const style = StyleSheet.create({
+            view: {
+                alignItems: "center", 
+            }, 
             bloc:{
 
                 shadowOpacity: 0.5,
@@ -73,15 +78,13 @@ export default function Confirmation() {
                 width: 410, 
                 borderColor: '#A2273C',
                 borderWidth: 1, 
-                textAlign: 'center', 
-           
+               textAlign: "center", 
+
             }, 
         
 title: {
                 fontSize: 22,   
                 fontWeight: "bold", 
-           
-               
 }, 
 bande1: {
     marginTop: 500,
@@ -92,7 +95,7 @@ bande1: {
 
 
 bande2: {
-    marginTop: -28,
+    marginTop: -28.5,
     marginLeft: 200, 
     backgroundColor: '#A2273C', 
     height: 40, 
@@ -111,18 +114,19 @@ louer: {
     backgroundColor: '#A2273C', 
     textAlign: "center", 
     width: 140, 
-    height:  60, 
+    height:  25, 
     borderRadius: 7,
     elevation: 3,
     marginTop: 100, 
     color: 'white', 
-    marginLeft: 145, 
     fontWeight: "bold",
     paddingTop: 2, 
     paddingRight: 2, 
+    alignItems: "center", 
 }, 
+
 mycar: {
-    marginLeft: 300, 
+    marginLeft: 320,
     marginBottom: 40, 
     height: 60, 
     width: 60, 

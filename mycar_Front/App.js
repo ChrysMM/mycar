@@ -12,7 +12,7 @@ import  Detail from './components/Detail';
 import  Historique from './components/Historique';
 import  Oublie from './components/Oublie';
 import  Valider from './components/Valider';
-
+import  Camera from './components/Camera';
 
 
 const AppStack = createStackNavigator();
@@ -21,7 +21,7 @@ export default function Navigator(){
     return (
     <NavigationContainer>
     <AppStack.Navigator screenOptions={{ headerShown: true }} >
-    
+
     <AppStack.Screen name="Connexion" component={Connexion} />
     <AppStack.Screen name="Oublie" component={Oublie} />
     <AppStack.Screen name="date" component={date} />

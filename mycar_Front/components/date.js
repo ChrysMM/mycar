@@ -20,7 +20,7 @@ export default function date() {
     
  
         return(
-<View>
+<View style={style.view}>
 
 <DataTable style={style.tab}>
 <DataTable.Row >
@@ -58,7 +58,9 @@ Date de restitution
 
 
 const style =StyleSheet.create({
-   
+    view:{
+        alignItems: "center", 
+    },
     rech: {
         fontSize: 19, 
         backgroundColor: '#A2273C', 
@@ -68,9 +70,7 @@ const style =StyleSheet.create({
         borderBottomLeftRadius: 7,
         borderBottomRightRadius: 7,
         elevation: 3,
-        
         color: 'white', 
-        marginLeft: 45, 
         fontWeight: "bold",
         paddingTop: 17, 
         paddingRight: 2, 
@@ -83,22 +83,7 @@ const style =StyleSheet.create({
     },
     tab:{
         marginTop: 250,
-        marginLeft: 60,
         width: 300,
         
     }, 
-    bande: {
-        marginTop: 300,
-        backgroundColor: '#A2273C', 
-        height: 40, 
-        width: 500, 
-    }, 
-    logobande: {
-        width: 25,
-        height: 25,
-        marginRight: 200,
-        marginLeft: 40, 
-    }, 
- 
-        
 })

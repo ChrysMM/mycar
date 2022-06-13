@@ -7,7 +7,7 @@ export default class Profil extends React.Component{
     
     render(){
         return(
-            <View>
+            <View style={style.view}>
                 <Text><Image source={mycar} style={style.mycar} ></Image></Text>
                 <Text><Image source={employe} style={style.employe} ></Image></Text>
                 <Text style={style.donneemp}>Nom : </Text>
@@ -40,5 +40,9 @@ const style =StyleSheet.create({
 
         
     }, 
+
+    view:{
+        alignItems: "center", 
+    },
    
 })

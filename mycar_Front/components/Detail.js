@@ -35,7 +35,7 @@ export default function Detail() {
     }
         return(
             
-        <View style={{marginTop: 50}}>
+        <View style={{alignItems: "center"}}>
           
         <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
       
@@ -48,9 +48,9 @@ export default function Detail() {
          <Image source={ personne } style={style.logo}></Image>
          <Text style={style.annee}>2018</Text>
 
-         <View   >
+         <View  style={{alignItems: "center"}} >
          <Text style={style.louer}  onPress= {()=>navigateToList()}>Confirmer</Text>
-       
+         </View>
          <Text style={style.bande1} onPress= {()=>navigateHistorique()}>
         <Image source={ historique }   style={style.logobande} ></Image>
         </Text>
@@ -58,7 +58,7 @@ export default function Detail() {
         <Image source={ profil }  style={style.logobande}   ></Image>
         </Text>
         
-        </View>
+     
 
         </View>
 
@@ -135,7 +135,7 @@ const style = StyleSheet.create({
 
    
     bande2: {
-        marginTop: -40,
+        marginTop: -28,
         marginLeft: 200, 
         backgroundColor: '#A2273C', 
         height: 40, 
@@ -148,40 +148,6 @@ const style = StyleSheet.create({
         height: 60, 
         width: 60, 
     },
-    datear: {
-        fontSize: 10, 
-        color: 'black',
-        backgroundColor: '#F5F5F5', 
-        height: 25,  
-        width: 120, 
-        borderColor: "black",
-        borderWidth: 1, 
-        textAlign: 'center', 
-        marginLeft: 50, 
-        marginTop:-28,
-
-   
-    }, 
-    datedep: {
-        fontSize: 10, 
-        color: 'black',
-        backgroundColor: '#F5F5F5', 
-        height: 25,  
-        width: 120, 
-        borderColor: "black",
-        borderWidth: 1, 
-        textAlign: 'center', 
-        marginLeft: 200, 
-        marginTop: -24,
-   
-    },
-
-    filtre:{
-        width:30,
-        height: 30,
-        marginLeft:330, 
-    },
-
 
     louer: {
         backgroundColor: '#A2273C', 
@@ -192,10 +158,11 @@ const style = StyleSheet.create({
         elevation: 3,
         marginTop: 250, 
         color: 'white', 
-        marginLeft: 145, 
         fontWeight: "bold",
         paddingTop: 3, 
-        paddingRight: 2, 
+        paddingRight: 2,
+        alignItems: "center", 
+
     }, 
    
 })
