@@ -4,7 +4,7 @@ const User = db.user;
 
 /************************************************************/
 /*                                                          */
-/*             vérifier si ou est dupliqué ou non           */
+/*             vérifier si oui est dupliqué ou non           */
 /*        vérifier si dans la demande existe ou non         */
 /*         username email roles                             */
 /*                                                          */

@@ -13,11 +13,22 @@ import  Historique from './components/Historique';
 import  Oublie from './components/Oublie';
 import  Valider from './components/Valider';
 import  Camera from './components/Camera';
+import axios from 'axios';
+
+const URL = "http://localhost:8080/api/voiture"
+// export default function TEST(){
+    
+// }
+
 
 
 const AppStack = createStackNavigator();
 export default function Navigator(){
- 
+    axios({method:'get', url:URL}).then((response) => {
+        console.log(response.data);
+    }).catch((err)=>{
+        console.log("error", err);
+    }); 
     return (
     <NavigationContainer>
     <AppStack.Navigator screenOptions={{ headerShown: true }} >

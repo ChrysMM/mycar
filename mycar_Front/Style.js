@@ -1,4 +1,4 @@
-const red = '#A2273C', 
+const red = '#A2273C'
 
 
 export default {
