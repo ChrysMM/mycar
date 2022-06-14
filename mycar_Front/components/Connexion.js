@@ -8,8 +8,14 @@ import { useNavigation } from '@react-navigation/native';
 // .then(response=> response.json())
 //   .then(data=> console.log(data)); 
 
+//const URL = "http://localhost:8080/api/auth/signin"
+
 export default function Connexion() {
-    
+    //axios({method:'get', url:URL}).then((response) => {
+    //     console.log(response.data);
+    // }).catch((err)=>{
+    //     console.log("error", err);
+    // }); 
     const navigation = useNavigation();
     function navigateConnexion() {
         navigation.navigate("date");
