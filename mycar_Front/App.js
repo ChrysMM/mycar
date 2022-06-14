@@ -23,9 +23,9 @@ const URL = "http://localhost:8080/api/auth/signin"
 
 const AppStack = createStackNavigator();
 export default function Navigator(){
-    axios({method:'post', url:URL, data:{username: "", password:""}}).then((response) => {
-        //console.log(response.data);
-        console.log("connexion ok")
+    axios({method:'post', url:URL, data:{username: "Legrant", password:"234mlkj"}}).then((response) => {
+        console.log(response , data);
+        //console.log("connexion ok")
     }).catch((err)=>{
         console.log("error", err);
     }); 

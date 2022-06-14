@@ -3,10 +3,7 @@ import { TextInput, View, Text, StyleSheet} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 
  
-//fetch('')
-// fetch('http://localhost:8080/api/test/all')
-// .then(response=> response.json())
-//   .then(data=> console.log(data)); 
+ 
 
 //const URL = "http://localhost:8080/api/auth/signin"
 
