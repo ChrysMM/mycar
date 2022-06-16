@@ -2,12 +2,11 @@ import React from 'react';
 import { Text, View, Button, StyleSheet, Image} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-
-import Fiat500 from "../assets/car_C25.jpg";
-
+import immatriculation from "../assets/immatriculation.png";
 import Essence from "../assets/ESSENCE.png";
-import boiteM from "../assets/manuel.png";
+import boiteA from "../assets/manuel.png";
 import historique from "../assets/HISTORIQUE.png";
+import annee from "../assets/anne.png";
 import profil from "../assets/PROFIL.png";
 import personne from "../assets/PERSONNE.png";
 import mycar from "../assets/My_Car.png";
@@ -62,14 +61,19 @@ export default function Detail() {
        <View style={style.bloc}>
 
         <Text style={style.title} onPress= {()=>navigateSearch()} >{get[i].modele_id}</Text>
-        <Text>Immatriculation : {get[i].immatriculation} </Text>
-        <Text>{get[i].nbrePlace} places</Text>
-        <Text>Boite {get[i].boite} </Text>
-        <Text>Carburant : {get[i].carburant} </Text>
-        <Text>Année : {get[i].annee} </Text>
-        <Text>{get[i].statut_id} </Text>
-        <Text>{get[i].marque_id} </Text>
-        <Text>{get[i].categorie_id} </Text>
+
+        
+        <Text  style={style.text}><Image source={ immatriculation }   style={style.logobande} ></Image> {get[i].immatriculation} </Text>
+        <Text></Text>
+        <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{get[i].nbrePlace}</Text>
+        <Text  style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image>{get[i].boite} </Text>
+        <Text  style={style.text}><Image source={ Essence }   style={style.logobande} ></Image> {get[i].carburant} </Text>
+        <Text  style={style.text}><Image source={ annee }   style={style.logobande} ></Image> {get[i].annee} </Text>
+        <Text  style={style.text}>{get[i].statut_id} </Text>
+        <Text  style={style.text}>{get[i].marque_id} </Text>
+        <Text  style={style.text}>{get[i].categorie_id} </Text>
+
+
         </View>
 
          <View  style={{alignItems: "center"}} >
@@ -118,7 +122,14 @@ const style = StyleSheet.create({
    
        
     }, 
-
+    text : {
+        fontSize: 14, 
+        fontWeight: "bold", 
+        marginLeft: 22, 
+        textAlign: "left", 
+      
+    
+    }, 
     img_voiture: {
      
         width:100,
@@ -144,12 +155,7 @@ const style = StyleSheet.create({
         marginLeft: 40, 
     }, 
 
-    annee: {
-        fontSize: 13,
-        marginLeft: 332, 
-        marginTop: -135, 
-        fontWeight: "bold", 
-    }, 
+    
     bande1: {
         marginTop: 500,
         backgroundColor: '#A2273C', 

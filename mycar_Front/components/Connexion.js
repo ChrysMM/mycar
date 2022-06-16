@@ -32,7 +32,7 @@ export default function Connexion() {
     <TextInput style={style.title} placeholder="E-mail"></TextInput>
 
     <TextInput style={style.title} placeholder="Mot de passe" secureTextEntry={true}></TextInput>
-
+            <Text>{post.username} </Text>
     <Text style={style.oublie} onPress={() => navigateOublie()}>Mot de passe oublié? </Text>
 
     <View>

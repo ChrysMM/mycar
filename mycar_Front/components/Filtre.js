@@ -1,4 +1,5 @@
 import React from 'react'
+import {Text} from 'react-native'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -39,9 +40,12 @@ const Filtre = () => {
         )}
       />
 
-      
+
+        <Text style={style.louer}  onPress= {()=>navigateSearch()}>Valider</Text>
+
     </div>
   );
 }
   
 export default Filtre; 
+
