@@ -1,15 +1,24 @@
 import React from "react";
 import { TextInput, View, Text, StyleSheet} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 
- 
-//fetch('')
-// fetch('http://localhost:8080/api/test/all')
-// .then(response=> response.json())
-//   .then(data=> console.log(data)); 
+const URL = "http://localhost:8080/api/auth/signin"
 
 export default function Connexion() {
-    
+    const [post, setPost] = React.useState(null);
+
+    React.useEffect(() => {
+    axios({method:'post', url:URL, data:{username: "Legrant", password:"234mlkj"}}).then((response) => {
+        setPost(response.data);
+        // console.log(response);
+        // console.log("connexion ok")
+    }).catch((err)=>{
+        console.log("error", err);
+    });
+  }, []);
+  if (!post) return null;
+
     const navigation = useNavigation();
     function navigateConnexion() {
         navigation.navigate("date");
@@ -22,7 +31,7 @@ export default function Connexion() {
     <Text style={style.titleid} >Renseignez vos identifiants</Text>
     <TextInput style={style.title} placeholder="E-mail"></TextInput>
 
-    <TextInput style={style.title} placeholder="Mot de passe"></TextInput>
+    <TextInput style={style.title} placeholder="Mot de passe" secureTextEntry={true}></TextInput>
 
     <Text style={style.oublie} onPress={() => navigateOublie()}>Mot de passe oublié? </Text>
 

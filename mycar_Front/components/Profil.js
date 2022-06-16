@@ -2,21 +2,35 @@ import React from "react";
 import { View, Text, Image, StyleSheet } from 'react-native'
 import mycar from "../assets/My_Car.png";
 import employe from "../assets/emp.jpg";
-export default class Profil extends React.Component{
+import axios from "axios";
+
+const URL = "http://localhost:8080/api/auth/signin"
+
+export default function Profil() {
+    const [post, setPost] = React.useState(null);
+
+    React.useEffect(() => {
+    axios({method:'post', url:URL, data:{username: "Legrant", password:"234mlkj"}}).then((response) => {
+        setPost(response.data);
+        console.log(response);
+        console.log("connexion ok")
+    }).catch((err)=>{
+        console.log("error", err);
+    });
+  }, []);
+  if (!post) return null;
 
     
-    render(){
+
         return(
             <View style={style.view}>
                 <Text><Image source={mycar} style={style.mycar} ></Image></Text>
                 <Text><Image source={employe} style={style.employe} ></Image></Text>
-                <Text style={style.donneemp}>Nom : </Text>
-                <Text style={style.donneemp}>Prénom : </Text>
-                <Text style={style.donneemp}>Adresse mail : </Text>
+                <Text style={style.donneemp}>Nom : {post.username}</Text>
+                <Text style={style.donneemp}>Prénom : {post.prenomUser}</Text>
+                <Text style={style.donneemp}>Adresse mail : {post.email} </Text>
             </View>
         )}
-        
-}
 
 const style =StyleSheet.create({
 

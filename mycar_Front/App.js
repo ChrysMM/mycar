@@ -12,38 +12,44 @@ import  Detail from './components/Detail';
 import  Historique from './components/Historique';
 import  Oublie from './components/Oublie';
 import  Valider from './components/Valider';
-import  Camera from './components/Camera';
+// import  Camera from './components/Camera';
 import axios from 'axios';
+const URLsign = "http://localhost:8080/api/auth/signin"
 
-const URL = "http://localhost:8080/api/voiture"
-// export default function TEST(){
-    
-// }
 
 
 
 const AppStack = createStackNavigator();
 export default function Navigator(){
-    axios({method:'get', url:URL}).then((response) => {
-        console.log(response.data);
+    const [post, setPost] = React.useState(null);
+
+    React.useEffect(() => {
+    axios({method:'post', url:URLsign, data:{username: "Legrant", password:"234mlkj"}}).then((response) => {
+        setPost(response.data);
+        console.log(response);
+        console.log("connexion ok")
     }).catch((err)=>{
         console.log("error", err);
-    }); 
+    });
+    }, []);
+    if (!post) return null;
+
     return (
     <NavigationContainer>
     <AppStack.Navigator screenOptions={{ headerShown: true }} >
 
-    <AppStack.Screen name="Connexion" component={Connexion} />
-    <AppStack.Screen name="Oublie" component={Oublie} />
-    <AppStack.Screen name="date" component={date} />
-    <AppStack.Screen name="Detail" component={Detail} />
-    <AppStack.Screen name="Search" component={Search} />
-    <AppStack.Screen name="Filtre" component={Filtre} />
-    <AppStack.Screen name="Valider" component={Valider} />
-    <AppStack.Screen name="Profil" component={Profil} />
-    <AppStack.Screen name="Calendrier" component={Calendrier} />
-    <AppStack.Screen name="Confirmation" component={Confirmation} />
-    <AppStack.Screen name="Historique" component={Historique} />
+    <AppStack.Screen options={{headerShown: false}} name="Connexion" component={Connexion} />
+    <AppStack.Screen options={{headerShown: false}} name="Oublie" component={Oublie} />
+    <AppStack.Screen options={{headerShown: false}} name="date" component={date} />
+    <AppStack.Screen options={{headerShown: false}} name="Detail" component={Detail} />
+    <AppStack.Screen options={{headerShown: false}} name="Calendrier" component={Calendrier} />
+    <AppStack.Screen options={{headerShown: false}} name="Search" component={Search} />
+    <AppStack.Screen options={{headerShown: false}} name="Filtre" component={Filtre} />
+    <AppStack.Screen options={{headerShown: false}} name="Valider" component={Valider} />
+    <AppStack.Screen options={{headerShown: false}} name="Profil" component={Profil} />
+
+    <AppStack.Screen  options={{headerShown: false}} name="Confirmation" component={Confirmation} />
+    <AppStack.Screen options={{headerShown: false}} name="Historique" component={Historique} />
     </AppStack.Navigator>
     </NavigationContainer>
     

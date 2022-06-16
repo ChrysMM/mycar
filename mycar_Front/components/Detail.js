@@ -12,9 +12,25 @@ import profil from "../assets/PROFIL.png";
 import personne from "../assets/PERSONNE.png";
 import mycar from "../assets/My_Car.png";
 
+import axios from 'axios';
+
+const URL = "http://localhost:8080/api/voiture"
 
 
 export default function Detail() {
+    const [get, setGet] = React.useState(null);
+
+    React.useEffect(() => {
+    axios({method:'get', url:URL}).then( (response) => {
+        setGet(response.data);
+        
+        console.log("connexion test");
+    }).catch((err)=>{
+        console.log("error", err);
+    });
+  }, []);
+  
+  if (!get) return null;
     
     const navigation = useNavigation();
 
@@ -33,20 +49,28 @@ export default function Detail() {
     function navigateLogo() {
         navigation.navigate("Search");
     }
+    for (var i = 0; i< get.length ; i++) {
+        console.log(get.length); 
         return(
-            
+
         <View style={{alignItems: "center"}}>
           
         <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
       
        <View style={style.bloc}  >
 
-         <Text style={style.title}  >Fiat 500</Text>
-          <Image source={Fiat500} style={style.img_voiture}></Image>
-         <Image source={ boiteM } style={style.logo}></Image>
-         <Image source={ Essence } style={style.logo}></Image>
-         <Image source={ personne } style={style.logo}></Image>
-         <Text style={style.annee}>2018</Text>
+       <View style={style.bloc}>
+
+        <Text style={style.title} onPress= {()=>navigateSearch()} >{get[i].modele_id}</Text>
+        <Text>Immatriculation : {get[i].immatriculation} </Text>
+        <Text>{get[i].nbrePlace} places</Text>
+        <Text>Boite {get[i].boite} </Text>
+        <Text>Carburant : {get[i].carburant} </Text>
+        <Text>Année : {get[i].annee} </Text>
+        <Text>{get[i].statut_id} </Text>
+        <Text>{get[i].marque_id} </Text>
+        <Text>{get[i].categorie_id} </Text>
+        </View>
 
          <View  style={{alignItems: "center"}} >
          <Text style={style.louer}  onPress= {()=>navigateToList()}>Confirmer</Text>
@@ -65,7 +89,7 @@ export default function Detail() {
              </View>
         ); 
     }
-
+}
 
 const style = StyleSheet.create({
     bloc: {

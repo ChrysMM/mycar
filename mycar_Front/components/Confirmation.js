@@ -5,8 +5,39 @@ import mycar from "../assets/My_Car.png";
 import historique from "../assets/HISTORIQUE.png";
 import profil from "../assets/PROFIL.png";
 
+import axios from 'axios';
+
+const URL = "http://localhost:8080/api/voiture"
+const URLsign = "http://localhost:8080/api/auth/signin"
+
 export default function Confirmation() {
+    const [get, setGet] = React.useState(null);
+
+    React.useEffect(() => {
+    axios({method:'get', url:URL}).then( (response) => {
+        setGet(response.data);
+        
+        console.log("connexion test");
+    }).catch((err)=>{
+        console.log("error", err);
+    });
+  }, []);
+  
+  if (!get) return null;
     
+        // const [post, setPost] = React.useState(null);
+
+        // React.useEffect(() => {
+        // axios({method:'post', url:URLsign, data:{username: "Legrant", password:"234mlkj"}}).then((response) => {
+        //     setPost(response.data);
+        //     console.log(response);
+        //     console.log("connexion ok")
+        // }).catch((err)=>{
+        //     console.log("error", err);
+        // });
+        // }, []);
+        // if (!post) return null;
+
     const navigation = useNavigation();
 
     function navigateConfirmation() {
@@ -23,6 +54,7 @@ export default function Confirmation() {
     function navigateLogo() {
         navigation.navigate("Search");
     }
+    for (var i = 0; i< get.length ; i++) {
         return(
             
         
@@ -38,10 +70,14 @@ export default function Confirmation() {
         
 <View style={style.bloc}>
         <Text style={style.title} >Récapitulatif : Véhicule Détails</Text>
-        <Text style={style.text}>Nombre de personnes : </Text>
-        <Text style={style.text}>Boite : </Text>
-        <Text style={style.text}>Carburant : </Text>
-        <Text style={style.text}>Année : </Text>
+        <Text style={style.text}>Immatriculation : {get[i].immatriculation} </Text>
+        <Text style={style.text}>{get[i].nbrePlace} places</Text>
+        <Text style={style.text}>Boite {get[i].boite} </Text>
+        <Text style={style.text}>Carburant : {get[i].carburant} </Text>
+        <Text style={style.text}>Année : {get[i].annee} </Text>
+        <Text style={style.text}>{get[i].statut_id} </Text>
+        <Text style={style.text}>{get[i].marque_id} </Text>
+        <Text style={style.text}>{get[i].categorie_id} </Text>
         
         <View  style={style.view}>
         <Text style={style.louer}  onPress= {()=>navigateConfirmation()}>LOUER</Text>
@@ -60,7 +96,7 @@ export default function Confirmation() {
 </View>
         ); 
     }
-        
+}      
         
         const style = StyleSheet.create({
             view: {

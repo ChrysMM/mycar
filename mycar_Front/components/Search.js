@@ -13,11 +13,9 @@ import historique from "../assets/HISTORIQUE.png";
 import profil from "../assets/PROFIL.png";
 import personne from "../assets/PERSONNE.png";
 import mycar from "../assets/My_Car.png";
+import axios from 'axios';
 
-// fetch('http://localhost:8080/api/voiture')
-// .then(response=> response.json())
-//   .then(teams=> this.setState({voiture :  teams})); 
-
+const URL = "http://localhost:8080/api/voiture"
 
 
 
@@ -25,6 +23,20 @@ import mycar from "../assets/My_Car.png";
 
 
 export default function Search() {
+    const [get, setGet] = React.useState(null);
+
+    React.useEffect(() => {
+    axios({method:'get', url:URL}).then( (response) => {
+        setGet(response.data);
+        
+        console.log("connexion test");
+    }).catch((err)=>{
+        console.log("error", err);
+    });
+  }, []);
+  
+  if (!get) return null;
+
     const navigation = useNavigation();
 
     function navigateSearch() {
@@ -50,8 +62,10 @@ export default function Search() {
     function navigateFiltre() {
         navigation.navigate("Filtre");
     }
+    for (var i = 0; i< get.length ; i++) {
+        console.log(get.length); 
         return(
-            
+           
         <View style={style.view}>
         <Text onPress= {()=>navigateLogo()} ><Image source={mycar} style={style.mycar} ></Image></Text>
 
@@ -61,78 +75,24 @@ export default function Search() {
 
         <View style={style.bloc}>
 
-        <Text style={style.title} onPress= {()=>navigateSearch()} >Fiat 500</Text>
-          <Image source={Fiat500} style={style.img_voiture}></Image>
-         <Image source={ boiteM } style={style.logo}></Image>
-         <Image source={ Essence } style={style.logo}></Image>
-         <Image source={ personne } style={style.logo}></Image>
-         <Text style={style.annee}>2018</Text>
-        
-         <View style={style.bloc}>
-        <Text style={style.title}onPress= {()=>navigateSearch()}>Peugeot 208 </Text>
-        <Image source={ Peugeot208 } style={style.img_voiture}></Image>
-        <Image source={ boiteA } style={style.logo}></Image>
-        <Image source={ Essence } style={style.logo}></Image>
-        <Image source={ personne } style={style.logo}></Image>
-        <Text style={style.annee}>2018</Text>
+        <Text style={style.title} onPress= {()=>navigateSearch()} >{get[i].modele_id}</Text>
+         <Text>{get[i].nbrePlace} places</Text>
+         <Text>Boite {get[i].boite} </Text>
+         <Text>Carburant : {get[i].carburant} </Text>
 
-
-        <View style={style.bloc}>
-        <Text style={style.title}onPress= {()=>navigateSearch()} >Renault Clio</Text>
-        <Image source={RenaultClio} style={style.img_voiture}></Image>
-        <Image source={ boiteA} style={style.logo}></Image>
-        <Image source={ Essence } style={style.logo} ></Image>
-        <Image source={ personne } style={style.logo} ></Image>
-        <Text style={style.annee}>2018</Text>
-
-        <View style={style.bloc}>
-        <Text style={style.title} onPress= {()=>navigateSearch()} > Peugeot 108</Text>
-        <Image source={Peugeot108} style={style.img_voiture}></Image>
-        <Image source={ boiteA} style={style.logo}></Image>
-        <Image source={ Essence } style={style.logo}></Image>
-        <Image source={ personne } style={style.logo}></Image>
-        <Text style={style.annee}>2018</Text>
-
-        <View style={style.bloc}>
-        <Text style={style.title} onPress= {()=>navigateSearch()} > Fiat 500</Text>
-         <Image source={Fiat500} style={style.img_voiture}></Image>
-         <Image source={ boiteM } style={style.logo}></Image>
-         <Image source={ Essence } style={style.logo}></Image>
-         <Image source={ personne } style={style.logo}></Image>
-         <Text style={style.annee}>2018</Text>
-
-         <View style={style.bloc}>
-        <Text style={style.title} onPress= {()=>navigateSearch()} >Peugeot 208 </Text>
-        <Image source={Peugeot208} style={style.img_voiture}></Image>
-        <Image source={ boiteA} style={style.logo}></Image>
-        <Image source={ Essence } style={style.logo}></Image>
-        <Image source={ personne } style={style.logo}></Image>
-        <Text style={style.annee}>2018</Text>
-
-
-
-        
-        
-        <Text style={style.bande1} onPress= {()=>navigateHistorique()}>
+         <Text style={style.bande1} onPress= {()=>navigateHistorique()}>
         <Image source={ historique }   style={style.logobande} ></Image>
         </Text>
         <Text style={style.bande2} onPress= {()=>navigateProfil()}>
         <Image source={ profil }  style={style.logobande}   ></Image>
-        
         </Text>
-
-
+        
+    </View>
 </View>
-</View>
-</View>
-</View>
-</View>
-</View>
-</View>
-
+    
         ); 
     }
-
+}
 
 const style = StyleSheet.create({
     bloc: {

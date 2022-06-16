@@ -1,11 +1,11 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\utilisateur\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add expo-camera@~12.1.2
+  C:\Program Files\nodejs\node.exe C:\Users\utilisateur\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add formik
 
 PATH: 
   C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\PuTTY\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Git\cmd;C:\laragon\bin\php\php-7.4.19-Win32-vc15-x64;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\GitHub CLI\;;C:\Users\utilisateur\AppData\Local\Programs\Microsoft VS Code\bin; C:\laragon\bin\php\php-7.4.19-Win32-vc15-x64;C:\Users\utilisateur\composer;C:\Users\utilisateur\AppData\Roaming\Composer\vendor\bin;C:\Users\utilisateur\.dotnet\tools;C:\Users\utilisateur\AppData\Roaming\npm
 
 Yarn version: 
-  1.22.17
+  1.22.18
 
 Node version: 
   12.22.10
@@ -14,16 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.npmjs.org/@material-ui/icons/-/icons-4.11.3.tgz: ESOCKETTIMEDOUT
-      at ClientRequest.<anonymous> (C:\Users\utilisateur\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141510:19)
-      at Object.onceWrapper (events.js:420:28)
-      at ClientRequest.emit (events.js:314:20)
-      at TLSSocket.emitRequestTimeout (_http_client.js:715:9)
-      at Object.onceWrapper (events.js:420:28)
-      at TLSSocket.emit (events.js:326:22)
-      at TLSSocket.Socket._onTimeout (net.js:483:8)
-      at listOnTimeout (internal/timers.js:554:17)
-      at processTimers (internal/timers.js:497:7)
+  Error: EPERM: operation not permitted, unlink 'C:\Users\utilisateur\Documents\mycar\MyCar\mycar_Front\node_modules\@babel\generator\node_modules\.bin'
 
 npm manifest: 
   {
@@ -48,6 +39,7 @@ npm manifest:
       "expo": "~44.0.0",
       "expo-camera": "~12.1.2",
       "expo-navigation-bar": "~1.1.1",
+      "expo-permissions": "~13.1.0",
       "expo-status-bar": "~1.2.0",
       "express": "^4.18.1",
       "moment": "^2.29.1",
@@ -2797,9 +2789,9 @@ Lockfile:
     "version" "2.6.20"
   
   "csstype@^3.0.2":
-    "integrity" "sha512-sa6P2wJ+CAbgyy4KFssIb/JNMLxFvKF1pCYCSXS8ZMuqZnMsrxqI2E5sPyoTpxoPU/gVZMzr2zjOfg8GIZOMsw=="
-    "resolved" "https://registry.npmjs.org/csstype/-/csstype-3.0.11.tgz"
-    "version" "3.0.11"
+    "integrity" "sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA=="
+    "resolved" "https://registry.npmjs.org/csstype/-/csstype-3.1.0.tgz"
+    "version" "3.1.0"
   
   "dayjs@^1.8.15":
     "integrity" "sha512-wbNwDfBHHur9UOzNUjeKUOJ0fCb0a52Wx0xInmQ7Y8FstyajiV1NmK1e00cxsr9YrE9r7yAChE0VvpuY5Rnlow=="
@@ -3227,6 +3219,11 @@ Lockfile:
       "@expo/config-plugins" "^4.0.2"
       "@react-native/normalize-color" "^2.0.0"
       "debug" "^4.3.2"
+  
+  "expo-permissions@~13.1.0":
+    "integrity" "sha512-vo2sDlxDJE+THLhUO7G8kMHYnNJoMvYjurFNRvHjEvZAUvFmRgulejr8HlzCpb820brXNg+QWalZCtyA5oQkqg=="
+    "resolved" "https://registry.npmjs.org/expo-permissions/-/expo-permissions-13.1.1.tgz"
+    "version" "13.1.1"
   
   "expo-status-bar@~1.2.0":
     "integrity" "sha512-pVZZ/kDCXFK79E4dCtRecs3XLC8aiwlciutSd/fFmUPJSQZ1Txia6hlKajPt0GAYft8/YnT0V3URXzWZOBniYQ=="
