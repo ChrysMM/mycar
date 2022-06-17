@@ -14,10 +14,11 @@ import mycar from "../assets/My_Car.png";
 import axios from 'axios';
 
 const URL = "http://localhost:8080/api/voiture"
-
+const URLmodele = "http://localhost:8080/api/modele"; 
 
 export default function Detail() {
     const [get, setGet] = React.useState(null);
+    const [get2, setGet2] = React.useState(null);
 
     React.useEffect(() => {
     axios({method:'get', url:URL}).then( (response) => {
@@ -27,8 +28,18 @@ export default function Detail() {
     }).catch((err)=>{
         console.log("error", err);
     });
+
+    axios({method:'get', url:URLmodele}).then( (response) => {
+        setGet2(response.data);
+        
+        console.log("connexion test");
+    }).catch((err)=>{
+        console.log("error", err);
+    });
+
+
   }, []);
-  
+  if (!get2) return null;
   if (!get) return null;
     
     const navigation = useNavigation();
@@ -60,7 +71,7 @@ export default function Detail() {
 
        <View style={style.bloc}>
 
-        <Text style={style.title} onPress= {()=>navigateSearch()} >{get[i].modele_id}</Text>
+        <Text style={style.title} onPress= {()=>navigateSearch()} >{get2[i].nomModele}</Text>
 
         
         <Text  style={style.text}><Image source={ immatriculation }   style={style.logobande} ></Image> {get[i].immatriculation} </Text>
