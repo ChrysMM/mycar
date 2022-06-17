@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from 'react-native'
-import { useNavigation } from '@react-navigation/native';
-import { NavigationContainer } from '@react-navigation/native';
+import { useNavigation,NavigationContainer } from '@react-navigation/native';
 import Filtre from "../assets/filtres.png";
 import boiteA from "../assets/boiteauto.png";
 import Essence from "../assets/ESSENCE.png";
@@ -11,8 +10,8 @@ import personne from "../assets/PERSONNE.png";
 import mycar from "../assets/My_Car.png";
 import axios from 'axios';
 
-// import { createBottomTabNavigator } from "react-navigation-tabs";
-// import ionicons from 'react-native-vector-icons/Ionicons';
+import { createBottomTabNavigator } from "react-navigation-tabs";
+import ionicons from 'react-native-vector-icons/Ionicons';
 
 
 // const tab = createBottomTabNavigator(); 

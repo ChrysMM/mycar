@@ -32,18 +32,13 @@ export default function Valider() {
     
         return(
             
-        <View>
-        <Text onPress= {()=>navigateLogo()} ><Image source={mycar} style={style.mycar} ></Image></Text>
+            <View style={style.view}>
+            <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
+          
         <Text style={style.reserve}>Vous avez réservé la voiture ... du ... au ... </Text>
         
         
-        <Text style={style.bande1} onPress= {()=>navigateHistorique()}>
-        <Image source={ historique }   style={style.logobande} ></Image>
-        </Text>
-        <Text style={style.bande2} onPress= {()=>navigateProfil()}>
-        <Image source={ profil }  style={style.logobande}   ></Image>
-        </Text>
-
+      
 
 </View>
 
@@ -53,7 +48,9 @@ export default function Valider() {
 
 
 const style = StyleSheet.create({
-
+    view: {
+        alignItems: "center", 
+    }, 
     img_voiture: {
      
         width:100,

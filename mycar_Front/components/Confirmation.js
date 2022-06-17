@@ -95,7 +95,7 @@ export default function Confirmation() {
         return(
             
         
-          <View >
+          <View style={style.view}>
          <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
        
         <View style={style.bloc1}>
