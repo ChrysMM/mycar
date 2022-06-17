@@ -22,6 +22,24 @@ console.log("created modele: ", { id: res.insertId, ...newModele });
       result(null, { id: res.insertId, ...newModele });
     });
   };
+
+
+   //Get tous les modeles
+   Modele.getAll = (nomModele, result) => {
+    let query = "SELECT * FROM modele";
+    if (nomModele) {
+      query += ` WHERE nomModele LIKE '%${nomModele}%'`;
+    }
+    sql.query(query, (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+      console.log("modele: ", res);
+      result(null, res);
+    });
+  };
  
 // recherche par id
 Modele.findById = (id, result) => {
