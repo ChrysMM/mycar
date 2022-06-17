@@ -23,6 +23,27 @@ console.log("created categorie: ", { id: res.insertId, ...newCategorie });
     });
   };
  
+
+//Get toutes les categories
+Categorie.getAll = (nomCategorie, result) => {
+  let query = "SELECT * FROM categorie";
+  if (nomCategorie) {
+    query += ` WHERE nomCategorie LIKE '%${nomCategorie}%'`;
+  }
+  sql.query(query, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+    console.log("categorie: ", res);
+    result(null, res);
+  });
+};
+
+
+
+
 // recherche par id
 Categorie.findById = (id, result) => {
     sql.query(`SELECT * FROM categorie WHERE id = ${id}`, (err, res) => {
