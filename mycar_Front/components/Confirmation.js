@@ -15,7 +15,7 @@ const URL = "http://localhost:8080/api/voiture"
 const URLsign = "http://localhost:8080/api/auth/signin"
 const URLmodele = "http://localhost:8080/api/modele"; 
 const URLmarque = "http://localhost:8080/api/marque"; 
-const URLcategorie = "http://localhost:8080/api/categorie"; 
+// const URLcategorie = "http://localhost:8080/api/categorie"; 
 
 export default function Confirmation() {
     const [get, setGet] = React.useState(null);
@@ -49,13 +49,13 @@ export default function Confirmation() {
         console.log("error get", err);
     });
 
-    axios({method:'get', url:URLcategorie}).then( (response) => {
-        setGet4(response.data);
+    // axios({method:'get', url:URLcategorie}).then( (response) => {
+    //     setGet4(response.data);
         
-        console.log("connexion test");
-    }).catch((err)=>{
-        console.log("error get", err);
-    });
+    //     console.log("connexion test");
+    // }).catch((err)=>{
+    //     console.log("error get", err);
+    // });
 
 
     axios({method:'post', url:URLsign, data:{username: "Legrant", password:"234mlkj"}}).then((response) => {
@@ -70,7 +70,7 @@ export default function Confirmation() {
   if (!get) return null;
   if (!get2) return null;
   if (!get3) return null;
-  if (!get4) return null;
+//   if (!get4) return null;
   if (!post) return null;
 
 
@@ -103,18 +103,18 @@ export default function Confirmation() {
         <Text style={style.text}>Nom :  {post.username}</Text>
         <Text style={style.text}>Prénom :  {post.prenomUser}</Text>
         <Text style={style.text}>Dates : </Text>
-        <Text style={style.text}>Heures :</Text>
+
         
 <View style={style.bloc2}>
-        <Text style={style.title} >Récapitulatif : {get2[i].nomModele} Détails</Text>
+        <Text style={style.title} >Récapitulatif : {get3[i].nomMarque} {get2[i].nomModele} Détails</Text>
         <Text style={style.text}><Image source={ immatriculation }   style={style.logobande} ></Image>{get[i].immatriculation}    </Text>
         <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{get[i].nbrePlace}  </Text>
         <Text style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image> {get[i].boite}    </Text>
         
         <Text style={style.text}><Image source={ Essence }   style={style.logobande} ></Image>  {get[i].carburant}  </Text>
         <Text style={style.text}><Image source={ annee }   style={style.logobande} ></Image> {get[i].annee} </Text>
-        <Text style={style.text}>{get[i].marque_id}    </Text>
-        <Text style={style.text}>{get[i].categorie_id}    </Text>
+        
+        {/* <Text style={style.text}>{get4[i].nomCategorie}    </Text> */}
         
         <View  style={style.view}>
         <Text style={style.louer}  onPress= {()=>navigateConfirmation()}>LOUER</Text>
