@@ -60,6 +60,7 @@ exports.signup = (req, res) => {
     });
 };
 exports.signin = (req, res) => {
+  //console.log(req.body.username);
   User.findOne({
     where: {
       username: req.body.username

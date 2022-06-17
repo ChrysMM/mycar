@@ -4,9 +4,45 @@ import { useNavigation } from '@react-navigation/native';
 import mycar from "../assets/My_Car.png";
 import historique from "../assets/HISTORIQUE.png";
 import profil from "../assets/PROFIL.png";
+import boiteA from "../assets/boiteauto.png";
+import Essence from "../assets/ESSENCE.png";
+import personne from "../assets/PERSONNE.png";
+import immatriculation from "../assets/immatriculation.png";
+import annee from "../assets/anne.png";
+import axios from 'axios';
+
+const URL = "http://localhost:8080/api/voiture"
+const URLsign = "http://localhost:8080/api/auth/signin"
 
 export default function Confirmation() {
-    
+    const [get, setGet] = React.useState(null);
+    const [post, setPost] = React.useState(null);
+
+    React.useEffect(() => {
+    axios({method:'get', url:URL}).then( (response) => {
+        setGet(response.data);
+        
+        console.log("connexion test");
+    }).catch((err)=>{
+        console.log("error get", err);
+    });
+
+    axios({method:'post', url:URLsign, data:{username: "Legrant", password:"234mlkj"}}).then((response) => {
+        setPost(response.data);
+        console.log(response);
+        console.log("connexion ok")
+    }).catch((err)=>{
+        console.log("error post", err);
+    });
+  }, []);
+  
+  if (!get) return null;
+
+
+  if (!post) return null;
+
+
+
     const navigation = useNavigation();
 
     function navigateConfirmation() {
@@ -23,25 +59,31 @@ export default function Confirmation() {
     function navigateLogo() {
         navigation.navigate("Search");
     }
+    for (var i = 0; i< get.length ; i++) {
         return(
             
         
           <View >
          <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
        
-        <View style={style.bloc}>
+        <View style={style.bloc1}>
         <Text style={style.title}>Confirmation Informations</Text>
-        <Text style={style.text}>Nom : </Text>
-        <Text style={style.text}>Prénom : </Text>
+        <Text style={style.text}>Nom :  {post.username}</Text>
+        <Text style={style.text}>Prénom :  {post.prenomUser}</Text>
         <Text style={style.text}>Dates : </Text>
         <Text style={style.text}>Heures :</Text>
         
-<View style={style.bloc}>
+<View style={style.bloc2}>
         <Text style={style.title} >Récapitulatif : Véhicule Détails</Text>
-        <Text style={style.text}>Nombre de personnes : </Text>
-        <Text style={style.text}>Boite : </Text>
-        <Text style={style.text}>Carburant : </Text>
-        <Text style={style.text}>Année : </Text>
+        <Text style={style.text}><Image source={ immatriculation }   style={style.logobande} ></Image>{get[i].immatriculation}    </Text>
+        <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{get[i].nbrePlace}  </Text>
+        <Text style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image> {get[i].boite}    </Text>
+        
+        <Text style={style.text}><Image source={ Essence }   style={style.logobande} ></Image>  {get[i].carburant}  </Text>
+        <Text style={style.text}><Image source={ annee }   style={style.logobande} ></Image> {get[i].annee} </Text>
+        <Text style={style.text}>{get[i].statut_id}    </Text>
+        <Text style={style.text}>{get[i].marque_id}    </Text>
+        <Text style={style.text}>{get[i].categorie_id}    </Text>
         
         <View  style={style.view}>
         <Text style={style.louer}  onPress= {()=>navigateConfirmation()}>LOUER</Text>
@@ -60,13 +102,13 @@ export default function Confirmation() {
 </View>
         ); 
     }
-        
+}      
         
         const style = StyleSheet.create({
             view: {
                 alignItems: "center", 
             }, 
-            bloc:{
+            bloc1:{
 
                 shadowOpacity: 0.5,
                 shadowRadius: 11,
@@ -75,12 +117,28 @@ export default function Confirmation() {
                 marginTop: 80, 
                 height: 115, 
                 borderRadius: 10, 
-                width: 410, 
+                width: 400, 
                 borderColor: '#A2273C',
                 borderWidth: 1, 
                textAlign: "center", 
 
             }, 
+
+            bloc2:{
+
+                shadowOpacity: 0.5,
+                shadowRadius: 11,
+                elevation: 4, 
+                fontSize: 22,   
+                marginTop: 80, 
+                height: 175, 
+                borderRadius: 10, 
+                width: 400, 
+                borderColor: '#A2273C',
+                borderWidth: 1, 
+               textAlign: "center", 
+
+            },
         
 title: {
                 fontSize: 22,   

@@ -2,19 +2,34 @@ import React from 'react';
 import { Text, View, Button, StyleSheet, Image} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-
-import Fiat500 from "../assets/car_C25.jpg";
-
+import immatriculation from "../assets/immatriculation.png";
 import Essence from "../assets/ESSENCE.png";
-import boiteM from "../assets/manuel.png";
+import boiteA from "../assets/manuel.png";
 import historique from "../assets/HISTORIQUE.png";
+import annee from "../assets/anne.png";
 import profil from "../assets/PROFIL.png";
 import personne from "../assets/PERSONNE.png";
 import mycar from "../assets/My_Car.png";
 
+import axios from 'axios';
+
+const URL = "http://localhost:8080/api/voiture"
 
 
 export default function Detail() {
+    const [get, setGet] = React.useState(null);
+
+    React.useEffect(() => {
+    axios({method:'get', url:URL}).then( (response) => {
+        setGet(response.data);
+        
+        console.log("connexion test");
+    }).catch((err)=>{
+        console.log("error", err);
+    });
+  }, []);
+  
+  if (!get) return null;
     
     const navigation = useNavigation();
 
@@ -33,20 +48,33 @@ export default function Detail() {
     function navigateLogo() {
         navigation.navigate("Search");
     }
+    for (var i = 0; i< get.length ; i++) {
+        console.log(get.length); 
         return(
-            
+
         <View style={{alignItems: "center"}}>
           
         <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
       
        <View style={style.bloc}  >
 
-         <Text style={style.title}  >Fiat 500</Text>
-          <Image source={Fiat500} style={style.img_voiture}></Image>
-         <Image source={ boiteM } style={style.logo}></Image>
-         <Image source={ Essence } style={style.logo}></Image>
-         <Image source={ personne } style={style.logo}></Image>
-         <Text style={style.annee}>2018</Text>
+       <View style={style.bloc}>
+
+        <Text style={style.title} onPress= {()=>navigateSearch()} >{get[i].modele_id}</Text>
+
+        
+        <Text  style={style.text}><Image source={ immatriculation }   style={style.logobande} ></Image> {get[i].immatriculation} </Text>
+        <Text></Text>
+        <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{get[i].nbrePlace}</Text>
+        <Text  style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image>{get[i].boite} </Text>
+        <Text  style={style.text}><Image source={ Essence }   style={style.logobande} ></Image> {get[i].carburant} </Text>
+        <Text  style={style.text}><Image source={ annee }   style={style.logobande} ></Image> {get[i].annee} </Text>
+        <Text  style={style.text}>{get[i].statut_id} </Text>
+        <Text  style={style.text}>{get[i].marque_id} </Text>
+        <Text  style={style.text}>{get[i].categorie_id} </Text>
+
+
+        </View>
 
          <View  style={{alignItems: "center"}} >
          <Text style={style.louer}  onPress= {()=>navigateToList()}>Confirmer</Text>
@@ -65,7 +93,7 @@ export default function Detail() {
              </View>
         ); 
     }
-
+}
 
 const style = StyleSheet.create({
     bloc: {
@@ -94,7 +122,14 @@ const style = StyleSheet.create({
    
        
     }, 
-
+    text : {
+        fontSize: 14, 
+        fontWeight: "bold", 
+        marginLeft: 22, 
+        textAlign: "left", 
+      
+    
+    }, 
     img_voiture: {
      
         width:100,
@@ -120,12 +155,7 @@ const style = StyleSheet.create({
         marginLeft: 40, 
     }, 
 
-    annee: {
-        fontSize: 13,
-        marginLeft: 332, 
-        marginTop: -135, 
-        fontWeight: "bold", 
-    }, 
+    
     bande1: {
         marginTop: 500,
         backgroundColor: '#A2273C', 

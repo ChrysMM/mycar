@@ -17,6 +17,10 @@ const App = () => {
     }
   };
 
+  function navigateSearch() {
+    navigation.navigate("Search");
+}
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
@@ -62,7 +66,7 @@ const App = () => {
           }}
           onDateChange={onDateChange}
         />
-        
+        <Text style={styles.date} onPress= {()=>navigateSearch()}>Valider</Text>
       </View>
     </SafeAreaView>
   );
@@ -81,5 +85,20 @@ const styles = StyleSheet.create({
   textStyle: {
     marginTop: 10,
   },
- 
+
+  date: {
+    backgroundColor: '#A2273C', 
+    textAlign: "center", 
+    width: 140, 
+    height:  25, 
+    borderRadius: 7,
+    elevation: 3,
+    marginTop: 100, 
+    color: 'white', 
+    fontWeight: "bold",
+    paddingTop: 2, 
+    paddingRight: 2, 
+    alignItems: "center", 
+
+}, 
 });

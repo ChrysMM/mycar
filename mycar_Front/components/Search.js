@@ -1,30 +1,39 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
-import Fiat500 from "../assets/car_C25.jpg";
-import Peugeot208 from "../assets/136.jpg";
-import RenaultClio from "../assets/car_C04.jpg";
-import Peugeot108 from "../assets/car_C15.jpg";
+import { NavigationContainer } from '@react-navigation/native';
 import Filtre from "../assets/filtres.png";
 import boiteA from "../assets/boiteauto.png";
 import Essence from "../assets/ESSENCE.png";
-import boiteM from "../assets/manuel.png";
 import historique from "../assets/HISTORIQUE.png";
 import profil from "../assets/PROFIL.png";
 import personne from "../assets/PERSONNE.png";
 import mycar from "../assets/My_Car.png";
+import axios from 'axios';
 
-// fetch('http://localhost:8080/api/voiture')
-// .then(response=> response.json())
-//   .then(teams=> this.setState({voiture :  teams})); 
-
-
+// import { createBottomTabNavigator } from "react-navigation-tabs";
+// import ionicons from 'react-native-vector-icons/Ionicons';
 
 
-
+// const tab = createBottomTabNavigator(); 
+const URL = "http://localhost:8080/api/voiture"; 
 
 
 export default function Search() {
+    const [get, setGet] = React.useState(null);
+
+    React.useEffect(() => {
+    axios({method:'get', url:URL}).then( (response) => {
+        setGet(response.data);
+        
+        console.log("connexion test");
+    }).catch((err)=>{
+        console.log("error", err);
+    });
+  }, []);
+  
+  if (!get) return null;
+
     const navigation = useNavigation();
 
     function navigateSearch() {
@@ -50,8 +59,29 @@ export default function Search() {
     function navigateFiltre() {
         navigation.navigate("Filtre");
     }
+
+    // function HistoriqueScreen(){
+    //     return(
+    //         <View>
+    //             <Text>Historique</Text>
+                
+    //         </View>
+    //     );
+    // }
+
+    // function PersonnelScreen(){
+    //     return(
+    //         <View>
+    //             <Text>Personnel</Text>
+                
+    //         </View>
+    //     );
+    // }
+
+    for (var i = 0; i< get.length ; i++) {
+        console.log(get.length); 
         return(
-            
+           
         <View style={style.view}>
         <Text onPress= {()=>navigateLogo()} ><Image source={mycar} style={style.mycar} ></Image></Text>
 
@@ -61,78 +91,40 @@ export default function Search() {
 
         <View style={style.bloc}>
 
-        <Text style={style.title} onPress= {()=>navigateSearch()} >Fiat 500</Text>
-          <Image source={Fiat500} style={style.img_voiture}></Image>
-         <Image source={ boiteM } style={style.logo}></Image>
-         <Image source={ Essence } style={style.logo}></Image>
-         <Image source={ personne } style={style.logo}></Image>
-         <Text style={style.annee}>2018</Text>
+        <Text style={style.title} onPress= {()=>navigateSearch()} >{get[i].modele_id}</Text>
+          <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{get[i].nbrePlace}  </Text>
+        <Text style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image> {get[i].boite}    </Text>
         
-         <View style={style.bloc}>
-        <Text style={style.title}onPress= {()=>navigateSearch()}>Peugeot 208 </Text>
-        <Image source={ Peugeot208 } style={style.img_voiture}></Image>
-        <Image source={ boiteA } style={style.logo}></Image>
-        <Image source={ Essence } style={style.logo}></Image>
-        <Image source={ personne } style={style.logo}></Image>
-        <Text style={style.annee}>2018</Text>
+        <Text style={style.text}><Image source={ Essence }   style={style.logobande} ></Image>  {get[i].carburant}  </Text>
 
-
-        <View style={style.bloc}>
-        <Text style={style.title}onPress= {()=>navigateSearch()} >Renault Clio</Text>
-        <Image source={RenaultClio} style={style.img_voiture}></Image>
-        <Image source={ boiteA} style={style.logo}></Image>
-        <Image source={ Essence } style={style.logo} ></Image>
-        <Image source={ personne } style={style.logo} ></Image>
-        <Text style={style.annee}>2018</Text>
-
-        <View style={style.bloc}>
-        <Text style={style.title} onPress= {()=>navigateSearch()} > Peugeot 108</Text>
-        <Image source={Peugeot108} style={style.img_voiture}></Image>
-        <Image source={ boiteA} style={style.logo}></Image>
-        <Image source={ Essence } style={style.logo}></Image>
-        <Image source={ personne } style={style.logo}></Image>
-        <Text style={style.annee}>2018</Text>
-
-        <View style={style.bloc}>
-        <Text style={style.title} onPress= {()=>navigateSearch()} > Fiat 500</Text>
-         <Image source={Fiat500} style={style.img_voiture}></Image>
-         <Image source={ boiteM } style={style.logo}></Image>
-         <Image source={ Essence } style={style.logo}></Image>
-         <Image source={ personne } style={style.logo}></Image>
-         <Text style={style.annee}>2018</Text>
-
-         <View style={style.bloc}>
-        <Text style={style.title} onPress= {()=>navigateSearch()} >Peugeot 208 </Text>
-        <Image source={Peugeot208} style={style.img_voiture}></Image>
-        <Image source={ boiteA} style={style.logo}></Image>
-        <Image source={ Essence } style={style.logo}></Image>
-        <Image source={ personne } style={style.logo}></Image>
-        <Text style={style.annee}>2018</Text>
-
-
-
+         {/* <NavigationContainer>
+             <tab.Navigator
+             screenOptions={({route}) =>({
+             tabBarIcon:({focus, color, size,})
+             =>{
+                 let iconName; 
+                 if(route.name == "Historique"){
+                     iconName="home"
+                 }else if(route.name == "Personnel"){
+                     iconName ="settings"
+                 }
+                 return <Ionicons name={iconName} size={25}/>
+             }
+            })}
+            >
+           
+             
+            <tab.Screen name="historique" component={HistoriqueScreen}></tab.Screen>
+            <tab.Screen name="personnel" component={PersonnelScreen}></tab.Screen>
+             </tab.Navigator>
+         </NavigationContainer> */}
         
-        
-        <Text style={style.bande1} onPress= {()=>navigateHistorique()}>
-        <Image source={ historique }   style={style.logobande} ></Image>
-        </Text>
-        <Text style={style.bande2} onPress= {()=>navigateProfil()}>
-        <Image source={ profil }  style={style.logobande}   ></Image>
-        
-        </Text>
-
-
+    </View>
 </View>
-</View>
-</View>
-</View>
-</View>
-</View>
-</View>
-
+    
         ); 
     }
-
+}
 
 const style = StyleSheet.create({
     bloc: {
@@ -185,11 +177,11 @@ const style = StyleSheet.create({
         marginLeft: 40, 
     }, 
 
-    annee: {
-        fontSize: 13,
-        marginLeft: 332, 
-        marginTop: -135, 
+    text : {
+        fontSize: 14, 
         fontWeight: "bold", 
+      
+    
     }, 
     bande1: {
         marginTop: 500,
