@@ -1,3 +1,4 @@
+ 
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -17,9 +18,14 @@ import axios from 'axios';
 const URLsign = "http://localhost:8080/api/auth/signin"
 
 
+ 
 
+//(adresse ip ordi)  sue wifi connexion tel
+//const URL = "http://172.20.10.4:8080/api/auth/signin"
+const URL = "http://localhost:8080/api/auth/signin";
 
 const AppStack = createStackNavigator();
+ 
 export default function Navigator(){
     const [post, setPost] = React.useState(null);
 
@@ -53,7 +59,10 @@ export default function Navigator(){
     <AppStack.Screen  options={{headerShown: false}} name="Confirmation" component={Confirmation} />
     <AppStack.Screen options={{headerShown: false}} name="Historique" component={Historique} />
     </AppStack.Navigator>
+ 
     </NavigationContainer>
-    
-    );
-}
+  );
+} 
+
+
+

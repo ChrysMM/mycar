@@ -22,6 +22,23 @@ console.log("created marque: ", { id: res.insertId, ...newMarque });
       result(null, { id: res.insertId, ...newMarque });
     });
   };
+
+  //Get toutes les marques
+  Marque.getAll = (nomMarque, result) => {
+    let query = "SELECT * FROM marque";
+    if (nomMarque) {
+      query += ` WHERE nomMarque LIKE '%${nomMarque}%'`;
+    }
+    sql.query(query, (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+      console.log("marque: ", res);
+      result(null, res);
+    });
+  };
  
 // recherche par id
 Marque.findById = (id, result) => {

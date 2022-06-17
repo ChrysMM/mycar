@@ -29,7 +29,7 @@ exports.signup = (req, res) => {
 
   // Save User to Database
   User.create({
-    nomUser: req.body.nomUser,
+    //nomUser: req.body.nomUser,
     prenomUser: req.body.prenomUser,
     username: req.body.username,
     email: req.body.email,
@@ -90,7 +90,7 @@ exports.signin = (req, res) => {
         }
         res.status(200).send({
           id: user.id,
-          nomUser: user.nomUser,
+          //nomUser: user.nomUser,
           prenomUser: user.prenomUser,
           username: user.username,
           email: user.email,
