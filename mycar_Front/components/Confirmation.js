@@ -97,7 +97,8 @@ export default function Confirmation() {
         
           <View style={style.view}>
          <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
-       
+         <Text  style={style.title} onPress= {()=> navigateHistorique()}  ><Image source={ historique }   style={style.logobande} ></Image></Text>
+        <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
         <View style={style.bloc1}>
         <Text style={style.title}>Confirmation Informations<br /></Text>
         <Text style={style.text}>Nom :  {post.username}</Text>
@@ -172,8 +173,12 @@ export default function Confirmation() {
             },
         
             title: {
-                fontSize: 22,   
+                fontSize: 22, 
+                color: 'black',
                 fontWeight: "bold", 
+                textAlign: 'center', 
+           
+               
             }, 
             bande1: {
                 marginTop: 500,

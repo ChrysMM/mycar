@@ -9,12 +9,9 @@ import profil from "../assets/PROFIL.png";
 import personne from "../assets/PERSONNE.png";
 import mycar from "../assets/My_Car.png";
 import axios from 'axios';
-
-import { createBottomTabNavigator } from "react-navigation-tabs";
-import ionicons from 'react-native-vector-icons/Ionicons';
+import Profil from "./Profil";
 
 
-// const tab = createBottomTabNavigator(); 
 const URL = "http://localhost:8080/api/voiture"; 
 const URLmodele= "http://localhost:8080/api/modele";
 const URLmarque= "http://localhost:8080/api/marque"
@@ -79,72 +76,46 @@ export default function Search() {
         navigation.navigate("Filtre");
     }
 
-    // function HistoriqueScreen(){
-    //     return(
-    //         <View>
-    //             <Text>Historique</Text>
-                
-    //         </View>
-    //     );
-    // }
 
-    // function PersonnelScreen(){
-    //     return(
-    //         <View>
-    //             <Text>Personnel</Text>
-                
-    //         </View>
-    //     );
-    // }
-
-    for (var i = 0; i< get.length ; i++) {
+    for (let i = 0; i <= get.length; i++) {
+        for (let x = 0; x <= get2.length; x++) {
+            for (let y = 0; y <= get4.length; y++) {
         console.log(get.length); 
-        return(
-           
+        console.log(get2.length); 
+        console.log(get4.length); 
+        // console.log(i); 
+        // console.log(x); 
+        // console.log(y); 
+        
+    
+           return(
         <View style={style.view}>
-        <Text onPress= {()=>navigateLogo()} ><Image source={mycar} style={style.mycar} ></Image></Text>
-
+        <Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text>
+        <Text  style={style.title} onPress= {()=> navigateHistorique()}  ><Image source={ historique }   style={style.logobande} ></Image></Text>
+        <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
 
         <Text onPress={() => navigateFiltre()}><Image source={Filtre} style={style.filtre} ></Image></Text>
 
 
         <View style={style.bloc}>
 
-        <Text style={style.title} onPress= {()=>navigateSearch()} > {get4[i].nomMarque} {get2[i].nomModele} <br /></Text>
-          <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{get[i].nbrePlace}  </Text>
+        <Text style={style.title} onPress= {()=>navigateSearch()} > {get4[y].nomMarque} {get2[x].nomModele} <br /></Text>
+        <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{get[i].nbrePlace}  </Text>
         <Text style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image> {get[i].boite}    </Text>
         
         <Text style={style.text}><Image source={ Essence }   style={style.logobande} ></Image>  {get[i].carburant}  </Text>
 
-         {/* <NavigationContainer>
-             <tab.Navigator
-             screenOptions={({route}) =>({
-             tabBarIcon:({focus, color, size,})
-             =>{
-                 let iconName; 
-                 if(route.name == "Historique"){
-                     iconName="home"
-                 }else if(route.name == "Personnel"){
-                     iconName ="settings"
-                 }
-                 return <Ionicons name={iconName} size={25}/>
-             }
-            })}
-            >
-           
-             
-            <tab.Screen name="historique" component={HistoriqueScreen}></tab.Screen>
-            <tab.Screen name="personnel" component={PersonnelScreen}></tab.Screen>
-             </tab.Navigator>
-         </NavigationContainer> */}
-        
+        {/* {get4[y].id}={get[i].marque_id	}; 
+        {get2[x].id}={get[i].modele_id}; */}
     </View>
 </View>
     
-        ); 
-    }
-}
+    ); 
+                }
 
+            }
+        }
+    }
 const style = StyleSheet.create({
     bloc: {
         shadowOpacity: 0.5,
@@ -158,21 +129,16 @@ const style = StyleSheet.create({
         fontWeight: "bold", 
         width: 380, 
         borderWidth: 1, 
-      
     }, 
 
- 
     title: {
         fontSize: 22, 
         color: 'black',
         fontWeight: "bold", 
         textAlign: 'center', 
-   
-       
     }, 
 
     img_voiture: {
-     
         width:100,
         height: 70,
         marginLeft: 10,
@@ -199,9 +165,8 @@ const style = StyleSheet.create({
     text : {
         fontSize: 14, 
         fontWeight: "bold", 
-      
-    
     }, 
+
     bande1: {
         marginTop: 500,
         backgroundColor: '#A2273C', 

@@ -82,13 +82,17 @@ export default function Detail() {
         navigation.navigate("Search");
     }
     for (var i = 0; i< get.length ; i++) {
+        for (var i = 0; i< get2.length ; i++) {
+            for (var i = 0; i< get3.length ; i++) {
+                for (var i = 0; i< get4.length ; i++) {
         console.log(get.length); 
         return(
 
         <View style={{alignItems: "center"}}>
           
         <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
-      
+        <Text  style={style.title} onPress= {()=> navigateHistorique()}  ><Image source={ historique }   style={style.logobande} ></Image></Text>
+        <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
        <View style={style.bloc}  >
 
        <View style={style.bloc}>
@@ -116,6 +120,10 @@ export default function Detail() {
         ); 
     }
 }
+        }
+    }
+
+}
 
 const style = StyleSheet.create({
     bloc: {
@@ -135,7 +143,14 @@ const style = StyleSheet.create({
       
     }, 
 
- 
+    title: {
+        fontSize: 22, 
+        color: 'black',
+        fontWeight: "bold", 
+        textAlign: 'center', 
+   
+       
+    }, 
     title: {
         fontSize: 22, 
         color: 'black',
