@@ -12,7 +12,7 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 const Filtre = () => {
 
   const options = ['3 Portes', '5 Portes', 'Manuelle', 
-  'Automatique', 'Essence', 'Diesel']
+  'Automatique', 'Essence', 'Diesel', 'Citadine']
   
   return (
     <div style={{ marginLeft: '5%', marginTop: '60px' }}>
@@ -41,7 +41,6 @@ const Filtre = () => {
       />
 
 
-        <Text style={style.louer}  onPress= {()=>navigateSearch()}>Valider</Text>
 
     </div>
   );

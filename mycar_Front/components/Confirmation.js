@@ -13,9 +13,15 @@ import axios from 'axios';
 
 const URL = "http://localhost:8080/api/voiture"
 const URLsign = "http://localhost:8080/api/auth/signin"
+const URLmodele = "http://localhost:8080/api/modele"; 
+const URLmarque = "http://localhost:8080/api/marque"; 
+const URLcategorie = "http://localhost:8080/api/categorie"; 
 
 export default function Confirmation() {
     const [get, setGet] = React.useState(null);
+    const [get2, setGet2] = React.useState(null);
+    const [get3, setGet3] = React.useState(null);
+    const [get4, setGet4] = React.useState(null);
     const [post, setPost] = React.useState(null);
 
     React.useEffect(() => {
@@ -27,6 +33,31 @@ export default function Confirmation() {
         console.log("error get", err);
     });
 
+    axios({method:'get', url:URLmodele}).then( (response) => {
+        setGet2(response.data);
+        
+        console.log("connexion test");
+    }).catch((err)=>{
+        console.log("error get", err);
+    });
+
+    axios({method:'get', url:URLmarque}).then( (response) => {
+        setGet3(response.data);
+        
+        console.log("connexion test");
+    }).catch((err)=>{
+        console.log("error get", err);
+    });
+
+    axios({method:'get', url:URLcategorie}).then( (response) => {
+        setGet4(response.data);
+        
+        console.log("connexion test");
+    }).catch((err)=>{
+        console.log("error get", err);
+    });
+
+
     axios({method:'post', url:URLsign, data:{username: "Legrant", password:"234mlkj"}}).then((response) => {
         setPost(response.data);
         console.log(response);
@@ -37,8 +68,9 @@ export default function Confirmation() {
   }, []);
   
   if (!get) return null;
-
-
+  if (!get2) return null;
+  if (!get3) return null;
+  if (!get4) return null;
   if (!post) return null;
 
 
@@ -63,27 +95,26 @@ export default function Confirmation() {
         return(
             
         
-          <View >
+          <View style={style.view}>
          <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
        
         <View style={style.bloc1}>
-        <Text style={style.title}>Confirmation Informations</Text>
+        <Text style={style.title}>Confirmation Informations<br /></Text>
         <Text style={style.text}>Nom :  {post.username}</Text>
         <Text style={style.text}>Prénom :  {post.prenomUser}</Text>
         <Text style={style.text}>Dates : </Text>
-        <Text style={style.text}>Heures :</Text>
+
         
 <View style={style.bloc2}>
-        <Text style={style.title} >Récapitulatif : Véhicule Détails</Text>
+        <Text style={style.title} >Récapitulatif : {get3[i].nomMarque}  {get2[i].nomModele} Détails<br /></Text>
+        <Text style={style.text}>{get4[i].nomCategorie}    </Text>
         <Text style={style.text}><Image source={ immatriculation }   style={style.logobande} ></Image>{get[i].immatriculation}    </Text>
+        
         <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{get[i].nbrePlace}  </Text>
         <Text style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image> {get[i].boite}    </Text>
         
         <Text style={style.text}><Image source={ Essence }   style={style.logobande} ></Image>  {get[i].carburant}  </Text>
         <Text style={style.text}><Image source={ annee }   style={style.logobande} ></Image> {get[i].annee} </Text>
-        <Text style={style.text}>{get[i].statut_id}    </Text>
-        <Text style={style.text}>{get[i].marque_id}    </Text>
-        <Text style={style.text}>{get[i].categorie_id}    </Text>
         
         <View  style={style.view}>
         <Text style={style.louer}  onPress= {()=>navigateConfirmation()}>LOUER</Text>
@@ -131,78 +162,78 @@ export default function Confirmation() {
                 elevation: 4, 
                 fontSize: 22,   
                 marginTop: 80, 
-                height: 175, 
+                height: 225, 
                 borderRadius: 10, 
                 width: 400, 
                 borderColor: '#A2273C',
                 borderWidth: 1, 
-               textAlign: "center", 
+                textAlign: "center", 
 
             },
         
-title: {
+            title: {
                 fontSize: 22,   
                 fontWeight: "bold", 
-}, 
-bande1: {
-    marginTop: 500,
-    backgroundColor: '#A2273C', 
-    height: 40, 
-    width: 200, 
-}, 
+            }, 
+            bande1: {
+                marginTop: 500,
+                backgroundColor: '#A2273C', 
+                height: 40, 
+                width: 200, 
+            }, 
 
 
-bande2: {
-    marginTop: -28.5,
-    marginLeft: 200, 
-    backgroundColor: '#A2273C', 
-    height: 40, 
-    width: 200, 
-}, 
+            bande2: {
+                marginTop: -28.5,
+                marginLeft: 200, 
+                backgroundColor: '#A2273C', 
+                height: 40, 
+                width: 200, 
+            }, 
 
-text : {
-    fontSize: 14, 
-    fontWeight: "bold", 
-    marginLeft: 22, 
-    textAlign: "left", 
-  
+            text : {
+                fontSize: 14, 
+                fontWeight: "bold", 
+                marginLeft: 22, 
+                textAlign: "left", 
+            
 
-}, 
-louer: {
-    backgroundColor: '#A2273C', 
-    textAlign: "center", 
-    width: 140, 
-    height:  25, 
-    borderRadius: 7,
-    elevation: 3,
-    marginTop: 100, 
-    color: 'white', 
-    fontWeight: "bold",
-    paddingTop: 2, 
-    paddingRight: 2, 
-    alignItems: "center", 
-}, 
+            }, 
+            louer: {
+                backgroundColor: '#A2273C', 
+                textAlign: "center", 
+                width: 140, 
+                height:  25, 
+                borderRadius: 7,
+                elevation: 3,
+                marginTop: 100, 
+                color: 'white', 
+                fontWeight: "bold",
+                paddingTop: 2, 
+                paddingRight: 2, 
+                alignItems: "center", 
+            }, 
 
-mycar: {
-    marginLeft: 320,
-    marginBottom: 40, 
-    height: 60, 
-    width: 60, 
-},
+            mycar: {
+                marginLeft: 320,
+                marginBottom: 40, 
+                height: 60, 
+                width: 60, 
+            },
 
-logobande: {
-    width: 25,
-    height: 25,
-    marginRight: 200,
-    marginLeft: 40, 
-}, 
+            logobande: {
+                width: 25,
+                height: 25,
+                marginRight: 200,
+                marginLeft: 40, 
+            }, 
 
 
-bande: {
-    marginTop: 600,
-    backgroundColor: '#A2273C', 
-    height: 40, 
-    width: 600, 
-}, 
+            bande: {
+                marginTop: 600,
+                backgroundColor: '#A2273C', 
+                height: 40, 
+                width: 600, 
+            }, 
 
-        })
+                    })

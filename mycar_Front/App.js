@@ -14,6 +14,15 @@ import  Historique from './components/Historique';
 import  Oublie from './components/Oublie';
 import  Valider from './components/Valider';
 // import  Camera from './components/Camera';
+ 
+// import axios from 'axios';
+// import  Test from './components/Test';
+// import Ionicons from 'react-native-vector-icons/Ionicons';
+
+//(adresse ip ordi)  sue wifi connexion tel
+//const URL = "http://172.20.10.4:8080/api/auth/signin"
+
+ 
 //import axios from 'axios';
 //const URLsign = "http://localhost:8080/api/auth/signin"
 
@@ -23,10 +32,12 @@ import  Valider from './components/Valider';
 //(adresse ip ordi)  sue wifi connexion tel
 //const URL = "http://172.20.10.4:8080/api/auth/signin"
 //const URL = "http://localhost:8080/api/auth/signin";
+ 
 
 const AppStack = createStackNavigator();
  
 export default function Navigator(){
+ 
     // const [post, setPost] = React.useState(null);
 
     // React.useEffect(() => {
@@ -39,12 +50,16 @@ export default function Navigator(){
     // });
     // }, []);
     // if (!post) return null;
+ 
 
     return (
     <NavigationContainer>
     <AppStack.Navigator screenOptions={{ headerShown: true }} >
 
-    <AppStack.Screen options={{headerShown: false}} name="Connexion" component={Connexion} />
+    {/* <AppStack.Screen options={{headerShown: false}} name="Test" component={Test} /> */}
+
+
+    <AppStack.Screen options={{headerShown: false}} name="Connexion" component={Connexion} options={{ tabBarBadge: 3 }}/>
     
     <AppStack.Screen options={{headerShown: false}} name="Oublie" component={Oublie} />
     <AppStack.Screen options={{headerShown: false}} name="date" component={date} />

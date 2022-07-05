@@ -13,11 +13,16 @@ import mycar from "../assets/My_Car.png";
 
 import axios from 'axios';
 
-const URL = "http://localhost:8080/api/voiture"
-
+const URL = "http://localhost:8080/api/voiture";
+const URLmodele= "http://localhost:8080/api/modele";
+const URLcategorie= "http://localhost:8080/api/categorie";
+const URLmarque= "http://localhost:8080/api/marque";
 
 export default function Detail() {
     const [get, setGet] = React.useState(null);
+    const [get2, setGet2] = React.useState(null);
+    const [get3, setGet3] = React.useState(null);
+    const [get4, setGet4] = React.useState(null);
 
     React.useEffect(() => {
     axios({method:'get', url:URL}).then( (response) => {
@@ -27,9 +32,37 @@ export default function Detail() {
     }).catch((err)=>{
         console.log("error", err);
     });
+
+    axios({method:'get', url:URLmodele}).then( (response) => {
+        setGet2(response.data);
+        
+        console.log("connexion test");
+    }).catch((err)=>{
+        console.log("error", err);
+    });
+
+    axios({method:'get', url:URLcategorie}).then( (response) => {
+        setGet3(response.data);
+        
+        console.log("connexion test");
+    }).catch((err)=>{
+        console.log("error", err);
+    });
+
+    axios({method:'get', url:URLmarque}).then( (response) => {
+        setGet4(response.data);
+        
+        console.log("connexion test");
+    }).catch((err)=>{
+        console.log("error", err);
+    });
+
   }, []);
   
   if (!get) return null;
+  if (!get2) return null;
+  if (!get3) return null;
+  if (!get4) return null;
     
     const navigation = useNavigation();
 
@@ -60,18 +93,16 @@ export default function Detail() {
 
        <View style={style.bloc}>
 
-        <Text style={style.title} onPress= {()=>navigateSearch()} >{get[i].modele_id}</Text>
+        <Text style={style.title} onPress= {()=>navigateSearch()} > {get4[i].nomMarque} {get2[i].nomModele}</Text>
 
-        
+        <Text  style={style.text}>{get3[i].nomCategorie}</Text>
         <Text  style={style.text}><Image source={ immatriculation }   style={style.logobande} ></Image> {get[i].immatriculation} </Text>
         <Text></Text>
         <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{get[i].nbrePlace}</Text>
         <Text  style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image>{get[i].boite} </Text>
         <Text  style={style.text}><Image source={ Essence }   style={style.logobande} ></Image> {get[i].carburant} </Text>
         <Text  style={style.text}><Image source={ annee }   style={style.logobande} ></Image> {get[i].annee} </Text>
-        <Text  style={style.text}>{get[i].statut_id} </Text>
-        <Text  style={style.text}>{get[i].marque_id} </Text>
-        <Text  style={style.text}>{get[i].categorie_id} </Text>
+        
 
 
         </View>
@@ -79,15 +110,6 @@ export default function Detail() {
          <View  style={{alignItems: "center"}} >
          <Text style={style.louer}  onPress= {()=>navigateToList()}>Confirmer</Text>
          </View>
-         <Text style={style.bande1} onPress= {()=>navigateHistorique()}>
-        <Image source={ historique }   style={style.logobande} ></Image>
-        </Text>
-        <Text style={style.bande2} onPress= {()=>navigateProfil()}>
-        <Image source={ profil }  style={style.logobande}   ></Image>
-        </Text>
-        
-     
-
         </View>
 
              </View>
@@ -104,7 +126,7 @@ const style = StyleSheet.create({
         marginBottom: 3,  
         marginTop: 100, 
         backgroundColor: '#F5F5F5', 
-        height: 155, 
+        height: 220, 
         borderRadius: 10, 
         fontWeight: "bold", 
         width: 380, 
