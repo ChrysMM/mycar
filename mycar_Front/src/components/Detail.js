@@ -2,14 +2,14 @@ import React from 'react';
 import { Text, View, Button, StyleSheet, Image} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import immatriculation from "../assets/immatriculation.png";
-import Essence from "../assets/ESSENCE.png";
-import boiteA from "../assets/manuel.png";
-import historique from "../assets/HISTORIQUE.png";
-import annee from "../assets/anne.png";
-import profil from "../assets/PROFIL.png";
-import personne from "../assets/PERSONNE.png";
-import mycar from "../assets/My_Car.png";
+import immatriculation from "../../assets/immatriculation.png";
+import Essence from "../../assets/ESSENCE.png";
+import boiteA from "../../assets/manuel.png";
+import historique from "../../assets/HISTORIQUE.png";
+import annee from "../../assets/anne.png";
+import profil from "../../assets/PROFIL.png";
+import personne from "../../assets/PERSONNE.png";
+import mycar from "../../assets/My_Car.png";
 
 import axios from 'axios';
 

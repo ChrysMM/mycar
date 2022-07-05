@@ -1,3 +1,8 @@
+ 
+
+
+
+
 module.exports = (sequelize, Sequelize) => {
     const User = sequelize.define("users", {
       username: {
@@ -20,3 +25,6 @@ module.exports = (sequelize, Sequelize) => {
     });
     return User;
   };
+
+  
+//export default User;

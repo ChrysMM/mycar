@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from 'react-native'
-import mycar from "../assets/My_Car.png";
-import employe from "../assets/emp.jpg";
+import mycar from "../../assets/My_Car.png";
+import employe from "../../assets/emp.jpg";
 import axios from "axios";
 
 const URL = "http://localhost:8080/api/auth/signin"

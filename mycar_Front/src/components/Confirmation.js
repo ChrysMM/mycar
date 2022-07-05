@@ -1,14 +1,14 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
-import mycar from "../assets/My_Car.png";
-import historique from "../assets/HISTORIQUE.png";
-import profil from "../assets/PROFIL.png";
-import boiteA from "../assets/boiteauto.png";
-import Essence from "../assets/ESSENCE.png";
-import personne from "../assets/PERSONNE.png";
-import immatriculation from "../assets/immatriculation.png";
-import annee from "../assets/anne.png";
+import mycar from '../../assets/My_Car.png';
+import historique from "../../assets/HISTORIQUE.png";
+import profil from "../../assets/PROFIL.png";
+import boiteA from "../../assets/boiteauto.png";
+import Essence from "../../assets/ESSENCE.png";
+import personne from "../../assets/PERSONNE.png";
+import immatriculation from "../../assets/immatriculation.png";
+import annee from "../../assets/anne.png";
 import axios from 'axios';
 
 const URL = "http://localhost:8080/api/voiture"

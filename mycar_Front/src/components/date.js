@@ -2,7 +2,7 @@ import React from "react";
 import {  View, Text, Image, StyleSheet} from 'react-native'
 import { DataTable } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
-import calendrier from "../assets/CALENDRIER.png";
+import calendrier from '../../assets/CALENDRIER.png';
 
 
 

@@ -2,13 +2,13 @@ import React from "react";
 import { View, Text, Image, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import { NavigationContainer } from '@react-navigation/native';
-import Filtre from "../assets/filtres.png";
-import boiteA from "../assets/boiteauto.png";
-import Essence from "../assets/ESSENCE.png";
-import historique from "../assets/HISTORIQUE.png";
-import profil from "../assets/PROFIL.png";
-import personne from "../assets/PERSONNE.png";
-import mycar from "../assets/My_Car.png";
+import Filtre from "../../assets/filtres.png";
+import boiteA from "../../assets/boiteauto.png";
+import Essence from "../../assets//ESSENCE.png";
+// import historique from "./assets/HISTORIQUE.png";
+// import profil from "./assets/PROFIL.png";
+import personne from "../../assets//PERSONNE.png";
+import mycar from "../../assets/My_Car.png";
 import axios from 'axios';
 
 // import { createBottomTabNavigator } from "react-navigation-tabs";
