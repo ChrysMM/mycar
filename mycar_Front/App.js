@@ -14,6 +14,7 @@ import  Historique from './components/Historique';
 import  Oublie from './components/Oublie';
 import  Valider from './components/Valider';
 // import  Camera from './components/Camera';
+ 
 // import axios from 'axios';
 // import  Test from './components/Test';
 // import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -21,10 +22,35 @@ import  Valider from './components/Valider';
 //(adresse ip ordi)  sue wifi connexion tel
 //const URL = "http://172.20.10.4:8080/api/auth/signin"
 
+ 
+//import axios from 'axios';
+//const URLsign = "http://localhost:8080/api/auth/signin"
+
+
+ 
+
+//(adresse ip ordi)  sue wifi connexion tel
+//const URL = "http://172.20.10.4:8080/api/auth/signin"
+//const URL = "http://localhost:8080/api/auth/signin";
+ 
 
 const AppStack = createStackNavigator();
  
 export default function Navigator(){
+ 
+    // const [post, setPost] = React.useState(null);
+
+    // React.useEffect(() => {
+    // axios({method:'post', url:URLsign, data:{username: "Legrant", password:"234mlkj"}}).then((response) => {
+    //     setPost(response.data);
+    //     console.log(response);
+    //     console.log("connexion ok")
+    // }).catch((err)=>{
+    //     console.log("error", err);
+    // });
+    // }, []);
+    // if (!post) return null;
+ 
 
     return (
     <NavigationContainer>
