@@ -89,12 +89,12 @@ import {
   StatusBar,
 } from 'react-native';
 
-import LoginView from './components/Connexion';
+import LoginView from './components/LoginView';
 
 const App = () => {
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
+     // behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
       style={{flex: 1}}
       enabled>
       <StatusBar barStyle="dark-content" />
