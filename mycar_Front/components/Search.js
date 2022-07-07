@@ -9,46 +9,47 @@ import profil from "../assets/PROFIL.png";
 import personne from "../assets/PERSONNE.png";
 import mycar from "../assets/My_Car.png";
 import axios from 'axios';
-import Profil from "./Profil";
 
 
-const URL = "http://localhost:8080/api/voiture"; 
-const URLmodele= "http://localhost:8080/api/modele";
-const URLmarque= "http://localhost:8080/api/marque"
+
+// const URLvoiture = "http://localhost:8080/api/voiture"; 
+// const URLmodele= "http://localhost:8080/api/modele";
+// const URLmarque= "http://localhost:8080/api/marque"
 
 export default function Search() {
-    const [get, setGet] = React.useState(null);
-    const [get2, setGet2] = React.useState(null);
-    const [get4, setGet4] = React.useState(null);
-    React.useEffect(() => {
-    axios({method:'get', url:URL}).then( (response) => {
-        setGet(response.data);
+//     const [voiture, setVoiture] = React.useState(null);
+//     const [modele, setModele] = React.useState(null);
+//     const [marque, setMarque] = React.useState(null);
+//     React.useEffect(() => {
+//     axios({method:'get', url:URLvoiture}).then( (response) => {
+//         setVoiture(response.data);
         
-        console.log("connexion test");
-    }).catch((err)=>{
-        console.log("error", err);
-    });
+//         console.log("connexion test");
+//     }).catch((err)=>{
+//         console.log("error", err);
+//     });
 
-    axios({method:'get', url:URLmodele}).then( (response) => {
-        setGet2(response.data);
+
+//     axios({method:'get', url:URLmodele}).then( (response) => {
+//         setModele(response.data);
         
-        console.log("connexion test");
-    }).catch((err)=>{
-        console.log("error", err);
-    });
+//         console.log("connexion test");
+//     }).catch((err)=>{
+//         console.log("error", err);
+//     });
 
-    axios({method:'get', url:URLmarque}).then( (response) => {
-        setGet4(response.data);
+//     axios({method:'get', url:URLmarque}).then( (response) => {
+//         setMarque(response.data);
         
-        console.log("connexion test");
-    }).catch((err)=>{
-        console.log("error", err);
-    });
+//         console.log("connexion test");
+//     }).catch((err)=>{
+//         console.log("error", err);
+//     });
 
-  }, []);
-  if (!get) return null;
-  if (!get2) return null;
-  if (!get4) return null;
+//   }, []);
+//   if (!voiture) return null;
+//   if (!modele) return null;
+//   if (!marque) return null;
 
     const navigation = useNavigation();
 
@@ -77,45 +78,53 @@ export default function Search() {
     }
 
 
-    for (let i = 0; i <= get.length; i++) {
-        for (let x = 0; x <= get2.length; x++) {
-            for (let y = 0; y <= get4.length; y++) {
-        console.log(get.length); 
-        console.log(get2.length); 
-        console.log(get4.length); 
+    // for (let i = 0; i <= voiture.length; i++) {
+    //     for (let x = 0; x <= modele.length; x++) {
+    //         for (let y = 0; y <= marque.length; y++) {
+    //     console.log(voiture.length); 
+    //     console.log(modele.length); 
+    //     console.log(marque.length); 
         // console.log(i); 
         // console.log(x); 
         // console.log(y); 
-        
+        const item = this.props.liste; 
     
            return(
-        <View style={style.view}>
-        <Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text>
-        <Text  style={style.title} onPress= {()=> navigateHistorique()}  ><Image source={ historique }   style={style.logobande} ></Image></Text>
-        <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
 
-        <Text onPress={() => navigateFiltre()}><Image source={Filtre} style={style.filtre} ></Image></Text>
+            
+
+   <View style={style.view}>
 
 
-        <View style={style.bloc}>
+        <Text >{item.nbrePlace}</Text>
 
-        <Text style={style.title} onPress= {()=>navigateSearch()} > {get4[y].nomMarque} {get2[x].nomModele} <br /></Text>
-        <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{get[i].nbrePlace}  </Text>
-        <Text style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image> {get[i].boite}    </Text>
+        {/* <Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text> */}
+
+        {/* <Text  style={style.title} onPress= {()=> navigateHistorique()}  ><Image source={ historique }   style={style.logobande} ></Image></Text>
+        <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text> */}
+{/* 
+        <Text onPress={() => navigateFiltre()}><Image source={Filtre} style={style.filtre} ></Image></Text> */}
+
+
+        {/* <View style={style.bloc}>
+
+        <Text style={style.title} onPress= {()=>navigateSearch()} > {marque[y].nomMarque} {modele[x].nomModele} <br /></Text>
+        <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{voiture[i].nbrePlace}  </Text>
+        <Text style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image> {voiture[i].boite}    </Text>
         
-        <Text style={style.text}><Image source={ Essence }   style={style.logobande} ></Image>  {get[i].carburant}  </Text>
+        <Text style={style.text}><Image source={ Essence }   style={style.logobande} ></Image>  {voiture[i].carburant}  </Text> */}
 
-        {/* {get4[y].id}={get[i].marque_id	}; 
-        {get2[x].id}={get[i].modele_id}; */}
+        {/* {marque[y].id}={voiture[i].marque_id	}; 
+        {modele[x].id}={voiture[i].modele_id}; */}
     </View>
-</View>
+// </View>
     
     ); 
                 }
 
-            }
-        }
-    }
+    //         }
+    //     }
+    // }
 const style = StyleSheet.create({
     bloc: {
         shadowOpacity: 0.5,

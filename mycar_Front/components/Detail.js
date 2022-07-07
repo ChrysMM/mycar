@@ -13,20 +13,20 @@ import mycar from "../assets/My_Car.png";
 
 import axios from 'axios';
 
-const URL = "http://localhost:8080/api/voiture";
+const URLvoiture = "http://localhost:8080/api/voiture";
 const URLmodele= "http://localhost:8080/api/modele";
 const URLcategorie= "http://localhost:8080/api/categorie";
 const URLmarque= "http://localhost:8080/api/marque";
 
 export default function Detail() {
-    const [get, setGet] = React.useState(null);
-    const [get2, setGet2] = React.useState(null);
-    const [get3, setGet3] = React.useState(null);
-    const [get4, setGet4] = React.useState(null);
+    const [voiture, setVoiture] = React.useState(null);
+    const [modele, setModele] = React.useState(null);
+    const [categorie, setCategorie] = React.useState(null);
+    const [marque, setMarque] = React.useState(null);
 
     React.useEffect(() => {
-    axios({method:'get', url:URL}).then( (response) => {
-        setGet(response.data);
+    axios({method:'get', url:URLvoiture}).then( (response) => {
+        setVoiture(response.data);
         
         console.log("connexion test");
     }).catch((err)=>{
@@ -34,7 +34,7 @@ export default function Detail() {
     });
 
     axios({method:'get', url:URLmodele}).then( (response) => {
-        setGet2(response.data);
+        setModele(response.data);
         
         console.log("connexion test");
     }).catch((err)=>{
@@ -42,7 +42,7 @@ export default function Detail() {
     });
 
     axios({method:'get', url:URLcategorie}).then( (response) => {
-        setGet3(response.data);
+        setCategorie(response.data);
         
         console.log("connexion test");
     }).catch((err)=>{
@@ -50,7 +50,7 @@ export default function Detail() {
     });
 
     axios({method:'get', url:URLmarque}).then( (response) => {
-        setGet4(response.data);
+        setMarque(response.data);
         
         console.log("connexion test");
     }).catch((err)=>{
@@ -59,10 +59,10 @@ export default function Detail() {
 
   }, []);
   
-  if (!get) return null;
-  if (!get2) return null;
-  if (!get3) return null;
-  if (!get4) return null;
+  if (!voiture) return null;
+  if (!modele) return null;
+  if (!categorie) return null;
+  if (!marque) return null;
     
     const navigation = useNavigation();
 
@@ -81,11 +81,11 @@ export default function Detail() {
     function navigateLogo() {
         navigation.navigate("Search");
     }
-    for (var i = 0; i< get.length ; i++) {
-        for (var i = 0; i< get2.length ; i++) {
-            for (var i = 0; i< get3.length ; i++) {
-                for (var i = 0; i< get4.length ; i++) {
-        console.log(get.length); 
+    for (var i = 0; i< voiture.length ; i++) {
+        for (var i = 0; i< modele.length ; i++) {
+            for (var i = 0; i< categorie.length ; i++) {
+                for (var i = 0; i< marque.length ; i++) {
+        console.log(voiture.length); 
         return(
 
         <View style={{alignItems: "center"}}>
@@ -97,15 +97,15 @@ export default function Detail() {
 
        <View style={style.bloc}>
 
-        <Text style={style.title} onPress= {()=>navigateSearch()} > {get4[i].nomMarque} {get2[i].nomModele}</Text>
+        <Text style={style.title} onPress= {()=>navigateSearch()} > {marque[i].nomMarque} {modele[i].nomModele}</Text>
 
-        <Text  style={style.text}>{get3[i].nomCategorie}</Text>
-        <Text  style={style.text}><Image source={ immatriculation }   style={style.logobande} ></Image> {get[i].immatriculation} </Text>
+        <Text  style={style.text}>{categorie[i].nomCategorie}</Text>
+        <Text  style={style.text}><Image source={ immatriculation }   style={style.logobande} ></Image> {voiture[i].immatriculation} </Text>
         <Text></Text>
-        <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{get[i].nbrePlace}</Text>
-        <Text  style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image>{get[i].boite} </Text>
-        <Text  style={style.text}><Image source={ Essence }   style={style.logobande} ></Image> {get[i].carburant} </Text>
-        <Text  style={style.text}><Image source={ annee }   style={style.logobande} ></Image> {get[i].annee} </Text>
+        <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{voiture[i].nbrePlace}</Text>
+        <Text  style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image>{voiture[i].boite} </Text>
+        <Text  style={style.text}><Image source={ Essence }   style={style.logobande} ></Image> {voiture[i].carburant} </Text>
+        <Text  style={style.text}><Image source={ annee }   style={style.logobande} ></Image> {voiture[i].annee} </Text>
         
 
 

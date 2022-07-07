@@ -11,22 +11,22 @@ import immatriculation from "../assets/immatriculation.png";
 import annee from "../assets/anne.png";
 import axios from 'axios';
 
-const URL = "http://localhost:8080/api/voiture"
+const URLvoiture = "http://localhost:8080/api/voiture"
 const URLsign = "http://localhost:8080/api/auth/signin"
 const URLmodele = "http://localhost:8080/api/modele"; 
 const URLmarque = "http://localhost:8080/api/marque"; 
 const URLcategorie = "http://localhost:8080/api/categorie"; 
 
 export default function Confirmation() {
-    const [get, setGet] = React.useState(null);
-    const [get2, setGet2] = React.useState(null);
-    const [get3, setGet3] = React.useState(null);
-    const [get4, setGet4] = React.useState(null);
-    const [post, setPost] = React.useState(null);
+    const [voiture, setVoiture] = React.useState(null);
+    const [sign, setSign] = React.useState(null);
+    const [modele, setModele] = React.useState(null);
+    const [marque, setMarque] = React.useState(null);
+    const [categorie, setCategorie] = React.useState(null);
 
     React.useEffect(() => {
-    axios({method:'get', url:URL}).then( (response) => {
-        setGet(response.data);
+    axios({method:'get', url:URLvoiture}).then( (response) => {
+        setVoiture(response.data);
         
         console.log("connexion test");
     }).catch((err)=>{
@@ -34,7 +34,7 @@ export default function Confirmation() {
     });
 
     axios({method:'get', url:URLmodele}).then( (response) => {
-        setGet2(response.data);
+        setModele(response.data);
         
         console.log("connexion test");
     }).catch((err)=>{
@@ -42,7 +42,7 @@ export default function Confirmation() {
     });
 
     axios({method:'get', url:URLmarque}).then( (response) => {
-        setGet3(response.data);
+        setMarque(response.data);
         
         console.log("connexion test");
     }).catch((err)=>{
@@ -50,7 +50,7 @@ export default function Confirmation() {
     });
 
     axios({method:'get', url:URLcategorie}).then( (response) => {
-        setGet4(response.data);
+        setSign(response.data);
         
         console.log("connexion test");
     }).catch((err)=>{
@@ -59,7 +59,7 @@ export default function Confirmation() {
 
 
     axios({method:'post', url:URLsign, data:{username: "Legrant", password:"234mlkj"}}).then((response) => {
-        setPost(response.data);
+        setCategorie(response.data);
         console.log(response);
         console.log("connexion ok")
     }).catch((err)=>{
@@ -67,11 +67,11 @@ export default function Confirmation() {
     });
   }, []);
   
-  if (!get) return null;
-  if (!get2) return null;
-  if (!get3) return null;
-  if (!get4) return null;
-  if (!post) return null;
+  if (!voiture) return null;
+  if (!sign) return null;
+  if (!marque) return null;
+  if (!modele) return null;
+  if (!categorie) return null;
 
 
 
@@ -101,21 +101,21 @@ export default function Confirmation() {
         <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
         <View style={style.bloc1}>
         <Text style={style.title}>Confirmation Informations<br /></Text>
-        <Text style={style.text}>Nom :  {post.username}</Text>
-        <Text style={style.text}>Prénom :  {post.prenomUser}</Text>
+        <Text style={style.text}>Nom :  {sign.username}</Text>
+        <Text style={style.text}>Prénom :  {sign.prenomUser}</Text>
         <Text style={style.text}>Dates : </Text>
 
         
 <View style={style.bloc2}>
-        <Text style={style.title} >Récapitulatif : {get3[i].nomMarque}  {get2[i].nomModele} Détails<br /></Text>
-        <Text style={style.text}>{get4[i].nomCategorie}    </Text>
-        <Text style={style.text}><Image source={ immatriculation }   style={style.logobande} ></Image>{get[i].immatriculation}    </Text>
+        <Text style={style.title} >Récapitulatif : {marque[i].nomMarque}  {modele[i].nomModele} Détails<br /></Text>
+        <Text style={style.text}>{categorie[i].nomCategorie}    </Text>
+        <Text style={style.text}><Image source={ immatriculation }   style={style.logobande} ></Image>{voiture[i].immatriculation}    </Text>
         
-        <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{get[i].nbrePlace}  </Text>
-        <Text style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image> {get[i].boite}    </Text>
+        <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{voiture[i].nbrePlace}  </Text>
+        <Text style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image> {voiture[i].boite}    </Text>
         
-        <Text style={style.text}><Image source={ Essence }   style={style.logobande} ></Image>  {get[i].carburant}  </Text>
-        <Text style={style.text}><Image source={ annee }   style={style.logobande} ></Image> {get[i].annee} </Text>
+        <Text style={style.text}><Image source={ Essence }   style={style.logobande} ></Image>  {voiture[i].carburant}  </Text>
+        <Text style={style.text}><Image source={ annee }   style={style.logobande} ></Image> {voiture[i].annee} </Text>
         
         <View  style={style.view}>
         <Text style={style.louer}  onPress= {()=>navigateConfirmation()}>LOUER</Text>
