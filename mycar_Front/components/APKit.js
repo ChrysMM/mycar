@@ -13,20 +13,7 @@ export const setClientToken = token => {
     
     return config;
   });
-// axiosApiInstance.interceptors.request.use(
-//   async config => {
-//     const value = await redisClient.get(rediskey)
-//     const keys = JSON.parse(value)
-//     config.headers = { 
-//       'Authorization': `Bearer ${keys.access_token}`,
-//       'Accept': 'application/json',
-//       'Content-Type': 'application/x-www-form-urlencoded'
-//     }
-//     return config;
-//   },
-//   error => {
-//     Promise.reject(error)
-// });
+ 
 
 
  };

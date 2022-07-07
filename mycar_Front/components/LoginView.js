@@ -10,6 +10,7 @@ import {
 import Spinner from 'react-native-loading-spinner-overlay';
 
 import APIKit, {setClientToken} from '../APIKit';
+import mycar from "../assets/My_Car.png";
 
 const initialState = {
   username: '',
@@ -97,14 +98,12 @@ class LoginView extends Component {
 
     return (
       <View style={styles.containerStyle}>
+        <Text style={styles.titleid} >Renseignez vos identifiants</Text>
         <Spinner visible={isLoading} />
-
+       
         {!this.state.isAuthorized ? <View>
           <View style={styles.logotypeContainer}>
-            <Image
-              source={require('../assets/My_Car.png')}
-              style={styles.logotype}
-            />
+          <Image  source={mycar} style={styles.logotype} ></Image> 
           </View>
 
           <TextInput
@@ -143,7 +142,7 @@ class LoginView extends Component {
             underlineColorAndroid="transparent"
             placeholderTextColor="#999"
           />
-
+           
           {this.getErrorMessageByField('password')}
 
           {this.getNonFieldErrorMessage()}
@@ -153,7 +152,9 @@ class LoginView extends Component {
             onPress={this.onPressLogin.bind(this)}>
             <Text style={styles.loginButtonText}>LOGIN</Text>
           </TouchableOpacity>
-        </View> : <View><Text>Successfully authorized!</Text></View>}
+
+          <Text style={styles.oublie} onPress={() => navigateOublie()}>Mot de passe oublié? </Text>
+        </View> : <View><Text>Login OK!</Text></View>}
       </View>
     );
   }
@@ -224,6 +225,13 @@ const styles = {
     textAlign: 'center',
     fontSize: 12,
   },
+  titleid: {
+        fontSize: 22,
+        fontWeight: "bold",
+        textAlign: "center",
+        marginTop: 70,
+        marginBottom: 70,
+      },
 };
 
 export default LoginView;
