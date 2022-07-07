@@ -51,7 +51,7 @@ class LoginView extends Component {
     // SPINER
     this.setState({isLoading: true});
 
-    APIKit.post('/api/auth/signup', payload)
+    APIKit.post('', payload)
       .then(onSuccess)
       .catch(onFailure);
   }
@@ -76,7 +76,7 @@ class LoginView extends Component {
 
   getErrorMessageByField(field) {
     //  Check erreurs
-    //   message r backend
+    //   message erreur backend
     let message = null;
     if (this.state.errors[field]) {
       message = (
@@ -111,7 +111,7 @@ class LoginView extends Component {
             style={styles.input}
             value={this.state.username}
             maxLength={256}
-            placeholder="Enter username..."
+            placeholder= "Entrer username..."
             autoCapitalize="none"
             autoCorrect={false}
             returnKeyType="next"
@@ -132,7 +132,7 @@ class LoginView extends Component {
             style={styles.input}
             value={this.state.password}
             maxLength={40}
-            placeholder="Enter password..."
+            placeholder="Entrer password..."
             onChangeText={this.onPasswordChange}
             autoCapitalize="none"
             autoCorrect={false}
