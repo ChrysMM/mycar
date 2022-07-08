@@ -19,8 +19,14 @@ const initialState = {
   isLoading: false,
 };
 
+
+
+
+
 class LoginView extends Component {
+
   state = initialState;
+
 
   componentWillUnmount() {}
 
@@ -54,6 +60,7 @@ class LoginView extends Component {
     APIKit.post('', payload)
       .then(onSuccess)
       .catch(onFailure);
+
   }
 
   getNonFieldErrorMessage() {
@@ -67,7 +74,9 @@ class LoginView extends Component {
             <Text style={styles.errorMessageTextStyle} key={item}>
               {item}
             </Text>
+            
           ))}
+        
         </View>
       );
     }
@@ -106,12 +115,12 @@ class LoginView extends Component {
               style={styles.logotype}
             />
           </View>
-
+          <Text style={styles.titleid} >Renseignez vos identifiants</Text>
           <TextInput
             style={styles.input}
             value={this.state.username}
             maxLength={256}
-            placeholder= "Entrer username..."
+            placeholder= "Identifiant"
             autoCapitalize="none"
             autoCorrect={false}
             returnKeyType="next"
@@ -132,7 +141,7 @@ class LoginView extends Component {
             style={styles.input}
             value={this.state.password}
             maxLength={40}
-            placeholder="Entrer password..."
+            placeholder="Mot de passe"
             onChangeText={this.onPasswordChange}
             autoCapitalize="none"
             autoCorrect={false}
@@ -148,16 +157,20 @@ class LoginView extends Component {
 
           {this.getNonFieldErrorMessage()}
 
+          <Text style={styles.oublie} onPress={() => navigateOublie()}>Mot de passe oublié? </Text>
+
           <TouchableOpacity
             style={styles.loginButton}
             onPress={this.onPressLogin.bind(this)}>
-            <Text style={styles.loginButtonText}>LOGIN</Text>
+            <Text style={styles.loginButtonText}  onPress={() => navigateConnexion()} >CONNEXION</Text>
           </TouchableOpacity>
-        </View> : <View><Text>Successfully authorized!</Text></View>}
+        </View> : <View><Text>Connexion établie</Text></View>}
       </View>
     );
   }
 }
+
+
 
 
 const utils = {
@@ -219,11 +232,25 @@ const styles = {
     padding: 8,
     borderRadius: 4,
   },
+  oublie: {
+    color: "#A2273C",
+    fontStyle: "italic",
+    marginTop: 10,
+    marginLeft: 10,
+  },
   errorMessageTextStyle: {
     color: '#db2828',
     textAlign: 'center',
     fontSize: 12,
   },
+  titleid: {
+    fontSize: 22,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginTop: 70,
+    marginBottom: 70,
+  },
+
 };
 
 export default LoginView;

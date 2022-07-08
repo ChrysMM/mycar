@@ -185,7 +185,6 @@ const style = StyleSheet.create({
         width: 200, 
     }, 
 
-   
     bande2: {
         marginTop: -28,
         marginLeft: 200, 
@@ -216,6 +215,5 @@ const style = StyleSheet.create({
         alignItems: "center", 
 
     }, 
-   
 })
 

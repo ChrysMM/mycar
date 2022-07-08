@@ -20,13 +20,13 @@ export default function Connexion() {
   }, []);
   if (!post) return null;
 
-    const navigation = useNavigation();
-    function navigateConnexion() {
-        navigation.navigate("date");
-    }
-    function navigateOublie() {
-        navigation.navigate("Oublie");
-    }
+  const navigation = useNavigation();
+  function navigateConnexion() {
+      navigation.navigate("date");
+  }
+  function navigateOublie() {
+      navigation.navigate("Oublie");
+  }
         return(
 <View style={style.view}>
     <Text style={style.titleid} >Renseignez vos identifiants</Text>
