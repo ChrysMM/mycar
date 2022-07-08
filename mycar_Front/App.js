@@ -19,7 +19,7 @@ import  Valider from './components/Valider';
 const AppStack = createStackNavigator();
  
 export default function Navigator(){
- 
+    
     return (
     <NavigationContainer>
     <AppStack.Navigator screenOptions={{ headerShown: true }} >

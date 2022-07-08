@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import Spinner from 'react-native-loading-spinner-overlay';
-// import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import APIKit, {setClientToken} from '../APIKit';
 
 const initialState = {
@@ -24,6 +24,8 @@ const initialState = {
 
 
 class LoginView extends Component {
+  
+
 
   state = initialState;
 
@@ -102,6 +104,7 @@ class LoginView extends Component {
   }
 
   render() {
+    const { navigation } = this.props;
     const {isLoading} = this.state;
 
     return (
@@ -109,6 +112,12 @@ class LoginView extends Component {
         <Spinner visible={isLoading} />
 
         {!this.state.isAuthorized ? <View>
+          <View style={styles.logotypeContainer}>
+            <Image
+              source={require('../assets/My_Car.png')}
+              style={styles.logotype}
+            />
+          </View>
           <Text style={styles.titleid} >Renseignez vos identifiants</Text>
           <TextInput
             style={styles.input}
@@ -151,12 +160,12 @@ class LoginView extends Component {
 
           {this.getNonFieldErrorMessage()}
 
-          <Text style={styles.oublie} onPress={() => navigateOublie()}>Mot de passe oublié? </Text>
+          <Text style={styles.oublie} onPress={() => navigation.navigate("Oublie")}>Mot de passe oublié? </Text>
 
           <TouchableOpacity
             style={styles.loginButton}
             onPress={this.onPressLogin.bind(this)}>
-            <Text style={styles.loginButtonText}  onPress={() => navigateConnexion()} >CONNEXION</Text>
+            <Text style={styles.loginButtonText}  onPress={() => navigation.navigate("date")} >CONNEXION</Text>
           </TouchableOpacity>
         </View> : <View><Text>Connexion établie</Text></View>}
       </View>
