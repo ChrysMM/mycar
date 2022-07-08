@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import Spinner from 'react-native-loading-spinner-overlay';
-
+// import { useNavigation } from '@react-navigation/native';
 import APIKit, {setClientToken} from '../APIKit';
 
 const initialState = {
@@ -109,12 +109,6 @@ class LoginView extends Component {
         <Spinner visible={isLoading} />
 
         {!this.state.isAuthorized ? <View>
-          <View style={styles.logotypeContainer}>
-            <Image
-              source={require('../assets/My_Car.png')}
-              style={styles.logotype}
-            />
-          </View>
           <Text style={styles.titleid} >Renseignez vos identifiants</Text>
           <TextInput
             style={styles.input}

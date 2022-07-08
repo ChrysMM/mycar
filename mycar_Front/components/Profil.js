@@ -4,21 +4,21 @@ import mycar from "../assets/My_Car.png";
 import employe from "../assets/emp.jpg";
 import axios from "axios";
 
-const URL = "http://localhost:8080/api/auth/signin"
+const URLprofil = "http://localhost:8080/api/auth/signin"
 
 export default function Profil() {
-    const [post, setPost] = React.useState(null);
+    const [profil, setProfil] = React.useState(null);
 
     React.useEffect(() => {
-    axios({method:'post', url:URL, data:{username: "Legrant", password:"234mlkj"}}).then((response) => {
-        setPost(response.data);
+    axios({method:'post', url:URLprofil, data:{username: "Legrant", password:"234mlkj"}}).then((response) => {
+        setProfil(response.data);
         console.log(response);
         console.log("connexion ok")
     }).catch((err)=>{
         console.log("error", err);
     });
   }, []);
-  if (!post) return null;
+  if (!profil) return null;
 
     
 
