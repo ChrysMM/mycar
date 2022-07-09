@@ -1,5 +1,5 @@
  
-import React from 'react';
+// import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import  Profil from './components/Profil';
@@ -16,7 +16,8 @@ import  Valider from './components/Valider';
 // import Listing from './Components/Listing'; 
 
 
-const AppStack = createStackNavigator();
+// const AppStack = createStackNavigator();
+ 
  
 export default function Navigator(){
     
@@ -39,6 +40,39 @@ export default function Navigator(){
     </NavigationContainer>
   );
 } 
+ 
 
+import React from 'react';
 
+import {
+  SafeAreaView,
+  StyleSheet,
+  KeyboardAvoidingView,
+  StatusBar,
+} from 'react-native';
 
+import LoginView from './components/LoginView';
+
+const App = () => {
+  return (
+    <KeyboardAvoidingView
+     // behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
+      style={{flex: 1}}
+      enabled>
+      <StatusBar barStyle="dark-content" />
+
+      <SafeAreaView style={styles.container}>
+        <LoginView />
+      </SafeAreaView>
+    </KeyboardAvoidingView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#f6f6f6"
+  },
+});
+
+export default App;

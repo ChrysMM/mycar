@@ -8,8 +8,10 @@ import {
 } from 'react-native';
 
 import Spinner from 'react-native-loading-spinner-overlay';
+ 
 import { useNavigation } from '@react-navigation/native';
 import APIKit, {setClientToken} from '../APIKit';
+ 
 
 const initialState = {
   username: '',
@@ -19,6 +21,7 @@ const initialState = {
   isLoading: false,
 };
 
+ 
 
 
 
@@ -30,6 +33,7 @@ class LoginView extends Component {
   state = initialState;
 
 
+ 
   componentWillUnmount() {}
 
   onUsernameChange = username => {
@@ -62,7 +66,9 @@ class LoginView extends Component {
     APIKit.post('', payload)
       .then(onSuccess)
       .catch(onFailure);
+ 1
 
+ 
   }
 
   getNonFieldErrorMessage() {
@@ -76,9 +82,11 @@ class LoginView extends Component {
             <Text style={styles.errorMessageTextStyle} key={item}>
               {item}
             </Text>
+ 
             
           ))}
         
+ 
         </View>
       );
     }
@@ -104,11 +112,15 @@ class LoginView extends Component {
   }
 
   render() {
+ 
     const { navigation } = this.props;
+ 
+ 
     const {isLoading} = this.state;
 
     return (
       <View style={styles.containerStyle}>
+ 
         <Spinner visible={isLoading} />
 
         {!this.state.isAuthorized ? <View>
@@ -119,11 +131,14 @@ class LoginView extends Component {
             />
           </View>
           <Text style={styles.titleid} >Renseignez vos identifiants</Text>
+  
           <TextInput
             style={styles.input}
             value={this.state.username}
             maxLength={256}
+ 
             placeholder= "Identifiant"
+ 
             autoCapitalize="none"
             autoCorrect={false}
             returnKeyType="next"
@@ -144,7 +159,9 @@ class LoginView extends Component {
             style={styles.input}
             value={this.state.password}
             maxLength={40}
+ 
             placeholder="Mot de passe"
+ 
             onChangeText={this.onPasswordChange}
             autoCapitalize="none"
             autoCorrect={false}
@@ -155,11 +172,14 @@ class LoginView extends Component {
             underlineColorAndroid="transparent"
             placeholderTextColor="#999"
           />
+ 
 
+ 
           {this.getErrorMessageByField('password')}
 
           {this.getNonFieldErrorMessage()}
 
+ 
           <Text style={styles.oublie} onPress={() => navigation.navigate("Oublie")}>Mot de passe oublié? </Text>
 
           <TouchableOpacity
@@ -168,11 +188,14 @@ class LoginView extends Component {
             <Text style={styles.loginButtonText}  onPress={() => navigation.navigate("date")} >CONNEXION</Text>
           </TouchableOpacity>
         </View> : <View><Text>Connexion établie</Text></View>}
+ 
       </View>
     );
   }
 }
 
+
+ 
 
 
 
@@ -235,18 +258,21 @@ const styles = {
     padding: 8,
     borderRadius: 4,
   },
+ 
   oublie: {
     color: "#A2273C",
     fontStyle: "italic",
     marginTop: 10,
     marginLeft: 10,
   },
+ 
   errorMessageTextStyle: {
     color: '#db2828',
     textAlign: 'center',
     fontSize: 12,
   },
   titleid: {
+ 
     fontSize: 22,
     fontWeight: "bold",
     textAlign: "center",
@@ -254,6 +280,7 @@ const styles = {
     marginBottom: 70,
   },
 
+ 
 };
 
 export default LoginView;
