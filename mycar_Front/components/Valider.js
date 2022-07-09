@@ -34,6 +34,8 @@ export default function Valider() {
             
             <View style={style.view}>
             <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
+            <Text  style={style.title} onPress= {()=> navigateHistorique()}  ><Image source={ historique }   style={style.logobande} ></Image></Text>
+            <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
           
         <Text style={style.reserve}>Vous avez réservé la voiture ... du ... au ... </Text>
         
@@ -106,5 +108,12 @@ const style = StyleSheet.create({
         marginTop:60, 
     },
 
+    title: {
+        fontSize: 22, 
+        color: 'black',
+        fontWeight: "bold", 
+        textAlign: 'center', 
    
+       
+    }, 
 })

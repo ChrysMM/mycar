@@ -19,18 +19,19 @@
 //     });
 //   }, []);
 //   if (!post) return null;
-
-//     const navigation = useNavigation();
-//     function navigateConnexion() {
-//         navigation.navigate("date");
-//     }
-//     function navigateOublie() {
-//         navigation.navigate("Oublie");
-//     }
-//         return(
-// <View style={style.view}>
-//     <Text style={style.titleid} >Renseignez vos identifiants</Text>
-//     <TextInput style={style.title} placeholder="UserName"></TextInput>
+ 
+    const navigation = useNavigation();
+    function navigateConnexion() {
+        navigation.navigate("date");
+    }
+    function navigateOublie() {
+        navigation.navigate("Oublie");
+    }
+        return(
+<View style={style.view}>
+    <Text style={style.titleid} >Renseignez vos identifiants</Text>
+    <TextInput style={style.title} placeholder="Mail"></TextInput>
+ 
 
 //     <TextInput style={style.title} placeholder="Mot de passe" secureTextEntry={true}></TextInput>
 //     <Text style={style.oublie} onPress={() => navigateOublie()}>Mot de passe oublié? </Text>
