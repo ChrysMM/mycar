@@ -45,21 +45,22 @@ class LoginView extends Component {
     const payload = {username, password};
     console.log(payload);
 
-    const onSuccess = ({data}) => {
+    const onSuccess =  ({data}) => {
       //   Token   success
       setClientToken(data.token);
       this.setState({isLoading: false, isAuthorized: true});
-    };
+    }; 
 
     const onFailure = error => {
       console.log(error && error.response);
       this.setState({errors: error.response.data, isLoading: false});
     };
+     
 
     // SPINER
     this.setState({isLoading: true});
 
-    APIKit.post('', payload)
+      APIKit.post('', payload)
       .then(onSuccess)
       .catch(onFailure);
 
