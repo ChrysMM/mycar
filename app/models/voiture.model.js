@@ -39,7 +39,7 @@ Voiture.create = (newVoiture, result) => {
 
   //Get toutes les voitures
   Voiture.getAll = (immatriculation, result) => {
-    let query = "SELECT * FROM voiture";
+    let query = "SELECT * FROM voiture JOIN marque ON (voiture.marque_id = marque.id) JOIN categorie ON (voiture.categorie_id = categorie.id) JOIN statut ON (voiture.statut_id = statut.id) JOIN modele ON (voiture.modele_id = modele.id)";
     if (immatriculation) {
       query += ` WHERE immatriculation LIKE '%${immatriculation}%'`;
     }
