@@ -1,6 +1,7 @@
 const { json } = require("express/lib/response");
 const { YEAR } = require("mysql/lib/protocol/constants/types");
 const sql = require("./db.js");
+const Marque = require("./marque.model.js");
 
 //Constructeur
 const Voiture = function(voiture){
@@ -38,7 +39,7 @@ Voiture.create = (newVoiture, result) => {
 
   //Get toutes les voitures
   Voiture.getAll = (immatriculation, result) => {
-    let query = "SELECT * FROM voiture";
+    let query = "SELECT * FROM voiture JOIN marque ON (voiture.marque_id = marque.id) JOIN categorie ON (voiture.categorie_id = categorie.id) JOIN statut ON (voiture.statut_id = statut.id) JOIN modele ON (voiture.modele_id = modele.id)";
     if (immatriculation) {
       query += ` WHERE immatriculation LIKE '%${immatriculation}%'`;
     }
@@ -57,15 +58,17 @@ Voiture.create = (newVoiture, result) => {
 
   // recherche par id
   Voiture.findById = (id, result) => {
-    sql.query(`SELECT * FROM voiture WHERE id = ${id}`, (err, res) => {
+    sql.query(`SELECT * FROM voiture JOIN marque ON (voiture.marque_id = marque.id) JOIN categorie ON (voiture.categorie_id = categorie.id) JOIN statut ON (voiture.statut_id = statut.id) JOIN modele ON (voiture.modele_id = modele.id) WHERE voiture.id = ${id}`, (err, res) => {
       if (err) {
         console.log("error: ", err);
         result(err, null);
         return;
       }
       if (res.length) {
-        console.log("found voiture: ", res[0]);
-        result(null, res[0]);
+        
+        let v = res[0];
+        console.log("found voiture: ", v);
+        result(null, v);
         return;
       }
       // not found Voiture with the id
