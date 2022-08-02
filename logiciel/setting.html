@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tableau</title>
+</head>
+<body>
+    
+    <div>
+        <form action="index.html" method="POST" >
+        <input type="submit" id='submit' onclick="goToFirstWindow()" value='Deconnexion' >
+
+    </form>
+        <h1>Tableau de la base</h1>
+    </div>
+    
+
+    <script>
+    const remote = window.require("electron").remote;
+
+  //fonction de deconnexion pour retourner à la page de login 
+    function goToFirstWindow() {
+        remote.getCurrentWindow().close();
+    }
+</script>
+</body>
+</html>

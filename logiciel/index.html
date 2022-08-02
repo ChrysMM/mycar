@@ -2,13 +2,13 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+
     <title>Connexion</title>
   </head>
   <body>
     
     <div id="container">
-      <form action="home.html" method="POST" >
+      <form action="setting.html" method="POST" >
           <h1>Connectez-vous : </h1>
           <label><b>Nom d'utilisateur</b></label>
           <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
@@ -16,8 +16,24 @@
           <label><b>Mot de passe</b></label>
           <input type="password" placeholder="Entrer le mot de passe" name="password" required>
           <br><br>
-          <input type="submit" id='submit' value='Connexion' >
+          <input type="submit" id='submit' onclick="goToSettingsWindow()" value='Connexion' >
         </form>
       </div>
+      <script>
+
+        const ipc = window.require('electron').ipcRenderer;
+          
+          // Fonction qui sera appelée au clic
+          // événement du bouton "Aller à la fenêtre des setting.html"
+          function goToSettingsWindow(){
+            
+              // Assurez-vous de faire ipc.send('some String'),
+               // où 'some String' doit être identique au
+               //  premier paramètre de ipcMain.on() dans app.js
+              ipc.send('openChildWindow');  
+          }
+
+        </script>
   </body>
+
 </html>
