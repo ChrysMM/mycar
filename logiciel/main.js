@@ -3,6 +3,14 @@ const { app, BrowserWindow } = require('electron')
 // travailler avec les chemins des fichiers
 const path = require('path')
 
+
+const server = require("../app");
+
+let win;
+
+
+
+
 // fonction qui va permettre de créer une fenetre
 function createWindow () {
     // constante win qui va créer la fenetre de l'application avec la largeur et la hauteur
@@ -11,10 +19,12 @@ function createWindow () {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
+
     }
   })
 
   win.loadFile('index.html')
+  win.loadURL("http://localhost:8080");
 }
 
 // quand l'app est prete, tout pres charger + créer une fenetre
@@ -28,6 +38,9 @@ app.whenReady().then(() => {
     }
   })
 })
+
+
+
 
 // .on detecter un evenement qui est que tt les fenetres du logiciel est ferme pour lutilisateur alors on quitte l'application de facon definitive 
 app.on('window-all-closed', () => {
