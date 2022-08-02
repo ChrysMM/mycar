@@ -6,8 +6,6 @@ const path = require('path')
 
 const server = require("../app");
 
-let win;
-
 
 
 
@@ -22,9 +20,9 @@ function createWindow () {
 
     }
   })
+  win.loadURL("http://localhost:8080"); 
+  win.loadFile('index.html'); 
 
-  win.loadFile('index.html')
-  win.loadURL("http://localhost:8080");
 }
 
 // quand l'app est prete, tout pres charger + créer une fenetre
