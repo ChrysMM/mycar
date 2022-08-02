@@ -20,9 +20,7 @@ const URLmarque= "http://localhost:8080/api/marque";
 
 export default function Detail() {
     const [voiture, setVoiture] = React.useState(null);
-    const [modele, setModele] = React.useState(null);
-    const [categorie, setCategorie] = React.useState(null);
-    const [marque, setMarque] = React.useState(null);
+   
 
     React.useEffect(() => {
     axios({method:'get', url:URLvoiture}).then( (response) => {
@@ -33,36 +31,11 @@ export default function Detail() {
         console.log("error", err);
     });
 
-    axios({method:'get', url:URLmodele}).then( (response) => {
-        setModele(response.data);
-        
-        console.log("connexion test");
-    }).catch((err)=>{
-        console.log("error", err);
-    });
-
-    axios({method:'get', url:URLcategorie}).then( (response) => {
-        setCategorie(response.data);
-        
-        console.log("connexion test");
-    }).catch((err)=>{
-        console.log("error", err);
-    });
-
-    axios({method:'get', url:URLmarque}).then( (response) => {
-        setMarque(response.data);
-        
-        console.log("connexion test");
-    }).catch((err)=>{
-        console.log("error", err);
-    });
 
   }, []);
   
   if (!voiture) return null;
-  if (!modele) return null;
-  if (!categorie) return null;
-  if (!marque) return null;
+  
     
     const navigation = useNavigation();
 
@@ -70,10 +43,7 @@ export default function Detail() {
         navigation.navigate("Confirmation");
     }
     
-    function navigateHistorique() {
-        navigation.navigate("Historique");
-    }
-    
+  
     function navigateProfil() {
         navigation.navigate("Profil");
     }
@@ -81,66 +51,55 @@ export default function Detail() {
     function navigateLogo() {
         navigation.navigate("Search");
     }
-    for (var i = 0; i< voiture.length ; i++) {
-        for (var i = 0; i< modele.length ; i++) {
-            for (var i = 0; i< categorie.length ; i++) {
-                for (var i = 0; i< marque.length ; i++) {
-        console.log(voiture.length); 
+    
         return(
+<View style={style.view}>
 
-        <View style={{alignItems: "center"}}>
-          
-        <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
-        <Text  style={style.title} onPress= {()=> navigateHistorique()}  ><Image source={ historique }   style={style.logobande} ></Image></Text>
-        <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
-       <View style={style.bloc}  >
+<Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text>
+     
+     <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
+     <View style={style.bloc}>
+            <Text    style={style.titre}  onPress= {()=>navigateDetail()}>{voiture[1].nomMarque} {voiture[1].nomModele}</Text>  
+            <br></br>
+            <Text>{voiture[1].nomStatut}</Text>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Text>{voiture[1].nomCategorie} </Text>
 
-       <View style={style.bloc}>
+            <Text ><Image source={ immatriculation }   style={style.logobande} ></Image>{voiture[1].immatriculation}<Image source={ personne }   style={style.logobande} ></Image>{voiture[1].nbrePlace} <Image source={ boiteA }   style={style.logobande} ></Image> {voiture[1].boite} <Image source={ Essence }   style={style.logobande} ></Image> {voiture[1].carburant} </Text>
 
-        <Text style={style.title} onPress= {()=>navigateSearch()} > {marque[i].nomMarque} {modele[i].nomModele}</Text>
-
-        <Text  style={style.text}>{categorie[i].nomCategorie}</Text>
-        <Text  style={style.text}><Image source={ immatriculation }   style={style.logobande} ></Image> {voiture[i].immatriculation} </Text>
-        <Text></Text>
-        <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{voiture[i].nbrePlace}</Text>
-        <Text  style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image>{voiture[i].boite} </Text>
-        <Text  style={style.text}><Image source={ Essence }   style={style.logobande} ></Image> {voiture[i].carburant} </Text>
-        <Text  style={style.text}><Image source={ annee }   style={style.logobande} ></Image> {voiture[i].annee} </Text>
-        
-
-
-        </View>
-
-         <View  style={{alignItems: "center"}} >
-         <Text style={style.louer}  onPress= {()=>navigateToList()}>Confirmer</Text>
-         </View>
-        </View>
-
-             </View>
+            <Text style={style.louer}  onPress= {()=>navigateToList()}>Confirmer</Text>
+</View>
+</View>
         ); 
     }
-}
-        }
-    }
 
-}
 
 const style = StyleSheet.create({
+
+    view:{
+        alignItems:"center", 
+    }, 
+
+    titre:{
+        fontWeight: "bold", 
+        fontSize: 22, 
+        alignItems:"center", 
+    }, 
     bloc: {
+        
         shadowOpacity: 0.5,
         shadowRadius: 11,
         elevation: 4, 
-        fontSize: 22, 
         marginBottom: 3,  
         marginTop: 100, 
         backgroundColor: '#F5F5F5', 
         height: 220, 
         borderRadius: 10, 
-        fontWeight: "bold", 
         width: 380, 
         borderWidth: 1, 
-        textAlign: 'center', 
-      
+        alignItems:"center", 
     }, 
 
     title: {
@@ -220,14 +179,12 @@ const style = StyleSheet.create({
         backgroundColor: '#A2273C', 
         textAlign: "center", 
         width: 140, 
-        height:  30, 
+        height: 250, 
         borderRadius: 7,
         elevation: 3,
-        marginTop: 250, 
+        marginTop: 150, 
         color: 'white', 
         fontWeight: "bold",
-        paddingTop: 3, 
-        paddingRight: 2,
         alignItems: "center", 
 
     }, 

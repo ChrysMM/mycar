@@ -14,13 +14,6 @@ export default function Valider() {
         navigation.navigate("Detail");
     }
 
-    function navigate() {
-        navigation.navigate("Search");
-    }
-
-    function navigateHistorique() {
-        navigation.navigate("Historique");
-    }
     
     function navigateProfil() {
         navigation.navigate("Profil");
@@ -34,10 +27,9 @@ export default function Valider() {
             
             <View style={style.view}>
             <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
-            <Text  style={style.title} onPress= {()=> navigateHistorique()}  ><Image source={ historique }   style={style.logobande} ></Image></Text>
             <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
           
-        <Text style={style.reserve}>Vous avez réservé la voiture ... du ... au ... </Text>
+        <Text style={style.reserve}>Vous avez réservé votre voiture  </Text>
         
         
       
