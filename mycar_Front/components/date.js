@@ -18,7 +18,6 @@ export default function date() {
         navigation.navigate("Calendrier");
     }
     
- 
         return(
 <View style={style.view}>
 
@@ -44,7 +43,6 @@ Date de restitution
 </DataTable.Row>
 
         </DataTable>
-   
     <View>
     <Text style={style.rech} onPress= {()=>navigateRecherche()}> RECHERCHER</Text>
     </View>

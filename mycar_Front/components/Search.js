@@ -96,17 +96,15 @@ const style = StyleSheet.create({
         fontWeight: "bold", 
         textAlign: "center",  
     }, 
-  
-   
+
     bloc: {
-      flex: 1, 
-      backgroundColor:"#fff", 
-      paddingTop: 40, 
-      paddingHorizontal: 20, 
-      alignItems: "center", 
-      
-      
+        flex: 1, 
+        backgroundColor:"#fff", 
+        paddingTop: 40, 
+        paddingHorizontal: 20, 
+        alignItems: "center",       
     }, 
+
     item: {
         marginTop: 24, 
         padding: 30, 
@@ -118,7 +116,6 @@ const style = StyleSheet.create({
         fontSize: 14, 
         fontWeight: "bold", 
         textAlign: "left", 
-      
     
     }, 
 

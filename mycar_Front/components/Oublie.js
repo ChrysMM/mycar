@@ -32,6 +32,7 @@ export default function Oublie() {
             marginTop: 70, 
             marginBottom: 70, 
         }, 
+
     title: {
         fontSize: 14, 
         marginBottom: 3, 
@@ -43,8 +44,6 @@ export default function Oublie() {
         width: 300, 
         marginLeft: 7, 
         fontStyle: 'italic', 
-   
-       
     }, 
 
     oublie: {

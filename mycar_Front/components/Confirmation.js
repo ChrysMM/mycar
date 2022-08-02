@@ -121,7 +121,7 @@ export default function Confirmation() {
                 width: 400, 
                 borderColor: '#A2273C',
                 borderWidth: 1, 
-               textAlign: "center", 
+                textAlign: "center", 
 
             }, 
 
@@ -140,22 +140,20 @@ export default function Confirmation() {
                 textAlign: "center", 
 
             },
-        
+            
             title: {
                 fontSize: 20, 
                 color: 'black',
                 fontWeight: "bold", 
                 textAlign: 'center', 
-           
-               
             }, 
+
             bande1: {
                 marginTop: 500,
                 backgroundColor: '#A2273C', 
                 height: 40, 
                 width: 200, 
             }, 
-
 
             bande2: {
                 marginTop: -28.5,
@@ -171,7 +169,6 @@ export default function Confirmation() {
                 marginLeft: 22, 
                 textAlign: "left", 
             
-
             }, 
             louer: {
                 backgroundColor: '#A2273C', 

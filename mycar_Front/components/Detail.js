@@ -32,10 +32,9 @@ export default function Detail() {
     });
 
 
-  }, []);
-  
-  if (!voiture) return null;
-  
+    }, []);
+    if (!voiture) return null;
+
     
     const navigation = useNavigation();
 
@@ -43,7 +42,6 @@ export default function Detail() {
         navigation.navigate("Confirmation");
     }
     
-  
     function navigateProfil() {
         navigation.navigate("Profil");
     }
@@ -53,12 +51,11 @@ export default function Detail() {
     }
     
         return(
-<View style={style.view}>
+        <View style={style.view}>
 
-<Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text>
-     
-     <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
-     <View style={style.bloc}>
+            <Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text>
+            <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
+            <View style={style.bloc}>
             <Text    style={style.titre}  onPress= {()=>navigateDetail()}>{voiture[1].nomMarque} {voiture[1].nomModele}</Text>  
             <br></br>
             <Text>{voiture[1].nomStatut}</Text>
@@ -87,6 +84,7 @@ const style = StyleSheet.create({
         fontSize: 22, 
         alignItems:"center", 
     }, 
+
     bloc: {
         
         shadowOpacity: 0.5,
@@ -101,33 +99,27 @@ const style = StyleSheet.create({
         borderWidth: 1, 
         alignItems:"center", 
     }, 
-
+    
     title: {
         fontSize: 22, 
         color: 'black',
         fontWeight: "bold", 
         textAlign: 'center', 
-   
-       
     }, 
     title: {
         fontSize: 22, 
         color: 'black',
         fontWeight: "bold", 
         textAlign: 'center', 
-   
-       
     }, 
     text : {
         fontSize: 14, 
         fontWeight: "bold", 
         marginLeft: 22, 
         textAlign: "left", 
-      
-    
     }, 
+
     img_voiture: {
-     
         width:100,
         height: 70,
         marginLeft: 10,
@@ -144,14 +136,13 @@ const style = StyleSheet.create({
         
     }, 
 
-      logobande: {
+    logobande: {
         width: 25,
         height: 25,
         marginRight: 200,
         marginLeft: 40, 
     }, 
 
-    
     bande1: {
         marginTop: 500,
         backgroundColor: '#A2273C', 
@@ -159,14 +150,13 @@ const style = StyleSheet.create({
         width: 200, 
     }, 
 
-   
     bande2: {
         marginTop: -28,
         marginLeft: 200, 
         backgroundColor: '#A2273C', 
         height: 40, 
         width: 200, 
-    }, 
+    },  
 
     mycar: {
         marginLeft: 300, 
@@ -186,8 +176,7 @@ const style = StyleSheet.create({
         color: 'white', 
         fontWeight: "bold",
         alignItems: "center", 
-
     }, 
-   
+
 })
 
