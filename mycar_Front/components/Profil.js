@@ -10,7 +10,7 @@ export default function Profil() {
     const [profil, setProfil] = React.useState(null);
 
     React.useEffect(() => {
-    axios({method:'post', url:URLprofil, data:{username: "Legrant", password:"234mlkj"}}).then((response) => {
+        axios({method:'get', url:URLprofil}).then( (response) => {
         setProfil(response.data);
         console.log(response);
         console.log("connexion ok")
@@ -26,9 +26,9 @@ export default function Profil() {
             <View style={style.view}>
                 <Text><Image source={mycar} style={style.mycar} ></Image></Text>
                 <Text><Image source={employe} style={style.employe} ></Image></Text>
-                <Text style={style.donneemp}>Nom : {post.username}</Text>
-                <Text style={style.donneemp}>Prénom : {post.prenomUser}</Text>
-                <Text style={style.donneemp}>Adresse mail : {post.email} </Text>
+                <Text style={style.donneemp}>Nom : {profil.username}</Text>
+                <Text style={style.donneemp}>Prénom : {profil.prenomUser}</Text>
+                <Text style={style.donneemp}>Adresse mail : {profil.email} </Text>
             </View>
         )}
 

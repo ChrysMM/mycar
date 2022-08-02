@@ -117,7 +117,6 @@ const style = StyleSheet.create({
         borderWidth: 1, 
         fontSize: 14, 
         fontWeight: "bold", 
-        marginLeft: 22, 
         textAlign: "left", 
       
     
@@ -130,12 +129,6 @@ const style = StyleSheet.create({
         textAlign: 'center', 
     }, 
 
-    img_voiture: {
-        width:100,
-        height: 70,
-        marginLeft: 10,
-        marginRight: 10,
-    },
 
     logo: {
         width:25,
@@ -159,20 +152,7 @@ const style = StyleSheet.create({
         fontWeight: "bold", 
     }, 
 
-    bande1: {
-        marginTop: 500,
-        backgroundColor: '#A2273C', 
-        height: 60000, 
-        width: 200, 
-    }, 
 
-    bande2: {
-        marginTop: -28,
-        marginLeft: 200, 
-        backgroundColor: '#A2273C', 
-        height: 60000, 
-        width: 200, 
-    }, 
 
     mycar: {
         marginLeft: 300, 

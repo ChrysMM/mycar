@@ -13,16 +13,11 @@ import axios from 'axios';
 
 const URLvoiture = "http://localhost:8080/api/voiture"
 const URLsign = "http://localhost:8080/api/auth/signin"
-const URLmodele = "http://localhost:8080/api/modele"; 
-const URLmarque = "http://localhost:8080/api/marque"; 
-const URLcategorie = "http://localhost:8080/api/categorie"; 
 
 export default function Confirmation() {
     const [voiture, setVoiture] = React.useState(null);
     const [sign, setSign] = React.useState(null);
-    const [modele, setModele] = React.useState(null);
-    const [marque, setMarque] = React.useState(null);
-    const [categorie, setCategorie] = React.useState(null);
+    
 
     React.useEffect(() => {
     axios({method:'get', url:URLvoiture}).then( (response) => {
@@ -33,33 +28,8 @@ export default function Confirmation() {
         console.log("error get", err);
     });
 
-    axios({method:'get', url:URLmodele}).then( (response) => {
-        setModele(response.data);
-        
-        console.log("connexion test");
-    }).catch((err)=>{
-        console.log("error get", err);
-    });
-
-    axios({method:'get', url:URLmarque}).then( (response) => {
-        setMarque(response.data);
-        
-        console.log("connexion test");
-    }).catch((err)=>{
-        console.log("error get", err);
-    });
-
-    axios({method:'get', url:URLcategorie}).then( (response) => {
+    axios({method:'get', url:URLvoiture}).then( (response) => {
         setSign(response.data);
-        
-        console.log("connexion test");
-    }).catch((err)=>{
-        console.log("error get", err);
-    });
-
-
-    axios({method:'post', url:URLsign, data:{username: "Legrant", password:"234mlkj"}}).then((response) => {
-        setCategorie(response.data);
         console.log(response);
         console.log("connexion ok")
     }).catch((err)=>{
@@ -69,9 +39,7 @@ export default function Confirmation() {
   
   if (!voiture) return null;
   if (!sign) return null;
-  if (!marque) return null;
-  if (!modele) return null;
-  if (!categorie) return null;
+
 
 
 
@@ -81,9 +49,6 @@ export default function Confirmation() {
         navigation.navigate("Valider");
     }
 
-    function navigateHistorique() {
-        navigation.navigate("Historique");
-    }
     
     function navigateProfil() {
         navigation.navigate("Profil");
@@ -91,13 +56,13 @@ export default function Confirmation() {
     function navigateLogo() {
         navigation.navigate("Search");
     }
-    for (var i = 0; i< get.length ; i++) {
+
         return(
             
         
           <View style={style.view}>
          <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
-         <Text  style={style.title} onPress= {()=> navigateHistorique()}  ><Image source={ historique }   style={style.logobande} ></Image></Text>
+         
         <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
         <View style={style.bloc1}>
         <Text style={style.title}>Confirmation Informations<br /></Text>
@@ -107,15 +72,19 @@ export default function Confirmation() {
 
         
 <View style={style.bloc2}>
-        <Text style={style.title} >Récapitulatif : {marque[i].nomMarque}  {modele[i].nomModele} Détails<br /></Text>
-        <Text style={style.text}>{categorie[i].nomCategorie}    </Text>
-        <Text style={style.text}><Image source={ immatriculation }   style={style.logobande} ></Image>{voiture[i].immatriculation}    </Text>
+        <Text style={style.title} >Récapitulatif : {voiture[1].nomMarque}  {voiture[1].nomModele} Détails</Text>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <Text style={style.text}>{voiture[1].nomCategorie}    </Text>
+        <Text style={style.text}><Image source={ immatriculation }   style={style.logobande} ></Image>{voiture[1].immatriculation}    </Text>
         
-        <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{voiture[i].nbrePlace}  </Text>
-        <Text style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image> {voiture[i].boite}    </Text>
+        <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{voiture[1].nbrePlace}  </Text>
+        <Text style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image> {voiture[1].boite}    </Text>
         
-        <Text style={style.text}><Image source={ Essence }   style={style.logobande} ></Image>  {voiture[i].carburant}  </Text>
-        <Text style={style.text}><Image source={ annee }   style={style.logobande} ></Image> {voiture[i].annee} </Text>
+        <Text style={style.text}><Image source={ Essence }   style={style.logobande} ></Image>  {voiture[1].carburant}  </Text>
+        <Text style={style.text}><Image source={ annee }   style={style.logobande} ></Image> {voiture[1].annee} </Text>
         
         <View  style={style.view}>
         <Text style={style.louer}  onPress= {()=>navigateConfirmation()}>LOUER</Text>
@@ -134,7 +103,7 @@ export default function Confirmation() {
 </View>
         ); 
     }
-}      
+
         
         const style = StyleSheet.create({
             view: {
@@ -173,7 +142,7 @@ export default function Confirmation() {
             },
         
             title: {
-                fontSize: 22, 
+                fontSize: 20, 
                 color: 'black',
                 fontWeight: "bold", 
                 textAlign: 'center', 
