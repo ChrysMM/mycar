@@ -2,6 +2,7 @@
 import React, {useState} from 'react';
 import {SafeAreaView, StyleSheet, View, Text} from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
+import { useNavigation,NavigationContainer } from '@react-navigation/native';
 
 const App = () => {
   const [selectedStartDate, setSelectedStartDate] = useState(null);
@@ -17,6 +18,7 @@ const App = () => {
     }
   };
 
+  const navigation = useNavigation();
   function navigateSearch() {
     navigation.navigate("Search");
 }
@@ -75,13 +77,11 @@ export default App;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: 30,
-    padding: 16,
-    width: 40, 
-    marginLeft: 85, 
-    marginTop: 70, 
+    alignItems: "center", 
+    marginTop: 30, 
+
   },
+
   textStyle: {
     marginTop: 10,
   },
@@ -93,7 +93,6 @@ const styles = StyleSheet.create({
     height:  25, 
     borderRadius: 7,
     elevation: 3,
-    marginTop: 100, 
     color: 'white', 
     fontWeight: "bold",
     paddingTop: 2, 
