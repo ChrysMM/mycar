@@ -13,9 +13,9 @@ function createWindow () {
     height: 600,
     webPreferences: {
       nodeIntegration: true, 
-      // contextIsolation: false,
-      // enableRemoteModule: false,
-      // preload: path.join(__dirname, 'preload.js'), 
+      contextIsolation: false,
+      enableRemoteModule: false,
+      preload: path.join(__dirname, 'preload.js'), 
     }
   })
   win.loadURL("http://localhost:8080"); 
