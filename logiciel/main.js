@@ -4,22 +4,6 @@ const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
 
-const server = require("../app");
-const axios= require("axios");
-
-
-//Axios qui permet l'acces a la base de données
-
-const AxiosVoiture = () => {
-    axios.get('http://localhost:8080/api/voiture')
-        .then(response => {
-            const voiture = response.data.data;
-            console.log("connexion test", voiture);
-        })
-        .catch(error => console.error("error"));
-};  
-
-AxiosVoiture();
 
 // fonction qui va permettre de créer une fenetre
 function createWindow () {
@@ -28,8 +12,10 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
-
+      nodeIntegration: true, 
+      contextIsolation: false,
+      enableRemoteModule: false,
+      preload: path.join(__dirname, 'preload.js'), 
     }
   })
   win.loadURL("http://localhost:8080"); 
