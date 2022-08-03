@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta  charset="UTF-8" http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self';">
 
+    <script type="text/javascript" src="index.js"></script>
     <title>Connexion</title>
   </head>
   <body>
@@ -19,22 +20,6 @@
           <input type="submit" id='submit' onclick="goToSettingsWindow()" value='Connexion' >
         </form>
       </div>
-      <script>
-
-        const ipc = window.require('electron').ipcRenderer;
-          
-          // Fonction qui sera appelée au clic
-          // événement du bouton "Aller à la fenêtre des setting.html"
-          function goToSettingsWindow(){
-            
-              // Assurez-vous de faire ipc.send('some String'),
-               // où 'some String' doit être identique au
-               //  premier paramètre de ipcMain.on() dans app.js
-              ipc.send('openChildWindow');  
-          }
-          
-
-        </script>
 
         
   </body>
