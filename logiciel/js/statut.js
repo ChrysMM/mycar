@@ -9,9 +9,9 @@ const axios= require("axios");
 
                 response.data.forEach(element  => {
                     var Id= document.getElementById("Id"); 
-                    var Modele= document.getElementById("Modele");
+                    var Statut= document.getElementById("Statut");
                     Id.innerHTML += element.id+ '<br />'; 
-                    Modele.innerHTML += element.nomModele+ '<br />'; 
+                    Statut.innerHTML += element.nomStatut+ '<br />'; 
 
                 // console.log(element.immatriculation)
                 }
