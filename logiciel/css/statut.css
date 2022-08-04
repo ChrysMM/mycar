@@ -1,3 +1,9 @@
+a { 
+    color: inherit;
+    text-decoration:inherit;
+   
+} 
+
 h1{
     color: #000; 
     align-items: center;

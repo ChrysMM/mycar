@@ -24,7 +24,7 @@ const axios= require("axios");
                     Année.innerHTML += element.annee+ '<br />'; 
                     Catégorie.innerHTML += element.nomCategorie+ '<br />'; 
                     Statut.innerHTML += element.nomStatut+ '<br />'; 
-                     
+                    
                 // console.log(element.immatriculation)
                 }
                 );
