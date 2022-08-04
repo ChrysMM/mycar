@@ -22,7 +22,7 @@ exports.create = (req, res) => {
       modele_id : req.body.modele_id,
       statut_id : req.body.statut_id,
       categorie_id : req.body.categorie_id,
-      id : req.body.id
+//id : req.body.id
     
     });
 
