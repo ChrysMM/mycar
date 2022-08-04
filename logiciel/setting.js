@@ -4,7 +4,7 @@ const axios= require("axios");
     
     const AxiosVoiture = () => {
         axios('http://localhost:8080/api/voiture').then(response => {
-                console.log("connexion test", voiture);
+                console.log("connexion test");
             })
             .catch(error => console.error("error"));
     };  
