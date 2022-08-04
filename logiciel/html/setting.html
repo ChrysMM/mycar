@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <script type="text/javascript" src="../js/setting.js"></script>
+    <link rel="stylesheet" href="../css/setting.css">
+    <title>Tableau</title>
+</head>
+<body>
+    
+    <div>
+        <form action="index.html" method="POST" >
+        <input type="submit" id='submit' onclick="goToFirstWindow()" value='Deconnexion' >
+
+    </form>
+        <h1>Tableau de la base</h1>
+        <table >
+            <tr style="font-weight: bold;">
+                <td>Immatriculation</td>
+                <td>Marque</td>
+                <td>Modele</td>
+                <td>Nombre de places</td>
+                <td>Boite de vitesse</td>
+                <td>Année</td>
+                <td>Catégorie</td>
+                <td>Statut</td>
+            </tr>
+            <tr><td id="Immatriculation"></td>
+                <td id="Marque"></td>
+                <td id="Modele"></td>
+                <td id="Nombre"></td>
+                <td id="Boite"></td>
+                <td id="Année"></td>
+                <td id="Catégorie"></td>
+                <td id="Statut"></td>
+                
+            </tr>
+        </table>
+    </div>
+    
+    
+</body>
+</html>
