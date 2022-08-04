@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+        <script type="text/javascript" src="../js/liste.js"></script>
+        <link rel="stylesheet" href="../css/liste.css">
+        <title>Tableau</title>
+    </head>
+<style>
+
+</style>
+</head>
+<body>
+
+<h2>My Car</h2>
+<p>Ma base de donées</p>
+<p>Click </p>
+
+<ul id="myUL">
+  <li><span class="caret">Mycar</span>
+    <ul class="nested">
+      <li><span class="caret">Users</span>
+      <li><span class="caret">Réservations</span>
+      <li><span class="caret">Voitures</span>
+        <ul class="nested">
+          <li>Catégories</li>
+          <li>Marques</li>
+          <li>Modeles</li>
+          <li>Statuts</li>
+          
+            
+          </li>
+        </ul>
+      </li>  
+    </ul>
+  </li>
+</ul>
+
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+}
+</script>
+
+</body>
+</html>

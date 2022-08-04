@@ -8,7 +8,22 @@ const Statut = function(statut){
     this.nomStatut = statut.nomStatut
 }
 
-
+ //Get toutes les statuts
+Statut.getAll = (nomStatut, result) => {
+  let query = "SELECT * FROM statut";
+  if (nomStatut) {
+    query += ` WHERE nomStatut LIKE '%${nomStatut}%'`;
+  }
+  sql.query(query, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+    console.log("statut: ", res);
+    result(null, res);
+  });
+};
 //Création statut
 Statut.create = (newStatut, result) => {
 
