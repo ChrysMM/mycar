@@ -4,7 +4,13 @@ const axios= require("axios");
     
     const AxiosVoiture = () => {
         axios('http://localhost:8080/api/voiture').then(response => {
-                console.log("connexion test");
+                // console.log("connexion test", response.data[0].id);
+                var divclass= document.getElementById("test"); 
+                console.log(divclass); 
+                response.data.forEach(element => {
+                divclass.innerHTML += element.immatriculation; 
+                console.log(element.immatriculation)
+                });
             })
             .catch(error => console.error("error"));
     };  
