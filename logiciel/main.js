@@ -15,11 +15,11 @@ function createWindow () {
       nodeIntegration: true, 
       contextIsolation: false,
       enableRemoteModule: false,
-      preload: path.join(__dirname, 'preload.js'), 
+      preload: path.join(__dirname, '../js/preload.js'), 
     }
   })
   win.loadURL("http://localhost:8080"); 
-  win.loadFile('index.html'); 
+  win.loadFile('./html/index.html'); 
 
 }
 

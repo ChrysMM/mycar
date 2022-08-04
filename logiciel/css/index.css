@@ -1,0 +1,35 @@
+body{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	font-family: 'Jost', sans-serif;
+	background: linear-gradient(to bottom, #7b798f, #4f4f66);
+}
+
+label{
+	color: #fff;
+	font-size: 1em;
+	justify-content: center;
+	display: flex;
+	margin: 10px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
+}
+input{
+	width: 60%;
+	height: 20px;
+	background: #e0dede;
+	justify-content: center;
+	display: flex;
+	margin: auto;
+	padding: auto;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+
+
