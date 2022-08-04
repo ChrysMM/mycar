@@ -21,7 +21,9 @@ exports.create = (req, res) => {
       marque_id : req.body.marque_id,
       modele_id : req.body.modele_id,
       statut_id : req.body.statut_id,
-      categorie_id : req.body.categorie_id
+      categorie_id : req.body.categorie_id,
+      id : req.body.id
+    
     });
 
     // Save Voiture  database

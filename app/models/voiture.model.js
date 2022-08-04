@@ -14,7 +14,8 @@ const Voiture = function(voiture){
     this.marque_id = voiture.marque_id;
     this.modele_id = voiture.modele_id;
     this.statut_id  = voiture.statut_id;
-    this.categorie_id = voiture.categorie_id
+    this.categorie_id = voiture.id;
+    this.id = voiture.id
 }
 
 
@@ -39,7 +40,7 @@ Voiture.create = (newVoiture, result) => {
 
   //Get toutes les voitures
   Voiture.getAll = (immatriculation, result) => {
-    let query = "SELECT * FROM voiture JOIN marque ON (voiture.marque_id = marque.id) JOIN categorie ON (voiture.categorie_id = categorie.id) JOIN statut ON (voiture.statut_id = statut.id) JOIN modele ON (voiture.modele_id = modele.id)";
+    let query = "SELECT voiture.id, immatriculation, nbrePlace, annee, boite, carburant, nomMarque, nomCategorie, nomStatut, nomModele FROM voiture JOIN marque ON (voiture.marque_id = marque.id) JOIN categorie ON (voiture.categorie_id = categorie.id) JOIN statut ON (voiture.statut_id = statut.id) JOIN modele ON (voiture.modele_id = modele.id)";
     if (immatriculation) {
       query += ` WHERE immatriculation LIKE '%${immatriculation}%'`;
     }
