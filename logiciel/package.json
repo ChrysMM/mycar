@@ -5,8 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
-    "test": "echo \"Error: no test specified\" && exit 1", 
-    "electron": "ELECTRON_DISABLE_SECURITY_WARNINGS=true electron ." 
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "electron": "ELECTRON_DISABLE_SECURITY_WARNINGS=true electron ."
   },
   "keywords": [],
   "author": "",
@@ -15,7 +15,7 @@
     "electron": "^19.0.10"
   },
   "dependencies": {
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "react": "^18.2.0"
   }
-  
 }
