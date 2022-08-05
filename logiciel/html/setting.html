@@ -14,28 +14,24 @@
         <input type="submit" id='submit' onclick="goToFirstWindow()" value='Deconnexion' >
         
     </form>
-        <h1>Tableau de la base</h1>
+        <h1>Tableau des voitures</h1>
         <table >
+            <thead>
             <tr style="font-weight: bold;">
-                <td>Immatriculation</td>
-                <td>Marque</td>
-                <td>Modele</td>
-                <td>Nombre de places</td>
-                <td>Boite de vitesse</td>
-                <td>Année</td>
-                <td>Catégorie</td>
-                <td>Statut</td>
+                <th>Immatriculation</th>
+                <th>Marque</th>
+                <th>Modele</th>
+                <th>Nombre de places</th>
+                <th>Boite de vitesse</th>
+                <th>Année</th>
+                <th>Catégorie</th>
+                <th>Statut</th>
             </tr>
-            <tr><td id="Immatriculation"></td>
-                <td id="Marque"></td>
-                <td id="Modele"></td>
-                <td id="Nombre"></td>
-                <td id="Boite"></td>
-                <td id="Année"></td>
-                <td id="Catégorie"></td>
-                <td id="Statut"></td>
-                
-            </tr>
+        </thead>
+        <tbody id="content">
+
+        </tbody>
+            
         </table>
     </div>
     

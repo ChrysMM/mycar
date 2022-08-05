@@ -2,26 +2,33 @@ const axios= require("axios");
 // import axios from "axios";
 //Axios qui permet l'acces a la base de données
     
-    const AxiosMarque = () => {
-        axios('http://localhost:8080/api/marque').then(response => {
-                // console.log("connexion test", response.data[0].id);
-                
+const AxiosMarque = () => {
+    axios('http://localhost:8080/api/marque').then(response => {
+            // console.log("connexion test", response.data[0].id);
+                var tr ="<tr>"; 
+                var intertr="</tr>"; 
+                var td ="<td>";
+                var intertd="</td>"; 
+                var tbody = document.getElementById("content");
 
-                response.data.forEach(element  => {
-                    var Id= document.getElementById("Id"); 
-                    var Marque= document.getElementById("Marque");
-                    Id.innerHTML += element.id+ '<br />'; 
-                    Marque.innerHTML += element.nomMarque+ '<br />'; 
 
-                // console.log(element.immatriculation)
-                }
-                );
-            })
-            .catch(error => console.error("error"));
-    };  
-    
-    AxiosMarque();
+            response.data.forEach(element  => {
 
+                console.log("tr"+element.immatriculation+"tr")
+
+                console.log(tbody);
+                var contentTmp = tr;
+                contentTmp+= td+element.id+intertd;
+                contentTmp+= td+element.nomMarque+intertd;
+                contentTmp += intertr
+                tbody.innerHTML += contentTmp;
+            }
+            );
+        })
+        .catch(error => console.error("error"));
+};  
+
+AxiosMarque();
     
 const remote = window.require("electron").remote;
 

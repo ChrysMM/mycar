@@ -5,27 +5,30 @@ const axios= require("axios");
     const AxiosVoiture = () => {
         axios('http://localhost:8080/api/voiture').then(response => {
                 // console.log("connexion test", response.data[0].id);
-                
+                var tr ="<tr>"; 
+                    var intertr="</tr>"; 
+                    var td ="<td>";
+                    var intertd="</td>"; 
+                var tbody = document.getElementById("content");
+               
 
                 response.data.forEach(element  => {
-                    var Immatriculation= document.getElementById("Immatriculation"); 
-                    var Marque= document.getElementById("Marque"); 
-                    var Modele= document.getElementById("Modele");
-                    var Nombre= document.getElementById("Nombre");
-                    var Boite= document.getElementById("Boite");
-                    var Année= document.getElementById("Année");
-                    var Catégorie= document.getElementById("Catégorie");
-                    var Statut= document.getElementById("Statut");
-                    Immatriculation.innerHTML += element.immatriculation+ '<br />'; 
-                    Marque.innerHTML += element.nomMarque+ '<br />'; 
-                    Modele.innerHTML += element.nomModele+ '<br />'; 
-                    Nombre.innerHTML += element.nbrePlace+ '<br />'; 
-                    Boite.innerHTML += element.boite+ '<br />'; 
-                    Année.innerHTML += element.annee+ '<br />'; 
-                    Catégorie.innerHTML += element.nomCategorie+ '<br />'; 
-                    Statut.innerHTML += element.nomStatut+ '<br />'; 
-                    
-                // console.log(element.immatriculation)
+
+                    console.log("tr"+element.immatriculation+"tr")
+
+                    console.log(tbody);
+                    var contentTmp = tr;
+                    contentTmp+= td+element.immatriculation+intertd;
+                    contentTmp+= td+element.nomMarque+intertd;
+                    contentTmp+= td+element.nomModele+intertd;
+                    contentTmp+= td+element.nbrePlace+intertd;
+                    contentTmp+= td+element.boite+intertd;
+                    contentTmp+= td+element.annee+intertd;
+                    contentTmp+= td+element.nomCategorie+intertd;
+                    contentTmp+= td+element.nomStatut+intertd;
+                    contentTmp += intertr
+                    tbody.innerHTML += contentTmp;
+                   
                 }
                 );
             })
