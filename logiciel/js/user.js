@@ -2,26 +2,33 @@ const axios= require("axios");
 // import axios from "axios";
 //Axios qui permet l'acces a la base de données
     
-    const AxiosUser = () => {
-        axios('http://localhost:8080/api/auth/signin').then(response => {
-                // console.log("connexion test", response.data[0].id);
-                
+const AxiosUsers = () => {
+    axios('http://localhost:8080/auth/signin').then(response => {
+            // console.log("connexion test", response.data[0].id);
+                var tr ="<tr>"; 
+                var intertr="</tr>"; 
+                var td ="<td>";
+                var intertd="</td>"; 
+                var tbody = document.getElementById("content");
 
-                response.data.forEach(element  => {
-                    var Id= document.getElementById("Id"); 
-                    var Modele= document.getElementById("Modele");
-                    Id.innerHTML += element.id+ '<br />'; 
-                    Modele.innerHTML += element.nomModele+ '<br />'; 
 
-                // console.log(element.immatriculation)
-                }
-                );
-            })
-            .catch(error => console.error("error"));
-    };  
-    
-    AxiosUser();
+            response.data.forEach(element  => {
 
+                console.log("tr"+element.immatriculation+"tr")
+
+                console.log(tbody);
+                var contentTmp = tr;
+                contentTmp+= td+element.id+intertd;
+               
+                contentTmp += intertr
+                tbody.innerHTML += contentTmp;
+            }
+            );
+        })
+        .catch(error => console.error("error"));
+};  
+
+AxiosUsers();
     
 const remote = window.require("electron").remote;
 
