@@ -55,7 +55,7 @@ class LoginView extends Component {
       console.log(error && error.response);
       this.setState({errors: error.response.data, isLoading: false});
     };
-
+     
 
     // SPINER
     this.setState({isLoading: true});
@@ -166,12 +166,7 @@ class LoginView extends Component {
           <TouchableOpacity
             style={styles.loginButton}
             onPress={this.onPressLogin.bind(this)}>
-            <Text style={styles.loginButtonText} onPress={() => {
-                navigation.navigate('date', {
-                  username: this.state.username, 
-                  password: this.state.password,
-                });
-              }}>CONNEXION</Text>
+            <Text style={styles.loginButtonText}  onPress={() => navigation.navigate("date")} >CONNEXION</Text>
           </TouchableOpacity>
         </View> : <View><Text>Connexion établie</Text></View>}
       </View>
