@@ -29,9 +29,12 @@ export default function Detail({ route, navigation })  {
     const { nbrePlace, marque, modele,boite, carburant,nomStatut, nomCategorie, annee, immatriculation, dateD,dateF} = route.params;
     return (
         
-      <View style={style.view}>
+        <View style={style.view}>
         <Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text>
-        <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text> <Button title="Retour" onPress={() => navigation.goBack()} />
+        <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text> 
+        
+        <Text style={style.louer} onPress={() => navigation.goBack()} >Retour</Text>
+        
         <View style={style.bloc}>
 
         <Text  style={style.title} >{JSON.stringify(marque)} {JSON.stringify(modele)}</Text>
@@ -58,12 +61,12 @@ export default function Detail({ route, navigation })  {
                     dateD:dateD, 
                     dateF:dateF, 
                 });
-              }} >Confirmer</Text>
-       
-     
-      </View>
+                }} >Confirmer</Text>
+
+                
+        </View>
     );
-  }
+    }
 
 
 const style = StyleSheet.create({

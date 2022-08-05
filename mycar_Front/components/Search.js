@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, FlatList } from 'react-native'
-import { useNavigation,NavigationContainer } from '@react-navigation/native';
 import Filtre from "../assets/filtres.png";
 import boiteA from "../assets/boiteauto.png";
 import Essence from "../assets/ESSENCE.png";
@@ -28,12 +27,12 @@ export default function Search({ route, navigation }) {
     });
 
 
-  
-  }, []);
-  if (!voiture) return null;
+    
+    }, []);
+    if (!voiture) return null;
 
 
-   
+
     
     function navigateProfil() {
         navigation.navigate("Profil");
@@ -48,26 +47,26 @@ export default function Search({ route, navigation }) {
     }
 
     
-           return(
+            return(
 
             
 
-   <View style={style.bloc}>
-       <Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text>
-     
+    <View style={style.bloc}>
+        <Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text>
+            
         <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
 
         <Text onPress={() => navigateFiltre()}><Image source={Filtre} style={style.filtre} ></Image></Text>
-        <Text style={style.nom}>Date d'arrivée : {JSON.stringify(dateD)}</Text>
-        <Text style={style.nom}>Date de fin :{JSON.stringify(dateF)}</Text>
+        <Text>Date d'arrivée : {JSON.stringify(dateD)}</Text>
+        <Text>Date de fin :{JSON.stringify(dateF)}</Text>
 
             <FlatList
             keyExtractor={(item) => item.id}
             data={voiture}
             renderItem={({item}) => (
-         
-              <Text style={style.item}><Text    style={style.nom}  
-              onPress={() => {
+                
+                <Text style={style.item}><Text    style={style.nom}  
+                onPress={() => {
                 navigation.navigate('Detail', {
                     nbrePlace: item.nbrePlace, 
                     marque: item.nomMarque,
@@ -81,17 +80,17 @@ export default function Search({ route, navigation }) {
                     dateD: dateD, 
                     dateF:dateF, 
                 });
-              }}>
-                  {item.nomMarque} {item.nomModele}</Text>  
-              <br></br>
-              <Text>{item.nomStatut}</Text>
-              <br></br>
-              <br></br>
-              <br></br>
+                }}>
+                {item.nomMarque} {item.nomModele}</Text>  
+                <br></br>
+                <Text>{item.nomStatut}</Text>
+                <br></br>
+                <br></br>
+                <br></br>
             
-              <Image source={ personne }   style={style.logobande} ></Image>{item.nbrePlace} <Image source={ boiteA }   style={style.logobande} ></Image> {item.boite} <Image source={ Essence }   style={style.logobande} ></Image> {item.carburant} </Text>
-              
-              
+                <Image source={ personne }   style={style.logobande} ></Image>{item.nbrePlace} <Image source={ boiteA }   style={style.logobande} ></Image> {item.boite} <Image source={ Essence }   style={style.logobande} ></Image> {item.carburant} </Text>
+
+
             )}
             />
             

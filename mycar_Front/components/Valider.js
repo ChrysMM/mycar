@@ -1,7 +1,5 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from 'react-native'
-import { useNavigation } from '@react-navigation/native';
-import historique from "../assets/HISTORIQUE.png";
 import profil from "../assets/PROFIL.png";
 import mycar from "../assets/My_Car.png";
 

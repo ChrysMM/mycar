@@ -1,15 +1,8 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, Button } from 'react-native'
-import { useNavigation } from '@react-navigation/native';
 import mycar from "../assets/My_Car.png";
-import historique from "../assets/HISTORIQUE.png";
 import profil from "../assets/PROFIL.png";
-import boiteA from "../assets/boiteauto.png";
-import Essence from "../assets/ESSENCE.png";
-import personne from "../assets/PERSONNE.png";
-import Immatriculation from "../assets/immatriculation.png";
-import Annee from "../assets/anne.png";
-import axios from 'axios';
+
 
 
 export default function Confirmation({ route, navigation }) {
@@ -33,12 +26,12 @@ export default function Confirmation({ route, navigation }) {
             <Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text>
             <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
 
-            
+            <Text style={style.louer} onPress={() => navigation.goBack()} >Retour</Text>
             <View style={style.bloc1}>
             <Text style={style.title} >Récapitulatif de vos coordonnées : </Text>
-            <Text style={style.text} >Nom : {JSON.stringify(marque)}</Text>
-            <Text style={style.text} >Prénom : {JSON.stringify(nbrePlace)}</Text>
-            <Text style={style.text} >Email : {JSON.stringify(marque)}</Text>
+            <Text style={style.text} >Nom : </Text>
+            <Text style={style.text} >Prénom : </Text>
+            <Text style={style.text} >Email :</Text>
             
             
                     
@@ -62,6 +55,8 @@ export default function Confirmation({ route, navigation }) {
                     dateF:dateF, 
                 });
                 }}>Valider</Text>
+
+                
         
 </View>
 </View>
@@ -112,7 +107,7 @@ export default function Confirmation({ route, navigation }) {
                 textAlign: 'center', 
             }, 
 
-          
+            
             text : {
                 fontSize: 14, 
                 marginLeft: 22, 

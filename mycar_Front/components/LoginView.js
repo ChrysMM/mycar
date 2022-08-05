@@ -55,7 +55,7 @@ class LoginView extends Component {
       console.log(error && error.response);
       this.setState({errors: error.response.data, isLoading: false});
     };
-     
+
 
     // SPINER
     this.setState({isLoading: true});

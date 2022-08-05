@@ -17,8 +17,8 @@ export default function Profil() {
     }).catch((err)=>{
         console.log("error", err);
     });
-  }, []);
-  if (!profil) return null;
+    }, []);
+    if (!profil) return null;
 
     
 
@@ -50,13 +50,11 @@ const style =StyleSheet.create({
     }, 
     donneemp: {
         fontWeight: "bold", 
-       textAlign: "center", 
+        textAlign: "center", 
 
-        
     }, 
 
     view:{
         alignItems: "center", 
     },
-   
 })
