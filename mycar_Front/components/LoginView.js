@@ -166,7 +166,12 @@ class LoginView extends Component {
           <TouchableOpacity
             style={styles.loginButton}
             onPress={this.onPressLogin.bind(this)}>
-            <Text style={styles.loginButtonText}  onPress={() => navigation.navigate("date")} >CONNEXION</Text>
+            <Text style={styles.loginButtonText} onPress={() => {
+                navigation.navigate('date', {
+                  username: this.state.username, 
+                  password: this.state.password,
+                });
+              }}>CONNEXION</Text>
           </TouchableOpacity>
         </View> : <View><Text>Connexion établie</Text></View>}
       </View>

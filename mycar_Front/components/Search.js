@@ -14,7 +14,8 @@ import axios from 'axios';
 const URLvoiture = "http://localhost:8080/api/voiture"; 
 
 
-export default function Search() {
+export default function Search({ route, navigation }) {
+    const { dateD , dateF} = route.params;
     const [voiture, setVoiture] = React.useState(null);
 
     React.useEffect(() => {
@@ -32,13 +33,7 @@ export default function Search() {
   if (!voiture) return null;
 
 
-    const navigation = useNavigation();
-
-
-    function navigateDetail() {
-        navigation.navigate("Detail");
-    }
-
+   
     
     function navigateProfil() {
         navigation.navigate("Profil");
@@ -63,15 +58,31 @@ export default function Search() {
         <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
 
         <Text onPress={() => navigateFiltre()}><Image source={Filtre} style={style.filtre} ></Image></Text>
-
-
+        <Text style={style.nom}>Date d'arrivée : {JSON.stringify(dateD)}</Text>
+        <Text style={style.nom}>Date de fin :{JSON.stringify(dateF)}</Text>
 
             <FlatList
             keyExtractor={(item) => item.id}
             data={voiture}
             renderItem={({item}) => (
          
-              <Text style={style.item}><Text    style={style.nom}  onPress= {()=>navigateDetail()}>{item.nomMarque} {item.nomModele}</Text>  
+              <Text style={style.item}><Text    style={style.nom}  
+              onPress={() => {
+                navigation.navigate('Detail', {
+                    nbrePlace: item.nbrePlace, 
+                    marque: item.nomMarque,
+                    modele: item.nomModele,
+                    boite: item.boite, 
+                    carburant: item.carburant,
+                    nomStatut: item.nomStatut, 
+                    immatriculation: item.immatriculation,
+                    annee: item.annee,
+                    nomCategorie: item.nomCategorie,
+                    dateD: dateD, 
+                    dateF:dateF, 
+                });
+              }}>
+                  {item.nomMarque} {item.nomModele}</Text>  
               <br></br>
               <Text>{item.nomStatut}</Text>
               <br></br>
@@ -106,9 +117,10 @@ const style = StyleSheet.create({
     }, 
 
     item: {
+        shadowOpacity: 0.5,
+        shadowRadius: 11,
         marginTop: 24, 
         padding: 30, 
-        backgroundColor: "#DCDCDC", 
         fontSize: 12, 
         marginHorizontal: 10, 
         borderRadius:10, 

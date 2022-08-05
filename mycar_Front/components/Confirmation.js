@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, Button } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import mycar from "../assets/My_Car.png";
 import historique from "../assets/HISTORIQUE.png";
@@ -7,43 +7,14 @@ import profil from "../assets/PROFIL.png";
 import boiteA from "../assets/boiteauto.png";
 import Essence from "../assets/ESSENCE.png";
 import personne from "../assets/PERSONNE.png";
-import immatriculation from "../assets/immatriculation.png";
-import annee from "../assets/anne.png";
+import Immatriculation from "../assets/immatriculation.png";
+import Annee from "../assets/anne.png";
 import axios from 'axios';
 
-const URLvoiture = "http://localhost:8080/api/voiture"
-const URLsign = "http://localhost:8080/api/auth/signin"
 
-export default function Confirmation() {
-    const [voiture, setVoiture] = React.useState(null);
-    const [sign, setSign] = React.useState(null);
-    
+export default function Confirmation({ route, navigation }) {
 
-    React.useEffect(() => {
-    axios({method:'get', url:URLvoiture}).then( (response) => {
-        setVoiture(response.data);
-        
-        console.log("connexion test");
-    }).catch((err)=>{
-        console.log("error get", err);
-    });
-
-    axios({method:'get', url:URLvoiture}).then( (response) => {
-        setSign(response.data);
-        console.log(response);
-        console.log("connexion ok")
-    }).catch((err)=>{
-        console.log("error post", err);
-    });
-  }, []);
-  
-  if (!voiture) return null;
-  if (!sign) return null;
-
-
-
-
-    const navigation = useNavigation();
+    const { nbrePlace, marque, modele,boite, carburant,nomStatut, nomCategorie, annee, immatriculation, dateD, dateF} = route.params;
 
     function navigateConfirmation() {
         navigation.navigate("Valider");
@@ -58,48 +29,41 @@ export default function Confirmation() {
     }
 
         return(
+            <View style={style.view}>
+            <Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text>
+            <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
+
             
-        
-          <View style={style.view}>
-         <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
-         
-        <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
-        <View style={style.bloc1}>
-        <Text style={style.title}>Confirmation Informations<br /></Text>
-        <Text style={style.text}>Nom :  {sign.username}</Text>
-        <Text style={style.text}>Prénom :  {sign.prenomUser}</Text>
-        <Text style={style.text}>Dates : </Text>
+            <View style={style.bloc1}>
+            <Text style={style.title} >Récapitulatif de vos coordonnées : </Text>
+            <Text style={style.text} >Nom : {JSON.stringify(marque)}</Text>
+            <Text style={style.text} >Prénom : {JSON.stringify(nbrePlace)}</Text>
+            <Text style={style.text} >Email : {JSON.stringify(marque)}</Text>
+            
+            
+                    
+            
+    </View>
 
         
 <View style={style.bloc2}>
-        <Text style={style.title} >Récapitulatif : {voiture[1].nomMarque}  {voiture[1].nomModele} Détails</Text>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <Text style={style.text}>{voiture[1].nomCategorie}    </Text>
-        <Text style={style.text}><Image source={ immatriculation }   style={style.logobande} ></Image>{voiture[1].immatriculation}    </Text>
+        <Text style={style.title} >Récapitulatif :  {JSON.stringify(marque)} {JSON.stringify(modele)}</Text>
+        <Text style={style.text} >Nombre de places : {JSON.stringify(nbrePlace)}</Text>
+        <Text style={style.text} >Boite : {JSON.stringify(boite)}</Text>
+        <Text style={style.text} >Carburant : {JSON.stringify(carburant)}</Text>
+        <Text style={style.text} >Statut : {JSON.stringify(nomStatut)}</Text>
+        <Text style={style.text} >Immatriculation : {JSON.stringify(immatriculation)}</Text>
+        <Text style={style.text} >Année : {JSON.stringify(annee)}</Text>
+        <Text style={style.text} >Catégorie : {JSON.stringify(nomCategorie)}</Text>
         
-        <Text style={style.text}><Image source={ personne }   style={style.logobande} ></Image>{voiture[1].nbrePlace}  </Text>
-        <Text style={style.text}><Image source={ boiteA }   style={style.logobande} ></Image> {voiture[1].boite}    </Text>
+        <Text style={style.louer} onPress={() => {
+                navigation.navigate('Valider', {
+                    dateD: dateD, 
+                    dateF:dateF, 
+                });
+                }}>Valider</Text>
         
-        <Text style={style.text}><Image source={ Essence }   style={style.logobande} ></Image>  {voiture[1].carburant}  </Text>
-        <Text style={style.text}><Image source={ annee }   style={style.logobande} ></Image> {voiture[1].annee} </Text>
-        
-        <View  style={style.view}>
-        <Text style={style.louer}  onPress= {()=>navigateConfirmation()}>LOUER</Text>
-        </View>
-
-
-        <Text style={style.bande1} onPress= {()=>navigateHistorique()}>
-        <Image source={ historique }   style={style.logobande} ></Image>
-        </Text>
-        <Text style={style.bande2} onPress= {()=>navigateProfil()}>
-        <Image source={ profil }  style={style.logobande}   ></Image>
-        </Text>
-
-        </View>
-        </View>
+</View>
 </View>
         ); 
     }
@@ -148,25 +112,11 @@ export default function Confirmation() {
                 textAlign: 'center', 
             }, 
 
-            bande1: {
-                marginTop: 500,
-                backgroundColor: '#A2273C', 
-                height: 40, 
-                width: 200, 
-            }, 
-
-            bande2: {
-                marginTop: -28.5,
-                marginLeft: 200, 
-                backgroundColor: '#A2273C', 
-                height: 40, 
-                width: 200, 
-            }, 
-
+          
             text : {
                 fontSize: 14, 
-                fontWeight: "bold", 
                 marginLeft: 22, 
+                marginTop:10, 
                 textAlign: "left", 
             
             }, 
@@ -176,12 +126,9 @@ export default function Confirmation() {
                 width: 140, 
                 height:  25, 
                 borderRadius: 7,
-                elevation: 3,
                 marginTop: 100, 
                 color: 'white', 
                 fontWeight: "bold",
-                paddingTop: 2, 
-                paddingRight: 2, 
                 alignItems: "center", 
             }, 
 

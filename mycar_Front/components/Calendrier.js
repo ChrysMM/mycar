@@ -30,7 +30,7 @@ const App = () => {
         <CalendarPicker
           startFromMonday={true}
           allowRangeSelection={true}
-          minDate={new Date(2018, 1, 1)}
+          minDate={new Date}
           maxDate={new Date(2050, 6, 3)}
           weekdays={
             [
@@ -68,7 +68,12 @@ const App = () => {
           }}
           onDateChange={onDateChange}
         />
-        <Text style={styles.date} onPress= {()=>navigateSearch()}>Valider</Text>
+        <Text style={styles.date} onPress={() => {
+                navigation.navigate('Search', {
+                    dateD: selectedStartDate, 
+                    dateF: selectedEndDate,
+                });
+              }} >Valider</Text>
       </View>
     </SafeAreaView>
   );
