@@ -7,9 +7,15 @@ import employe from "../assets/emp.jpg";
 
 export default function Profil() {
 
+
+    
+function navigateLogo() {
+    navigation.navigate("Search");
+}
+
         return(
             <View style={style.view}>
-                <Text><Image source={mycar} style={style.mycar} ></Image></Text>
+                <Text onPress= {()=>navigateLogo()}><Image source={mycar} style={style.mycar} ></Image></Text>
                 <Text><Image source={employe} style={style.employe} ></Image></Text>
                 <Text style={style.donneemp}>Nom : </Text>
                 <Text style={style.donneemp}>Prénom : </Text>

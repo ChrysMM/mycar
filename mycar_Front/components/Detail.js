@@ -27,6 +27,7 @@ export default function Detail({ route, navigation })  {
     
 
     const { nbrePlace, marque, modele,boite, carburant,nomStatut, nomCategorie, annee, immatriculation, dateD,dateF} = route.params;
+   
     return (
         
         <View style={style.view}>
@@ -37,14 +38,14 @@ export default function Detail({ route, navigation })  {
         
         <View style={style.bloc}>
 
-        <Text  style={style.title} >{JSON.stringify(marque)} {JSON.stringify(modele)}</Text>
-        <Text>{JSON.stringify(nomCategorie)}</Text>
-        <Text>{JSON.stringify(nomStatut)}</Text>
-        <Text ><Image source={personne} style={style.logobande} ></Image>{JSON.stringify(nbrePlace)}</Text>
-        <Text><Image source={boiteA} style={style.logobande} ></Image>{JSON.stringify(boite)}</Text>
-        <Text><Image source={Essence} style={style.logobande} ></Image>{JSON.stringify(carburant)}</Text>
-        <Text><Image source={Annee} style={style.logobande} ></Image>{JSON.stringify(annee)}</Text>
-        <Text><Image source={Immatriculation} style={style.logobande} ></Image>{JSON.stringify(immatriculation)}</Text>
+        <Text  style={style.title} >{JSON.parse(JSON.stringify(marque))} {JSON.parse(JSON.stringify(modele))}</Text>
+        <Text>{JSON.parse(JSON.stringify(nomCategorie))}</Text>
+        <Text>{JSON.parse(JSON.stringify(nomStatut))}</Text>
+        <Text ><Image source={personne} style={style.logobande} ></Image>{JSON.parse(JSON.stringify(nbrePlace))}</Text>
+        <Text><Image source={boiteA} style={style.logobande} ></Image>{JSON.parse(JSON.stringify(boite))}</Text>
+        <Text><Image source={Essence} style={style.logobande} ></Image>{JSON.parse(JSON.stringify(carburant))}</Text>
+        <Text><Image source={Annee} style={style.logobande} ></Image>{JSON.parse(JSON.stringify(annee))}</Text>
+        <Text><Image source={Immatriculation} style={style.logobande} ></Image>{JSON.parse(JSON.stringify(immatriculation))}</Text>
         </View>
 
         <Text style={style.louer}  onPress={() => {

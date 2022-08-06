@@ -40,14 +40,14 @@ export default function Confirmation({ route, navigation }) {
 
         
 <View style={style.bloc2}>
-        <Text style={style.title} >Récapitulatif :  {JSON.stringify(marque)} {JSON.stringify(modele)}</Text>
-        <Text style={style.text} >Nombre de places : {JSON.stringify(nbrePlace)}</Text>
-        <Text style={style.text} >Boite : {JSON.stringify(boite)}</Text>
-        <Text style={style.text} >Carburant : {JSON.stringify(carburant)}</Text>
-        <Text style={style.text} >Statut : {JSON.stringify(nomStatut)}</Text>
-        <Text style={style.text} >Immatriculation : {JSON.stringify(immatriculation)}</Text>
-        <Text style={style.text} >Année : {JSON.stringify(annee)}</Text>
-        <Text style={style.text} >Catégorie : {JSON.stringify(nomCategorie)}</Text>
+        <Text style={style.title} >Récapitulatif :  {JSON.parse(JSON.stringify(marque))} {JSON.parse(JSON.stringify(modele))}</Text>
+        <Text style={style.text} >Nombre de places : {JSON.parse(JSON.stringify(nbrePlace))}</Text>
+        <Text style={style.text} >Boite : {JSON.parse(JSON.stringify(boite))}</Text>
+        <Text style={style.text} >Carburant : {JSON.parse(JSON.stringify(carburant))}</Text>
+        <Text style={style.text} >Statut : {JSON.parse(JSON.stringify(nomStatut))}</Text>
+        <Text style={style.text} >Immatriculation : {JSON.parse(JSON.stringify(immatriculation))}</Text>
+        <Text style={style.text} >Année : {JSON.parse(JSON.stringify(annee))}</Text>
+        <Text style={style.text} >Catégorie : {JSON.parse(JSON.stringify(nomCategorie))}</Text>
         
         <Text style={style.louer} onPress={() => {
                 navigation.navigate('Valider', {

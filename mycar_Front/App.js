@@ -29,7 +29,7 @@ export default function Navigator(){
     <AppStack.Screen options={{headerShown: false}} name="LoginView" component={LoginView}/>
  
 
-    <AppStack.Screen options={{headerShown: false}} name="Oublie" component={Oublie} />
+    
     <AppStack.Screen options={{headerShown: false}} name="date" component={date} />
     
     <AppStack.Screen options={{headerShown: false}} name="Calendrier" component={Calendrier} /> 

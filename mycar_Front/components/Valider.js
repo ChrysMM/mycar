@@ -27,7 +27,7 @@ export default function Valider({ route, navigation }) {
             <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
             <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
 
-        <Text style={style.reserve}>Vous avez réservé votre voiture du {JSON.stringify(dateD)} au {JSON.stringify(dateF)}  </Text>
+        <Text style={style.reserve}>Vous avez réservé votre voiture du {JSON.parse(JSON.stringify(dateD))} au {JSON.parse(JSON.stringify(dateF))}. </Text>
         
         <Text style={style.reserve}>A bientôt !</Text>
         

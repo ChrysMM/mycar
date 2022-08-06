@@ -57,8 +57,8 @@ export default function Search({ route, navigation }) {
         <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
 
         <Text onPress={() => navigateFiltre()}><Image source={Filtre} style={style.filtre} ></Image></Text>
-        <Text>Date d'arrivée : {JSON.stringify(dateD)}</Text>
-        <Text>Date de fin :{JSON.stringify(dateF)}</Text>
+        <Text>Date d'arrivée : {JSON.parse(JSON.stringify(dateD))}</Text>
+        <Text>Date de fin :{JSON.parse(JSON.stringify(dateF))}</Text>
 
             <FlatList
             keyExtractor={(item) => item.id}
@@ -116,7 +116,7 @@ const style = StyleSheet.create({
     }, 
 
     item: {
-        shadowOpacity: 0.5,
+        shadowOpacity: 1,
         shadowRadius: 11,
         marginTop: 24, 
         padding: 30, 
@@ -124,14 +124,12 @@ const style = StyleSheet.create({
         marginHorizontal: 10, 
         borderRadius:10, 
         borderWidth: 1, 
-        fontSize: 14, 
-        fontWeight: "bold", 
-        textAlign: "left", 
+        fontSize: 12, 
     
     }, 
 
     title: {
-        fontSize: 22, 
+        fontSize: 18, 
         color: 'black',
         fontWeight: "bold", 
         textAlign: 'center', 
