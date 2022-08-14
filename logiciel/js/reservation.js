@@ -7,8 +7,8 @@ const AxiosReservation = () => {
             // console.log("connexion test", response.data[0].id);
                 var tr ="<tr>"; 
                 var intertr="</tr>"; 
-                var td ="<td>";
-                var intertd="</td>"; 
+                var td ="<td><a href='element_reservation.html'>";
+                var intertd="</a></td>"; 
                 var tbody = document.getElementById("content");
 
 
