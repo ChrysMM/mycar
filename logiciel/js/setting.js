@@ -61,8 +61,8 @@ const axios= require("axios");
           
                 var tr ="<tr>"; 
                     var intertr="</tr>"; 
-                    var td ="<td>";
-                    var intertd="</td>"; 
+                    var td ="<td><a href='element_setting.html'>";
+                    var intertd="</a></td>"; 
                     var tbody = document.getElementById("content");
 
 

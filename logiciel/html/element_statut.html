@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
-    <script type="text/javascript" src="../js/categorie.js"></script>
-    <link rel="stylesheet" href="../css/categorie.css">
-    <title>Tableau</title>
+    <script type="text/javascript" src="../js/element_statut.js"></script>
+    <link rel="stylesheet" href="../css/statut.css">
+    <title>Tableau des statuts </title>
 </head>
 <body>
     
@@ -12,19 +12,19 @@
         <form action="index.html" method="POST" >
         <a href="Liste.html">Accueil</a>
         <input type="submit" id='submit' onclick="goToFirstWindow()" value='Deconnexion' >
-
+        
     </form>
-        <h1>Tableau des catégories</h1>
+        <h1>Tableau du statut</h1>
         <table >
-            <thead>
+        <thead>
             <tr style="font-weight: bold;">
                 <th>Id</th>
-                <th>Catégorie</th>
-                
+                <th>Statut</th>
             </tr>
         </thead>
-        <tbody id="content"  >
-        </tbody> 
+        <tbody id="content">
+
+        </tbody>
         </table>
     </div>
     

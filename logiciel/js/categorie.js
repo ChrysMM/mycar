@@ -7,8 +7,8 @@ const AxiosCategorie = () => {
             // console.log("connexion test", response.data[0].id);
                 var tr ="<tr>"; 
                 var intertr="</tr>"; 
-                var td ="<td>";
-                var intertd="</td>"; 
+                var td ="<td ><a href='element_categorie.html'>";
+                var intertd="</a></td>"; 
                 var tbody = document.getElementById("content");
 
 
@@ -22,6 +22,12 @@ const AxiosCategorie = () => {
                 contentTmp+= td+element.nomCategorie+intertd;
                 contentTmp += intertr
                 tbody.innerHTML += contentTmp;
+
+                
+             console.log(element.id+'id')
+                    document.cookie="id="+element.id+"nomCat="+element.nomCategorie; "path=/"; 
+                    
+                    console.log(document.cookie+'cc'); 
             }
             );
         })
@@ -29,6 +35,7 @@ const AxiosCategorie = () => {
 };  
 
 AxiosCategorie();
+
 
     
 const remote = window.require("electron").remote;
@@ -39,3 +46,6 @@ const remote = window.require("electron").remote;
     }
 
 
+
+    
+    
