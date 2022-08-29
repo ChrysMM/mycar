@@ -24,6 +24,8 @@ module.exports = function(app) {
     res.header('Access-Control-Allow-Origin', '*'); 
     next();
   });
+
+  /*(utilisateur/modérateur/administrateur)/api/test/user     */
   app.get("/api/test/all", controller.allAccess);
   app.get(
     "/api/test/user",
