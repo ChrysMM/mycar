@@ -12,10 +12,10 @@ import  date from './components/date';
 import  Detail from './components/Detail';
 import  Oublie from './components/Oublie';
 import  Valider from './components/Valider';
-
+import {LogBox} from  'react-native'
 
  
-
+LogBox.ignoreAllLogs();
 const AppStack = createStackNavigator();
  
  

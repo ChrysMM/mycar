@@ -31,5 +31,16 @@ input{
 	outline: none;
 	border-radius: 5px;
 }
-
+button {
+	width: 60%;
+	height: 20px;
+	background: #e0dede;
+	justify-content: center;
+	display: flex;
+	margin: auto;
+	padding: auto;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
 

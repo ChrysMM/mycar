@@ -7,7 +7,7 @@ const axios= require("axios");
                 // console.log("connexion test", response.data[0].id);
                 
 
-                response.data.forEach(element  => {
+                    response.data.forEach(element  => {
                     var Id= document.getElementById("Id"); 
                     var Catégorie= document.getElementById("Catégorie");
                     Id.innerHTML += element.id+ '<br />'; 
