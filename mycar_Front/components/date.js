@@ -10,9 +10,6 @@ export default function date() {
     
     const navigation = useNavigation();
 
-    function navigateRecherche() {
-        navigation.navigate("Search");
-    }
 
     function navigateCalendrier() {
         navigation.navigate("Calendrier");
@@ -44,7 +41,7 @@ Date de restitution
 
         </DataTable>
     <View>
-    <Text style={style.rech} onPress= {()=>navigateRecherche()}> RECHERCHER</Text>
+    <Text style={style.rech} > RECHERCHER</Text>
     </View>
 
 

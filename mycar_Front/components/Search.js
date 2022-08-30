@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, FlatList } from 'react-native'
-import { useNavigation,NavigationContainer } from '@react-navigation/native';
 import Filtre from "../assets/filtres.png";
 import boiteA from "../assets/boiteauto.png";
 import Essence from "../assets/ESSENCE.png";
@@ -14,7 +13,8 @@ import axios from 'axios';
 const URLvoiture = "http://localhost:8080/api/voiture"; 
 
 
-export default function Search() {
+export default function Search({ route, navigation }) {
+    const { dateD , dateF} = route.params;
     const [voiture, setVoiture] = React.useState(null);
 
     React.useEffect(() => {
@@ -27,17 +27,11 @@ export default function Search() {
     });
 
 
-  
-  }, []);
-  if (!voiture) return null;
+    
+    }, []);
+    if (!voiture) return null;
 
 
-    const navigation = useNavigation();
-
-
-    function navigateDetail() {
-        navigation.navigate("Detail");
-    }
 
     
     function navigateProfil() {
@@ -53,34 +47,50 @@ export default function Search() {
     }
 
     
-           return(
+            return(
 
             
 
-   <View style={style.bloc}>
-       <Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text>
-     
+    <View style={style.bloc}>
+        <Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text>
+            
         <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
 
         <Text onPress={() => navigateFiltre()}><Image source={Filtre} style={style.filtre} ></Image></Text>
-
-
+        <Text>Date d'arrivée : {JSON.parse(JSON.stringify(dateD))}</Text>
+        <Text>Date de fin :{JSON.parse(JSON.stringify(dateF))}</Text>
 
             <FlatList
             keyExtractor={(item) => item.id}
             data={voiture}
             renderItem={({item}) => (
-         
-              <Text style={style.item}><Text    style={style.nom}  onPress= {()=>navigateDetail()}>{item.nomMarque} {item.nomModele}</Text>  
-              <br></br>
-              <Text>{item.nomStatut}</Text>
-              <br></br>
-              <br></br>
-              <br></br>
+                
+                <Text style={style.item}><Text    style={style.nom}  
+                onPress={() => {
+                navigation.navigate('Detail', {
+                    nbrePlace: item.nbrePlace, 
+                    marque: item.nomMarque,
+                    modele: item.nomModele,
+                    boite: item.boite, 
+                    carburant: item.carburant,
+                    nomStatut: item.nomStatut, 
+                    immatriculation: item.immatriculation,
+                    annee: item.annee,
+                    nomCategorie: item.nomCategorie,
+                    dateD: dateD, 
+                    dateF:dateF, 
+                });
+                }}>
+                {item.nomMarque} {item.nomModele}</Text>  
+                <br></br>
+                <Text>{item.nomStatut}</Text>
+                <br></br>
+                <br></br>
+                <br></br>
             
-              <Image source={ personne }   style={style.logobande} ></Image>{item.nbrePlace} <Image source={ boiteA }   style={style.logobande} ></Image> {item.boite} <Image source={ Essence }   style={style.logobande} ></Image> {item.carburant} </Text>
-              
-              
+                <Image source={ personne }   style={style.logobande} ></Image>{item.nbrePlace} <Image source={ boiteA }   style={style.logobande} ></Image> {item.boite} <Image source={ Essence }   style={style.logobande} ></Image> {item.carburant} </Text>
+
+
             )}
             />
             
@@ -106,21 +116,20 @@ const style = StyleSheet.create({
     }, 
 
     item: {
+        shadowOpacity: 1,
+        shadowRadius: 11,
         marginTop: 24, 
         padding: 30, 
-        backgroundColor: "#DCDCDC", 
         fontSize: 12, 
         marginHorizontal: 10, 
         borderRadius:10, 
         borderWidth: 1, 
-        fontSize: 14, 
-        fontWeight: "bold", 
-        textAlign: "left", 
+        fontSize: 12, 
     
     }, 
 
     title: {
-        fontSize: 22, 
+        fontSize: 18, 
         color: 'black',
         fontWeight: "bold", 
         textAlign: 'center', 

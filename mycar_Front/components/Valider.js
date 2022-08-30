@@ -1,14 +1,12 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from 'react-native'
-import { useNavigation } from '@react-navigation/native';
-import historique from "../assets/HISTORIQUE.png";
 import profil from "../assets/PROFIL.png";
 import mycar from "../assets/My_Car.png";
 
 
-export default function Valider() {
-    
-    const navigation = useNavigation();
+export default function Valider({ route, navigation }) {
+    const { dateD , dateF} = route.params;
+
 
     function navigateSearch() {
         navigation.navigate("Detail");
@@ -29,8 +27,9 @@ export default function Valider() {
             <Text  onPress= {()=>navigateLogo()}><Image  source={mycar} style={style.mycar} ></Image></Text>
             <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
 
-        <Text style={style.reserve}>Vous avez réservé votre voiture  </Text>
+        <Text style={style.reserve}>Vous avez réservé votre voiture du {JSON.parse(JSON.stringify(dateD))} au {JSON.parse(JSON.stringify(dateF))}. </Text>
         
+        <Text style={style.reserve}>A bientôt !</Text>
         
 
 
@@ -69,21 +68,6 @@ const style = StyleSheet.create({
         marginLeft: 40, 
     }, 
 
-    bande1: {
-        marginTop: 500,
-        backgroundColor: '#A2273C', 
-        height: 40, 
-        width: 200, 
-    }, 
-
-    
-    bande2: {
-        marginTop: -40,
-        marginLeft: 200, 
-        backgroundColor: '#A2273C', 
-        height: 40, 
-        width: 200, 
-    }, 
 
     mycar: {
         marginLeft: 300, 
@@ -96,7 +80,7 @@ const style = StyleSheet.create({
         fontSize: 15,
         textAlign: "center",
         fontWeight: "bold", 
-        marginTop:60, 
+        marginTop:100, 
     },
 
     title: {
@@ -104,7 +88,5 @@ const style = StyleSheet.create({
         color: 'black',
         fontWeight: "bold", 
         textAlign: 'center', 
-   
-       
     }, 
 })

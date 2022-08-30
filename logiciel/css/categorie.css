@@ -1,3 +1,8 @@
+a { 
+    color: inherit;
+    text-decoration:inherit;
+} 
+
 h1{
     color: #000; 
     align-items: center;
@@ -9,7 +14,7 @@ body {
 
 body {
     margin: 0;
-    background: linear-gradient(to bottom, #7b798f, #4f4f66);
+    background: linear-gradient(to bottom, #8baec9, #62bbf7);
     font-family: sans-serif;
     font-weight: 100;
     align-items: center;

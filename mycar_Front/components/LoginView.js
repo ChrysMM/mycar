@@ -168,7 +168,7 @@ class LoginView extends Component {
 
           {this.getNonFieldErrorMessage()}
 
-          <Text style={styles.oublie} onPress={() => navigation.navigate("Oublie")}>Mot de passe oublié? </Text>
+          
 
           <TouchableOpacity
             style={styles.loginButton}

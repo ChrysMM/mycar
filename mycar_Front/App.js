@@ -24,16 +24,17 @@ export default function Navigator(){
 
     return (
     <NavigationContainer>
-    <AppStack.Navigator screenOptions={{ headerShown: true }} >
+    <AppStack.Navigator screenOptions={{ headerShown: false }} >
  
-    <AppStack.Screen options={{headerShown: false}} name="LoginView" component={LoginView} options={{ tabBarBadge: 3 }}/>
+    <AppStack.Screen options={{headerShown: false}} name="LoginView" component={LoginView}/>
  
 
-    <AppStack.Screen options={{headerShown: false}} name="Oublie" component={Oublie} />
+    
     <AppStack.Screen options={{headerShown: false}} name="date" component={date} />
-    <AppStack.Screen options={{headerShown: false}} name="Detail" component={Detail} />
+    
     <AppStack.Screen options={{headerShown: false}} name="Calendrier" component={Calendrier} /> 
     <AppStack.Screen options={{headerShown: false}} name="Search" component={Search} />
+    <AppStack.Screen options={{headerShown: false}} name="Detail" component={Detail} />
     <AppStack.Screen options={{headerShown: false}} name="Filtre" component={Filtre} />
     <AppStack.Screen options={{headerShown: false}} name="Valider" component={Valider} />
     <AppStack.Screen options={{headerShown: false}} name="Profil" component={Profil} />
