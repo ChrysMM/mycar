@@ -7,8 +7,8 @@ const AxiosModele = () => {
             // console.log("connexion test", response.data[0].id);
                 var tr ="<tr>"; 
                 var intertr="</tr>"; 
-                var td ="<td><a href='element_modele.html'>";
-                var intertd="</a></td>"; 
+                var td ="<td>";
+                var intertd="</td>"; 
                 var tbody = document.getElementById("content");
 
 
