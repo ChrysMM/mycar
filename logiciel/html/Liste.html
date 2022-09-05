@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <head>
@@ -38,6 +38,60 @@
           <li><a href="modele.html">Modeles</a></li>
           <li><a href="statut.html">Statuts</a></li>
  
+          
+            
+          </li>
+        </ul>
+      </li>  
+    </ul>
+  </li>
+</ul>
+
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+}
+</script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+        <script type="text/javascript" src="../js/liste.js"></script>
+        <link rel="stylesheet" href="../css/liste.css">
+        <title>Tableau</title>
+    </head>
+<style>
+
+</style>
+</head>
+<body>
+
+<h2>My Car</h2>
+<p>Ma base de donées</p>
+<p>Click </p>
+
+<ul id="myUL">
+  <li><span class="caret">Mycar</span>
+    <ul class="nested">
+      <li><span class="caret"><a href="user.html">Users</span></a>
+      <li><span class="caret"><a href="reservation.html">Réservations</span></a>
+      <li><span class="caret"><a href="setting.html">Voitures</span></a>
+        <ul class="nested">
+          <li ><a href="categorie.html">Catégories</a></li>
+          <li><a href="marque.html">Marques</a></li>
+          <li><a href="modele.html">Modeles</a></li>
+          <li><a href="statut.html">Statuts</a></li>
           
             
           </li>
