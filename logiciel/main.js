@@ -1,5 +1,6 @@
 // constante qui va permettre de créer une app et la fenetre de notre logiciel avec les fonctionnalités d'éléctron
 const { app, BrowserWindow } = require('electron')
+const { session } = require('electron')
 // travailler avec les chemins des fichiers
 const path = require('path')
 
@@ -44,3 +45,28 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
+
+
+session.defaultSession.cookies.get({})
+  .then((cookies) => {
+    console.log(cookies)
+  }).catch((error) => {
+    console.log(error)
+  })
+
+
+session.defaultSession.cookies.get({ url: 'http://www.github.com' })
+  .then((cookies) => {
+    console.log(cookies)
+  }).catch((error) => {
+    console.log(error)
+  })
+
+
+const cookie = { url: 'https://github.com', name: 'dummy_name', value: 'dummy' }
+session.defaultSession.cookies.set(cookie)
+  .then(() => {
+    // success
+  }, (error) => {
+    console.error(error)
+  })
