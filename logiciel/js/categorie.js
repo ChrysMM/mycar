@@ -1,5 +1,7 @@
 const axios= require("axios");
 // import axios from "axios";
+//Axios qui permet l'acces a la base de doconst axios= require("axios");
+// import axios from "axios";
 //Axios qui permet l'acces a la base de données
     
 const AxiosCategorie = () => {
@@ -44,8 +46,5 @@ const remote = window.require("electron").remote;
     function goToFirstWindow() {
         remote.getCurrentWindow().close();
     }
-
-
-
     
     

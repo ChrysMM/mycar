@@ -1,11 +1,11 @@
 /************************************************************/
 /*                                                          */
 /*              4 fonctions :                               */
-/*    pour l’accès public                                   */
+/*  pour l’accès public                                     */
 /*  pour les utilisateurs connectés                         */
 /*  (rôle : utilisateur/modérateur/administrateur)          */ 
 /*  pour les utilisateurs ayant un rôle de modérateur       */
-/* pour les utilisateurs ayant un rôle d’administrateur/ap  */
+/*  pour les utilisateurs ayant un rôle d’administrateur/ap */
 /*                                                          */
 /************************************************************/
 

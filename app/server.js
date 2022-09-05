@@ -51,7 +51,7 @@ require('../app/routes/statut.routes')(app);
 require('../app/routes/reservation.routes')(app)
 
 
-
+/*Connexion*/
 function initial() {
  Role.create({
     id: 1,

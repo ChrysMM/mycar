@@ -7,10 +7,14 @@ import {
   TextInput
 } from 'react-native';
 
+
+
+
 import Spinner from 'react-native-loading-spinner-overlay';
 import { useNavigation } from '@react-navigation/native';
 import APIKit, {setClientToken} from '../APIKit';
-
+   
+// Etats de User
 const initialState = {
   username: '',
   password: '',
@@ -46,7 +50,9 @@ class LoginView extends Component {
     console.log(payload);
 
     const onSuccess =  ({data}) => {
-      //   Token   success
+
+      
+      // Le   Token   success
       setClientToken(data.token);
       this.setState({isLoading: false, isAuthorized: true});
     }; 
@@ -59,7 +65,7 @@ class LoginView extends Component {
 
     // SPINER
     this.setState({isLoading: true});
-
+//Axios appel dans APKit.js
       APIKit.post('', payload)
       .then(onSuccess)
       .catch(onFailure);
@@ -67,7 +73,7 @@ class LoginView extends Component {
   }
 
   getNonFieldErrorMessage() {
-    // ERREURS
+    // Gestion des ERREURS
     let message = null;
     const {errors} = this.state;
     if (errors.non_field_errors) {
@@ -88,7 +94,7 @@ class LoginView extends Component {
 
   getErrorMessageByField(field) {
     //  Check erreurs
-    //   message erreur backend
+    //   message erreur du backend
     let message = null;
     if (this.state.errors[field]) {
       message = (
@@ -103,6 +109,7 @@ class LoginView extends Component {
     }
     return message;
   }
+// Rendu page de connexion
 
   render() {
     const { navigation } = this.props;
