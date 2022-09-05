@@ -24,7 +24,7 @@ const AxiosCategorie = () => {
                 tbody.innerHTML += contentTmp;
 
                 
-             console.log(element.id+'id')
+                console.log(element.id+'id')
                     document.cookie="id="+element.id+"nomCat="+element.nomCategorie; "path=/"; 
                     
                     console.log(document.cookie+'cc'); 
