@@ -7,9 +7,6 @@ import {
   TextInput
 } from 'react-native';
 
-
-
-
 import Spinner from 'react-native-loading-spinner-overlay';
 import { useNavigation } from '@react-navigation/native';
 import APIKit, {setClientToken} from '../APIKit';
@@ -18,6 +15,8 @@ import APIKit, {setClientToken} from '../APIKit';
 const initialState = {
   username: '',
   password: '',
+  email: '',
+  prenomUser: '',
   errors: {},
   isAuthorized: false,
   isLoading: false,
@@ -29,11 +28,13 @@ const initialState = {
 
 class LoginView extends Component {
   
-
+ 
 
   state = initialState;
 
-
+  // componentDidMount(){
+  //   console.log(this.state);
+  // }
   componentWillUnmount() {}
 
   onUsernameChange = username => {
@@ -45,21 +46,28 @@ class LoginView extends Component {
   };
 
   onPressLogin() {
-    const {username, password} = this.state;
-    const payload = {username, password};
-    console.log(payload);
+    const {username, password, email, prenomUser} = this.state;
+    const payload = {username, password, email, prenomUser};
+    
 
-    const onSuccess =  ({data}) => {
 
-      
+    const onSuccess =  (data) => {
+
+      //console.log(data.data);
+      const {email, prenomUser} = data.data;
       // Le   Token   success
-      setClientToken(data.token);
-      this.setState({isLoading: false, isAuthorized: true});
+      setClientToken(data.data.accessToken);
+      //console.log(data.data)
+      //console.log("user", user);
+      this.setState({email, prenomUser})
+      // this.setState({prenomUser})
+//Props a ajouter et redirection!!!
+
     }; 
 
-    const onFailure = error => {
-      console.log(error && error.response);
-      this.setState({errors: error.response.data, isLoading: false});
+    const onFailure = (error) => {
+      console.log(error, error.response);
+      this.setState({errors: error.response.data, isLoading: false})
     };
      
 
@@ -68,6 +76,7 @@ class LoginView extends Component {
 //Axios appel dans APKit.js
       APIKit.post('', payload)
       .then(onSuccess)
+      .then(()=>console.log(this.state))
       .catch(onFailure);
 
   }
@@ -173,9 +182,9 @@ class LoginView extends Component {
           <TouchableOpacity
             style={styles.loginButton}
             onPress={this.onPressLogin.bind(this)}>
-            <Text style={styles.loginButtonText}  onPress={() => navigation.navigate("date")} >CONNEXION</Text>
+            <Text style={styles.loginButtonText}  /*onPress={() => navigation.navigate("Profil", {})}*/ >CONNEXION</Text>
           </TouchableOpacity>
-        </View> : <View><Text>Connexion établie</Text></View>}
+          </View> : <View><Text>{}</Text></View>}
       </View>
     );
   }

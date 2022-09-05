@@ -2,12 +2,12 @@ import React from "react";
 import { View, Text, Image, StyleSheet } from 'react-native'
 import mycar from "../assets/My_Car.png";
 import employe from "../assets/emp.jpg";
-
-
+import LoginView from './LoginView';
+import APIKit from "../APIKit";
 
 export default function Profil() {
 
-
+   // const { username , password} = route.params;
     
 function navigateLogo() {
     navigation.navigate("Search");

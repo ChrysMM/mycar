@@ -9,6 +9,7 @@ import personne from "../assets/PERSONNE.png";
 import mycar from "../assets/My_Car.png";
 
 
+
 export default function Detail({ route, navigation })  {
 
     const { username , password} = route.params;
