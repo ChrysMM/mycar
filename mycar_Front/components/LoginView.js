@@ -59,7 +59,7 @@ class LoginView extends Component {
       setClientToken(data.data.accessToken);
       //console.log(data.data)
       //console.log("user", user);
-      this.setState({email, prenomUser})
+      this.setState({email, prenomUser, username,password})
       // this.setState({prenomUser})
 //Props a ajouter et redirection!!!
 
