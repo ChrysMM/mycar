@@ -77,9 +77,12 @@ for (i = 0; i < toggler.length; i++) {
 </head>
 <body>
 
-<h2>My Car</h2>
-<p>Ma base de donées</p>
-<p>Click </p>
+
+<div>
+  <form action="index.html" method="POST" >
+  <input type="submit" id='submit' onclick="goToFirstWindow()" value='Deconnexion' >
+  <h2>My Car</h2>
+  <p>Ma base de donées</p>
 
 <ul id="myUL">
   <li><span class="caret">Mycar</span>
@@ -100,7 +103,8 @@ for (i = 0; i < toggler.length; i++) {
     </ul>
   </li>
 </ul>
-
+  </form>
+</div>
 <script>
 var toggler = document.getElementsByClassName("caret");
 var i;
