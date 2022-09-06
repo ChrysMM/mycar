@@ -33,7 +33,21 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to My Car App" });
 });
 require("./routes/voiture.routes.js")(app);
+
+
+// // Route to Login Page Logiciel
+// app.get('/login', (req, res) => {
+//   res.sendFile(__dirname + '/logiciel/js/login.html');
+// });
  
+// app.post('/login', (req, res) => {
+//   // Login
+//   let username = req.body.username;
+//   let password = req.body.password;
+//   res.send(`Username: ${username} Password: ${password}`);
+// });
+
+
  // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
