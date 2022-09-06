@@ -5,13 +5,13 @@ import employe from "../assets/emp.jpg";
 import LoginView from './LoginView';
 import APIKit from "../APIKit";
 
-export default function Profil() {
+export default function Profil({ route, navigation }) {
 
    // const { username , password} = route.params;
     
-function navigateLogo() {
-    navigation.navigate("Search");
-}
+    function navigateLogo() {
+        navigation.navigate("Search");
+    }
 
         return(
             <View style={style.view}>

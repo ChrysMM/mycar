@@ -49,7 +49,9 @@ export default function Confirmation({ route, navigation }) {
         <Text style={style.text} >Année : {JSON.parse(JSON.stringify(annee))}</Text>
         <Text style={style.text} >Catégorie : {JSON.parse(JSON.stringify(nomCategorie))}</Text>
         
-        <Text style={style.louer} onPress={() => {
+
+        
+        <Text  style={style.valider} onPress={() => {
                 navigation.navigate('Valider', {
                     dateD: dateD, 
                     dateF:dateF, 
@@ -65,6 +67,17 @@ export default function Confirmation({ route, navigation }) {
 
         
         const style = StyleSheet.create({
+            valider: {
+                alignItems: "center", 
+                backgroundColor: '#A2273C', 
+                textAlign: "center", 
+                color: 'white', 
+                fontWeight: "bold",
+                borderRadius: 7,
+                marginTop: 50, 
+                height:  65, 
+                
+            }, 
             view: {
                 alignItems: "center", 
             }, 
