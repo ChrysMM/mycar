@@ -22,6 +22,7 @@ exports.create = (req, res) => {
       modele_id : req.body.modele_id,
       statut_id : req.body.statut_id,
       categorie_id : req.body.categorie_id,
+      ImageVoiture : req.body.ImageVoiture
 //id : req.body.id
     
     });
