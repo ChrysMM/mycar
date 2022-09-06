@@ -4,22 +4,22 @@ const axios= require("axios");
 
 
 //Delete
-      const AxiosDeleteVoiture = () => {
-        axios.delete('http://localhost:8080/api/voiture', {
+      const AxiosDeleteVoiture = (id) => {
+        axios.delete(`http://localhost:8080/api/voiture/${id}`, {
           headers: {
             "x-access-token": "token-value",
           },
         }
       ).then(response => {
-          console.log("connexion test");
+          console.log("connexion test", response);
             })
             .catch(error => console.error("error"));
     };  
     
-    AxiosDeleteVoiture();
+    AxiosDeleteVoiture(5);
 
 //PUT
-      const AxiosPutVoiture = () => {
+      const AxiosPutVoiture = (id) => {
         
         axios.put(`http://localhost:8080/api/voiture/${id}`,  {
           headers: {
@@ -32,7 +32,7 @@ const axios= require("axios");
       .catch(error => console.error("error"));
       };  
 
-      AxiosPutVoiture();
+      AxiosPutVoiture(6);
 
 
 

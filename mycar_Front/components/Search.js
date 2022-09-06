@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, FlatList } from 'react-native'
-import Filtre from "../assets/filtres.png";
+
 import boiteA from "../assets/boiteauto.png";
 import Essence from "../assets/ESSENCE.png";
 import profil from "../assets/PROFIL.png";
@@ -42,10 +42,6 @@ export default function Search({ route, navigation }) {
         navigation.navigate("Search");
     }
 
-    function navigateFiltre() {
-        navigation.navigate("Filtre");
-    }
-
     
             return(
 
@@ -56,7 +52,7 @@ export default function Search({ route, navigation }) {
             
         <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
 
-        <Text onPress={() => navigateFiltre()}><Image source={Filtre} style={style.filtre} ></Image></Text>
+       
         <Text>Date d'arrivée : {JSON.parse(JSON.stringify(dateD))}</Text>
         <Text>Date de fin :{JSON.parse(JSON.stringify(dateF))}</Text>
 
@@ -151,6 +147,7 @@ const style = StyleSheet.create({
         height: 25,
         marginRight: 100,
         marginLeft: 40, 
+        
     }, 
 
     text : {
