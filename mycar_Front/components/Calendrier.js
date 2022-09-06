@@ -4,10 +4,10 @@ import {SafeAreaView, StyleSheet, View, Text} from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
 import { useNavigation,NavigationContainer } from '@react-navigation/native';
 
-const App = () => {
+const App = ({ route, navigation }) => {
   const [selectedStartDate, setSelectedStartDate] = useState(null);
   const [selectedEndDate, setSelectedEndDate] = useState(null);
-
+  const { email, prenomUser, username, password} = route.params;
   const onDateChange = (date, type) => {
 
     if (type === 'END_DATE') {
@@ -18,7 +18,7 @@ const App = () => {
     }
   };
 
-  const navigation = useNavigation();
+
   function navigateSearch() {
     navigation.navigate("Search");
 }
@@ -26,7 +26,7 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
-        
+      
         <CalendarPicker
           startFromMonday={true}
           allowRangeSelection={true}
@@ -72,8 +72,13 @@ const App = () => {
                 navigation.navigate('Search', {
                     dateD: selectedStartDate, 
                     dateF: selectedEndDate,
-                });
-              }} >Valider</Text>
+
+                          email: email, 
+                          prenomUser: prenomUser, 
+                          username: username, 
+                          password : password
+                      });
+                      }}>Valider</Text>
       </View>
     </SafeAreaView>
   );

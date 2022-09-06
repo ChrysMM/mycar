@@ -12,16 +12,9 @@ import mycar from "../assets/My_Car.png";
 
 export default function Detail({ route, navigation })  {
 
-    const { username , password} = route.params;
+    const {  email, prenomUser, username, password} = route.params; 
 
-    function navigateToList() {
-        navigation.navigate("Confirmation");
-    }
-    
-    function navigateProfil() {
-        navigation.navigate("Profil");
-    }
-
+ 
     function navigateLogo() {
         navigation.navigate("Search");
     }
@@ -33,7 +26,14 @@ export default function Detail({ route, navigation })  {
         
         <View style={style.view}>
         <Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text>
-        <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text> 
+        <Text style={style.title} onPress={() => {
+                navigation.navigate('Profil', {
+                   
+                    username: username, 
+                    prenomUser: prenomUser, 
+                    email: email, 
+                });
+                }} ><Image source={ profil }   style={style.logobande} ></Image></Text> 
         
         <Text style={style.louer} onPress={() => navigation.goBack()} >Retour</Text>
         
@@ -62,6 +62,9 @@ export default function Detail({ route, navigation })  {
                     nomCategorie: nomCategorie,
                     dateD:dateD, 
                     dateF:dateF, 
+                    username: username, 
+                    prenomUser: prenomUser, 
+                    email: email, 
                 });
                 }} >Confirmer</Text>
 

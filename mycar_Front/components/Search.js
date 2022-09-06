@@ -14,7 +14,7 @@ const URLvoiture = "http://localhost:8080/api/voiture";
 
 
 export default function Search({ route, navigation }) {
-    const { dateD , dateF} = route.params;
+    const { dateD , dateF, email, prenomUser, username, password} = route.params; 
     const [voiture, setVoiture] = React.useState(null);
 
     React.useEffect(() => {
@@ -33,10 +33,7 @@ export default function Search({ route, navigation }) {
 
 
 
-    
-    function navigateProfil() {
-        navigation.navigate("Profil");
-    }
+
 
     function navigateLogo() {
         navigation.navigate("Search");
@@ -50,10 +47,18 @@ export default function Search({ route, navigation }) {
     <View style={style.bloc}>
         <Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text>
             
-        <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
+        <Text style={style.title}  
+                onPress={() => {
+                    navigation.navigate('Profil', {
+                        prenomUser: prenomUser,
+                        username: username,
+                        email: email
+                    });
+                    }}><Image source={ profil }   style={style.logobande} ></Image></Text>
 
        
         <Text>Date d'arrivée : {JSON.parse(JSON.stringify(dateD))}</Text>
+       
         <Text>Date de fin :{JSON.parse(JSON.stringify(dateF))}</Text>
 
             <FlatList
@@ -75,6 +80,10 @@ export default function Search({ route, navigation }) {
                     nomCategorie: item.nomCategorie,
                     dateD: dateD, 
                     dateF:dateF, 
+                    email: email, 
+                    prenomUser: prenomUser,
+                    username: username,
+             
                 });
                 }}>
                 {item.nomMarque} {item.nomModele}</Text>  

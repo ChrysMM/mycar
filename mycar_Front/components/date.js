@@ -6,21 +6,25 @@ import calendrier from "../assets/CALENDRIER.png";
 
 
 
-export default function date() {
-    
-    const navigation = useNavigation();
+export default function date({ route, navigation }) {
+        console.log(route)
+    const { email, prenomUser, username, password} = route.params;
 
 
-    function navigateCalendrier() {
-        navigation.navigate("Calendrier");
-    }
     
         return(
 <View style={style.view}>
 
 <DataTable style={style.tab}>
 <DataTable.Row >
-<DataTable.Title onPress= {()=>navigateCalendrier()}>
+<DataTable.Title onPress={() => {
+                navigation.navigate('Calendrier', {
+                    email: email, 
+                    prenomUser: prenomUser, 
+                    username: username, 
+                    password : password
+                });
+                }}>
         Date d'arrivée
         </DataTable.Title>
 

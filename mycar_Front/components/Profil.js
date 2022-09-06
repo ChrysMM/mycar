@@ -1,14 +1,11 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from 'react-native'
 import mycar from "../assets/My_Car.png";
-import employe from "../assets/emp.jpg";
-import LoginView from './LoginView';
-import APIKit from "../APIKit";
+
 
 export default function Profil({ route, navigation }) {
 
-   // const { username , password} = route.params;
-    
+    const {email, prenomUser, username} = route.params; 
     function navigateLogo() {
         navigation.navigate("Search");
     }
@@ -16,10 +13,9 @@ export default function Profil({ route, navigation }) {
         return(
             <View style={style.view}>
                 <Text onPress= {()=>navigateLogo()}><Image source={mycar} style={style.mycar} ></Image></Text>
-                <Text><Image source={employe} style={style.employe} ></Image></Text>
-                <Text style={style.donneemp}>Nom : </Text>
-                <Text style={style.donneemp}>Prénom : </Text>
-                <Text style={style.donneemp}>Adresse mail : </Text>
+                <Text style={style.donneemp}>Nom : {JSON.parse(JSON.stringify(username))}</Text>
+                <Text style={style.donneemp}>Prénom : {JSON.parse(JSON.stringify(prenomUser))}</Text>
+                <Text style={style.donneemp}>Adresse mail : {JSON.parse(JSON.stringify(email))}</Text>
             </View>
         )}
 

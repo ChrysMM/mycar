@@ -28,10 +28,17 @@ const initialState = {
 
 class LoginView extends Component {
   
- 
+ constructor(props){
+   super(props)
+  this.route = props.route;
+  // this.navigation = props.navigation
+  this.state = initialState;
+ }
 
-  state = initialState;
-
+ _changeVersuneAutreVue(){
+   this.props.navigation.navigate("date", this.state);
+ }
+ //state = initialState;
   // componentDidMount(){
   //   console.log(this.state);
   // }
@@ -57,11 +64,14 @@ class LoginView extends Component {
       const {email, prenomUser} = data.data;
       // Le   Token   success
       setClientToken(data.data.accessToken);
-      //console.log(data.data)
+      console.log(data.data)
       //console.log("user", user);
       this.setState({email, prenomUser, username, password})
+      this._changeVersuneAutreVue();
       // this.setState({prenomUser})
 //Props a ajouter et redirection!!!
+// const {email, prenomUser, username, password} = this.props; 
+//  this.navigation.navigate("date", {email, prenomUser, username, password})
 
     }; 
 
@@ -182,7 +192,7 @@ class LoginView extends Component {
           <TouchableOpacity
             style={styles.loginButton}
             onPress={this.onPressLogin.bind(this)}>
-            <Text style={styles.loginButtonText}  /*onPress={() => navigation.navigate("Profil", {})}*/ >CONNEXION</Text>
+            <Text style={styles.loginButtonText}  >CONNEXION</Text>
           </TouchableOpacity>
           </View> : <View><Text>{}</Text></View>}
       </View>

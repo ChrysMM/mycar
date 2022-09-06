@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, Button } from 'react-native'
+import { View, Text, Image, StyleSheet } from 'react-native'
 import mycar from "../assets/My_Car.png";
 import profil from "../assets/PROFIL.png";
 
@@ -7,16 +7,8 @@ import profil from "../assets/PROFIL.png";
 
 export default function Confirmation({ route, navigation }) {
 
-    const { nbrePlace, marque, modele,boite, carburant,nomStatut, nomCategorie, annee, immatriculation, dateD, dateF} = route.params;
+    const { nbrePlace, marque, modele,boite, carburant,nomStatut, nomCategorie, annee, immatriculation, dateD, dateF,email, prenomUser, username} = route.params;
 
-    function navigateConfirmation() {
-        navigation.navigate("Valider");
-    }
-
-    
-    function navigateProfil() {
-        navigation.navigate("Profil");
-    }
     function navigateLogo() {
         navigation.navigate("Search");
     }
@@ -24,14 +16,20 @@ export default function Confirmation({ route, navigation }) {
         return(
             <View style={style.view}>
             <Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text>
-            <Text style={style.title} onPress= {()=> navigateProfil()}><Image source={ profil }   style={style.logobande} ></Image></Text>
+            <Text style={style.title} onPress={() => {
+                navigation.navigate('Profil', {
+                    username: username, 
+                    prenomUser:prenomUser, 
+                    email:email, 
+                });
+                }}><Image source={ profil }   style={style.logobande} ></Image></Text>
 
             <Text style={style.louer} onPress={() => navigation.goBack()} >Retour</Text>
             <View style={style.bloc1}>
             <Text style={style.title} >Récapitulatif de vos coordonnées : </Text>
-            <Text style={style.text} >Nom : </Text>
-            <Text style={style.text} >Prénom : </Text>
-            <Text style={style.text} >Email :</Text>
+            <Text style={style.text} >Nom : {JSON.parse(JSON.stringify(username))}</Text>
+            <Text style={style.text} >Prénom : {JSON.parse(JSON.stringify(prenomUser))}</Text>
+            <Text style={style.text} >Email : {JSON.parse(JSON.stringify(email))}</Text>
             
             
                     
@@ -55,6 +53,9 @@ export default function Confirmation({ route, navigation }) {
                 navigation.navigate('Valider', {
                     dateD: dateD, 
                     dateF:dateF, 
+                    username: username, 
+                    prenomUser:prenomUser, 
+                    email:email, 
                 });
                 }}>Valider</Text>
 
@@ -104,7 +105,7 @@ export default function Confirmation({ route, navigation }) {
                 elevation: 4, 
                 fontSize: 22,   
                 marginTop: 50, 
-                height: 225, 
+                height: 240, 
                 borderRadius: 10, 
                 width: 400, 
                 borderColor: '#A2273C',
