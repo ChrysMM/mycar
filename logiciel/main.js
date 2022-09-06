@@ -24,7 +24,7 @@ function createWindow () {
   })
   win.loadURL("http://localhost:8080"); 
   win.loadFile('./html/index.html'); 
-  cook()
+  // cook()
   // console.log("test cookies")
   // win.webContents.session.cookies.set({ url: 'http://localhost', name: 'dummy_name', value: 'dummy' }).then(() => {console.log("########## cookies créé enfin ########## ")})
 

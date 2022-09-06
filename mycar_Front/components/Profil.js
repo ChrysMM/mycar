@@ -5,13 +5,13 @@ import employe from "../assets/emp.jpg";
 
 
 
-export default function Profil() {
+export default function Profil({ route, navigation }) {
 
 
     
-function navigateLogo() {
-    navigation.navigate("Search");
-}
+    function navigateLogo() {
+        navigation.navigate("Search");
+    }
 
         return(
             <View style={style.view}>
