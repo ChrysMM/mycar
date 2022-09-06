@@ -61,8 +61,13 @@ class LoginView extends Component {
       //console.log("user", user);
       this.setState({email, prenomUser, username, password})
       // this.setState({prenomUser})
-//Props a ajouter et redirection!!!
-
+      //Props a ajouter et redirection!!!
+      // const user = (this.props) => {
+      //   return (
+      //     <View></View>
+        
+      //   )
+      // }
     }; 
 
     const onFailure = (error) => {
