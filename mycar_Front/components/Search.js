@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, FlatList } from 'react-native'
-
+import moment from "moment";
 import boiteA from "../assets/boiteauto.png";
 import Essence from "../assets/ESSENCE.png";
 import profil from "../assets/PROFIL.png";
@@ -33,6 +33,19 @@ export default function Search({ route, navigation }) {
 
 
 
+    function formatDate(date) {
+        var d = new Date(date),
+          month = '' + (d.getMonth() + 1),
+          day = '' + d.getDate(),
+          year = d.getFullYear();
+  
+        if (month.length < 2) 
+          month = '0' + month;
+        if (day.length < 2) 
+          day = '0' + day;
+  
+        return [day,month, year].join('/');
+      }
 
 
     function navigateLogo() {
@@ -57,9 +70,9 @@ export default function Search({ route, navigation }) {
                     }}><Image source={ profil }   style={style.logobande} ></Image></Text>
 
        
-        <Text>Date d'arrivée : {JSON.parse(JSON.stringify(dateD))}</Text>
-       
-        <Text>Date de fin :{JSON.parse(JSON.stringify(dateF))}</Text>
+        <Text>Date d'arrivée : {formatDate(JSON.parse(JSON.stringify(dateD)))} </Text>
+        
+        <Text>Date de fin : {formatDate(JSON.parse(JSON.stringify(dateF)))}</Text>
 
             <FlatList
             keyExtractor={(item) => item.id}

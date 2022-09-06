@@ -89,7 +89,7 @@ export default function Confirmation({ route, navigation }) {
                 elevation: 4, 
                 fontSize: 22,   
                 marginTop: 50, 
-                height: 115, 
+                height: 118, 
                 borderRadius: 10, 
                 width: 400, 
                 borderColor: '#A2273C',
