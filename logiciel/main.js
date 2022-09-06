@@ -24,28 +24,9 @@ function createWindow () {
   })
   win.loadURL("http://localhost:8080"); 
   win.loadFile('./html/index.html'); 
-  // cook()
-  // console.log("test cookies")
-  // win.webContents.session.cookies.set({ url: 'http://localhost', name: 'dummy_name', value: 'dummy' }).then(() => {console.log("########## cookies créé enfin ########## ")})
-
+  
 }
-// const cook = () => {
-//   const cookie = { url: 'http://localhost', name:"cc" , value: 'fefe', nomCategorie:" " }
-//   console.log('---------- cookies ----------')    
-//   session.defaultSession.cookies.set(cookie)
-//       .then(() => {
-//       // success
-//           console.log("cookie");
-//           session.defaultSession.cookies.get({ nomCategorie:" "})
-//       .then((cookies) => {
-//           console.log(cookies)
-//       }).catch((erreur) => {
-//           console.log(error) 
-//       })
-//   }, (error) => {
-//   console.error(error)
-// })
-// }
+
 
 
 
