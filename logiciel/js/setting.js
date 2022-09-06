@@ -5,66 +5,49 @@ const axios= require("axios");
 
 //Delete
       const AxiosDeleteVoiture = () => {
-        
-        axios.delete('http://localhost:8080/api/voiture').then(response => {
-          console.log(response.data); 
-        
-      })
-      .catch(error => console.error("error"));
-      };  
-
-      AxiosDeleteVoiture();
-
-
-//get
-      const AxiosGetVoiture = () => {
-        
-        axios.get('http://localhost:8080/api/voiture').then(response => {
-          console.log(response.data); 
-        
-      })
-      .catch(error => console.error("error"));
-      };  
-
-      AxiosGetVoiture();
-
-
-
-//Post
-      const AxiosPostVoiture = () => {
-        
-        axios.post('http://localhost:8080/api/voiture').then(response => {
-          console.log(response.data); 
-        
-      })
-      .catch(error => console.error("error"));
-      };  
-
-      AxiosPostVoiture();
-
-
+        axios.delete('http://localhost:8080/api/voiture', {
+          headers: {
+            "x-access-token": "token-value",
+          },
+        }
+      ).then(response => {
+          console.log("connexion test");
+            })
+            .catch(error => console.error("error"));
+    };  
+    
+    AxiosDeleteVoiture();
 
 //PUT
       const AxiosPutVoiture = () => {
         
-        axios.put('http://localhost:8080/api/voiture').then(response => {
+        axios.put(`http://localhost:8080/api/voiture/${id}`,  {
+          headers: {
+            "x-access-token": "token-value",
+          },
+        }).then(response => {
           console.log(response.data); 
-        
+          console.log("connexion test");
       })
       .catch(error => console.error("error"));
       };  
 
       AxiosPutVoiture();
 
+
+
     const AxiosVoiture = () => {
         axios('http://localhost:8080/api/voiture').then(response => {
           
-                var tr ="<tr>"; 
+                    var tr ="<tr>"; 
                     var intertr="</tr>"; 
-                    var td ="<td><a href='element_setting.html'>";
-                    var intertd="</a></td>"; 
+                    var td ="<td>";
+                    var intertd="</td>"; 
                     var tbody = document.getElementById("content");
 
+                    var supp = " <form action='setting.html' method='POST' id='supp'><input type='submit' id='submit' onclick='AxiosDeleteVoiture()' value='Supprimer'></form>"
+
+                    var ed =  "<form action='setting.html' method='POST' id='ed' ><input type='submit' id='submit' onclick='AxiosPutVoiture()' value='Editer' ></form>";
 
                 response.data.forEach(element  => {
 
@@ -78,6 +61,8 @@ const axios= require("axios");
                     contentTmp+= td+element.annee+intertd;
                     contentTmp+= td+element.nomCategorie+intertd;
                     contentTmp+= td+element.nomStatut+intertd;
+                    contentTmp+= td+supp+intertd;
+                    contentTmp+= td+ed+intertd;
                     contentTmp += intertr
                     tbody.innerHTML += contentTmp;
                    
