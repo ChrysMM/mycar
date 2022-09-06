@@ -37,7 +37,7 @@ Voiture.create = (newVoiture, result) => {
   };
 
 
-
+//const dataImagePrefix = `data:image/png;base64,`
 
   //Get toutes les voitures
   Voiture.getAll = (immatriculation, result) => {
@@ -49,10 +49,11 @@ Voiture.create = (newVoiture, result) => {
       if (err) {
         console.log("error: ", err);
         result(null, err);
-        return;
+         return;
       }
       console.log("voiture: ", res);
-      result(null, res);
+      result(null, res)
+ 
     });
   };
 
