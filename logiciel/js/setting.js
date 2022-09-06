@@ -5,7 +5,12 @@ const axios= require("axios");
 
 //Delete
       const AxiosDeleteVoiture = () => {
-        axios.delete('http://localhost:8080/api/voiture').then(response => {
+        axios.delete('http://localhost:8080/api/voiture', {
+          headers: {
+            "x-access-token": "token-value",
+          },
+        }
+      ).then(response => {
           console.log("connexion test");
             })
             .catch(error => console.error("error"));
@@ -16,7 +21,11 @@ const axios= require("axios");
 //PUT
       const AxiosPutVoiture = () => {
         
-        axios.put('http://localhost:8080/api/voiture').then(response => {
+        axios.put(`http://localhost:8080/api/voiture/${id}`,  {
+          headers: {
+            "x-access-token": "token-value",
+          },
+        }).then(response => {
           console.log(response.data); 
           console.log("connexion test");
       })

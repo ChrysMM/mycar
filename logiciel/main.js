@@ -12,8 +12,8 @@ const path = require('path')
 function createWindow () {
     // constante win qui va créer la fenetre de l'application avec la largeur et la hauteur
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1100,
+    height: 800,
     webPreferences: {
       nodeIntegration: true, 
       contextIsolation: false,
