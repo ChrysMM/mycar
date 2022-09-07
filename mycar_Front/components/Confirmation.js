@@ -7,6 +7,23 @@ import profil from "../assets/PROFIL.png";
 
 export default function Confirmation({ route, navigation }) {
 
+    //post
+    // const AxiosPostVoiture = (id) => {
+        
+    //     axios.post(`http://localhost:8080/api/reservation/${id}`,  {
+    //       headers: {
+    //         "x-access-token": "token-value",
+    //       },
+    //     }).then(response => {
+    //       console.log(response.data); 
+    //       console.log("connexion test");
+    //   })
+    //   .catch(error => console.error("error"));
+    //   };  
+
+    // AxiosPostVoiture(6);
+
+
     const { nbrePlace, marque, modele,boite, carburant,nomStatut, nomCategorie, annee, immatriculation, dateD, dateF,email, prenomUser, username} = route.params;
 
     function navigateLogo() {
