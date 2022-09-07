@@ -10,15 +10,15 @@
   <body>
     
     <div id="container">
-<<<<<<< HEAD
+ 
  
       <form action="setting.html" method="POST" >
  
       <form action="Liste.html" method="POST" >
  
-=======
+ 
       <form action="setting.html" method="POST" >
->>>>>>> ornella5
+ 
           <h1>Connectez-vous : </h1>
           <label><b>Nom d'utilisateur</b></label>
           <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" value="username" required>
@@ -33,36 +33,7 @@
 
     
       </div>
-      <script>
-        const { getSession, createSession } = require("./keygen")
-        const { ipcRenderer } = require("electron")
-  
-        // Check session si elle existe
-        const session = getSession()
-        if (session != null) {
-          ipcRenderer.send("authenticated")
-        }
-  
-        // Authentification et création nouvelle session
-        const login = document.getElementById("login")
-  
-        login.addEventListener("submit", async (event) => {
-          event.preventDefault()
-  
-          const email = document.getElementById("email")
-          const password = document.getElementById("password")
-          const { token, errors } = await createSession(email.value, password.value)
-          if (errors) {
-            const [{ title, detail }] = errors
-  
-            alert(`${title}: ${detail}`)
-  
-            return false
-          }
-  
-          ipcRenderer.send("authenticated")
-        })
-      </script>
+     
         
   </body>
 

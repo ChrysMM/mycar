@@ -69,10 +69,20 @@ class LoginView extends Component {
       this.setState({email, prenomUser, username, password})
       this._changeVersuneAutreVue();
       // this.setState({prenomUser})
+<<<<<<< HEAD
 //Props a ajouter et redirection!!!
 // const {email, prenomUser, username, password} = this.props; 
 //  this.navigation.navigate("date", {email, prenomUser, username, password})
 
+=======
+      //Props a ajouter et redirection!!!
+      // const user = (this.props) => {
+      //   return (
+      //     <View></View>
+        
+      //   )
+      // }
+>>>>>>> cfe3a087b87ea30400b614cdf32f68799e723e23
     }; 
 
     const onFailure = (error) => {
