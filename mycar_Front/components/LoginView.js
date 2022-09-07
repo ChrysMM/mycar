@@ -35,6 +35,7 @@ class LoginView extends Component {
   this.state = initialState;
  }
 
+ //redirection vers dates
  _changeVersuneAutreVue(){
    this.props.navigation.navigate("date", this.state);
  }
@@ -57,7 +58,7 @@ class LoginView extends Component {
     const payload = {username, password, email, prenomUser};
     
 
-
+//Si connexion ok
     const onSuccess =  (data) => {
 
       //console.log(data.data);
@@ -67,22 +68,13 @@ class LoginView extends Component {
       console.log(data.data)
       //console.log("user", user);
       this.setState({email, prenomUser, username, password})
+
+      //redirection
       this._changeVersuneAutreVue();
       // this.setState({prenomUser})
-<<<<<<< HEAD
-//Props a ajouter et redirection!!!
-// const {email, prenomUser, username, password} = this.props; 
-//  this.navigation.navigate("date", {email, prenomUser, username, password})
+ 
+//this.navigation.navigate("date", {email, prenomUser, username, password})
 
-=======
-      //Props a ajouter et redirection!!!
-      // const user = (this.props) => {
-      //   return (
-      //     <View></View>
-        
-      //   )
-      // }
->>>>>>> cfe3a087b87ea30400b614cdf32f68799e723e23
     }; 
 
     const onFailure = (error) => {
@@ -141,7 +133,7 @@ class LoginView extends Component {
 // Rendu page de connexion
 
   render() {
-    const { navigation } = this.props;
+    //const { navigation } = this.props;
     const {isLoading} = this.state;
 
     return (
