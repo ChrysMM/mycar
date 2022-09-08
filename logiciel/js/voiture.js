@@ -28,14 +28,12 @@ const axios= require("axios");
                     var intertd="</td>"; 
                     var tbody = document.getElementById("content");
 
-       
                     
                     var supp = " <form action='setting.html' method='POST' id='supp'><input type='submit' id='submit' onclick='AxiosDeleteVoiture()' value='Supprimer'></form>"
 
-        
-
                 response.data.forEach(element  => {
                   var ed =  "<form action='formulaire.html' method='POST' id='ed' ><input type='submit' id='submit' value='Editer' ><input type='hidden' name='id' value='"+element.id+"'> </form>";
+                  
                     var contentTmp = tr;
                     contentTmp+= td+element.id+intertd;
                     contentTmp+= td+element.immatriculation+intertd;
