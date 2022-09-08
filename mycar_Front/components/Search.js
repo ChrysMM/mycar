@@ -70,9 +70,9 @@ export default function Search({ route, navigation }) {
                     }}><Image source={ profil }   style={style.logobande} ></Image></Text>
 
        
-        <Text style={style.date}>Date d'arrivée : {formatDate(JSON.parse(JSON.stringify(dateD)))} </Text>
+        <Text>Date d'arrivée : {formatDate(JSON.parse(JSON.stringify(dateD)))} </Text>
         
-        <Text style={style.date}>Date de fin : {formatDate(JSON.parse(JSON.stringify(dateF)))}</Text>
+        <Text>Date de fin : {formatDate(JSON.parse(JSON.stringify(dateF)))}</Text>
 
             <FlatList
             keyExtractor={(item) => item.id}
@@ -124,11 +124,7 @@ const style = StyleSheet.create({
         fontWeight: "bold", 
         textAlign: "center",  
     }, 
-    date: {
-        fontSize:  15, 
-        fontWeight: "bold", 
-        textAlign: "center",  
-    }, 
+
     bloc: {
         flex: 1, 
         backgroundColor:"#fff", 
