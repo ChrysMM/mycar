@@ -3,18 +3,6 @@ const axios= require("axios");
 //Axios qui permet l'acces a la base de données
 
 
-//Créer
-const AxiosCreeVoiture = (id) => {
-   axios.create({
-      baseURL: 'http://localhost:8080/api/voiture',
-      timeout: 2000,
-      headers: {'X-Custom-Header': 'bezkoder'}
-    });
-    
-  }
-    AxiosCreeVoiture(5);
-
-
 
 //Delete
       const AxiosDeleteVoiture = (id) => {
@@ -29,31 +17,7 @@ const AxiosCreeVoiture = (id) => {
             .catch(error => console.error("error"));
     };  
     
-    AxiosDeleteVoiture(5);
-
-//PUT
-      const AxiosPutVoiture = (id, statut) => {
-        
-        axios.put(`http://localhost:8080/api/voiture/${id}`, {
-          id: id,
-          statut: statut,
-          published: true,
-        },
-        {
-          headers: {
-            "x-access-token": "token-value",
-          },
-          
-        }).then(response => {
-          console.log(response.data); 
-          console.log("connexion test édition");
-      })
-      .catch(error => console.error("error"));
-      };  
-
-      AxiosPutVoiture(6);
-
-
+    // AxiosDeleteVoiture(5);
 
     const AxiosVoiture = () => {
         axios('http://localhost:8080/api/voiture').then(response => {
@@ -64,14 +28,14 @@ const AxiosCreeVoiture = (id) => {
                     var intertd="</td>"; 
                     var tbody = document.getElementById("content");
 
-                    var cree =  "<form action='setting.html' method='POST' id='ed' ><input type='submit' id='submit' onclick='AxiosCreeVoiture()' value='Créer' ></form>";
-
+       
+                    
                     var supp = " <form action='setting.html' method='POST' id='supp'><input type='submit' id='submit' onclick='AxiosDeleteVoiture()' value='Supprimer'></form>"
 
-                    var ed =  "<form action='setting.html' method='POST' id='ed' ><input type='submit' id='submit' onclick='AxiosPutVoiture()' value='Editer' ></form>";
+        
 
                 response.data.forEach(element  => {
-
+                  var ed =  "<form action='formulaire.html' method='POST' id='ed' ><input type='submit' id='submit' value='Editer' ><input type='hidden' name='id' value='"+element.id+"'> </form>";
                     var contentTmp = tr;
                     contentTmp+= td+element.id+intertd;
                     contentTmp+= td+element.immatriculation+intertd;
@@ -82,12 +46,11 @@ const AxiosCreeVoiture = (id) => {
                     contentTmp+= td+element.annee+intertd;
                     contentTmp+= td+element.nomCategorie+intertd;
                     contentTmp+= td+element.nomStatut+intertd;
-                    contentTmp+= td+cree+intertd;
                     contentTmp+= td+supp+intertd;
                     contentTmp+= td+ed+intertd;
                     contentTmp += intertr
                     tbody.innerHTML += contentTmp;
-                   
+                    
                 }
                 );
             })
