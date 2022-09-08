@@ -14,7 +14,7 @@ export default function date({ route, navigation }) {
     
         return(
 <View style={style.view}>
-
+<Text style={style.titleid}>Renseignez vos dates de location</Text>
 <DataTable style={style.tab}>
 <DataTable.Row >
 <DataTable.Title onPress={() => {
@@ -81,8 +81,14 @@ const style =StyleSheet.create({
         marginTop: 5, 
     },
     tab:{
-        marginTop: 250,
         width: 300,
         
     }, 
+    titleid: {
+        fontSize: 22,
+        fontWeight: "bold",
+        textAlign: "center",
+        marginTop: 250,
+        paddingBottom : 70, 
+        },
 })
