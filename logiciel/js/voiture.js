@@ -3,6 +3,7 @@ const axios= require("axios");
 //Axios qui permet l'acces a la base de données
 
 
+
 //Delete
       const AxiosDeleteVoiture = (id) => {
         axios.delete(`http://localhost:8080/api/voiture/${id}`, {
@@ -11,30 +12,12 @@ const axios= require("axios");
           },
         }
       ).then(response => {
-          console.log("connexion test", response);
+          console.log("connexion test suppression", response);
             })
             .catch(error => console.error("error"));
     };  
     
-    AxiosDeleteVoiture(5);
-
-//PUT
-      const AxiosPutVoiture = (id) => {
-        
-        axios.put(`http://localhost:8080/api/voiture/${id}`,  {
-          headers: {
-            "x-access-token": "token-value",
-          },
-        }).then(response => {
-          console.log(response.data); 
-          console.log("connexion test");
-      })
-      .catch(error => console.error("error"));
-      };  
-
-      AxiosPutVoiture(6);
-
-
+    // AxiosDeleteVoiture(5);
 
     const AxiosVoiture = () => {
         axios('http://localhost:8080/api/voiture').then(response => {
@@ -45,12 +28,12 @@ const axios= require("axios");
                     var intertd="</td>"; 
                     var tbody = document.getElementById("content");
 
+                    
                     var supp = " <form action='setting.html' method='POST' id='supp'><input type='submit' id='submit' onclick='AxiosDeleteVoiture()' value='Supprimer'></form>"
 
-                    var ed =  "<form action='setting.html' method='POST' id='ed' ><input type='submit' id='submit' onclick='AxiosPutVoiture()' value='Editer' ></form>";
-
                 response.data.forEach(element  => {
-
+                  var ed =  "<form action='formulaire.html' method='POST' id='ed' ><input type='submit' id='submit' value='Editer' ><input type='hidden' name='id' value='"+element.id+"'> </form>";
+                  
                     var contentTmp = tr;
                     contentTmp+= td+element.id+intertd;
                     contentTmp+= td+element.immatriculation+intertd;
@@ -65,7 +48,7 @@ const axios= require("axios");
                     contentTmp+= td+ed+intertd;
                     contentTmp += intertr
                     tbody.innerHTML += contentTmp;
-                   
+                    
                 }
                 );
             })
