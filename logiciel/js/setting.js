@@ -4,35 +4,35 @@ const axios= require("axios");
 
 
 //Delete
-      const AxiosDeleteVoiture = (id) => {
-        axios.delete(`http://localhost:8080/api/voiture/${id}`, {
-          headers: {
-            "x-access-token": "token-value",
-          },
-        }
-      ).then(response => {
-          console.log("connexion test", response);
-            })
-            .catch(error => console.error("error"));
-    };  
+    //   const AxiosDeleteVoiture = (id) => {
+    //     axios.delete(`http://localhost:8080/api/voiture/${id}`, {
+    //       headers: {
+    //         "x-access-token": "token-value",
+    //       },
+    //     }
+    //   ).then(response => {
+    //       console.log("connexion test", response);
+    //         })
+    //         .catch(error => console.error("error"));
+    // };  
     
-    AxiosDeleteVoiture(5);
+    // AxiosDeleteVoiture(5);
 
-//PUT
-      const AxiosPutVoiture = (id) => {
+// //PUT
+//       const AxiosPutVoiture = (id) => {
         
-        axios.put(`http://localhost:8080/api/voiture/${id}`,  {
-          headers: {
-            "x-access-token": "token-value",
-          },
-        }).then(response => {
-          console.log(response.data); 
-          console.log("connexion test");
-      })
-      .catch(error => console.error("error"));
-      };  
+//         axios.put(`http://localhost:8080/api/voiture/${id}`,  {
+//           headers: {
+//             "x-access-token": "token-value",
+//           },
+//         }).then(response => {
+//           console.log(response.data); 
+//           console.log("connexion test");
+//       })
+//       .catch(error => console.error("error"));
+//       };  
 
-      AxiosPutVoiture(6);
+//       AxiosPutVoiture(6);
 
 
 
