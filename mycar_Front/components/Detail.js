@@ -38,7 +38,6 @@ export default function Detail({ route, navigation })  {
         <Text style={style.louer} onPress={() => navigation.goBack()} >Retour</Text>
         
         <View style={style.bloc}>
-
         <Text  style={style.title} >{JSON.parse(JSON.stringify(marque))} {JSON.parse(JSON.stringify(modele))}</Text>
         <Text>{JSON.parse(JSON.stringify(nomCategorie))}</Text>
         <Text>{JSON.parse(JSON.stringify(nomStatut))}</Text>
@@ -78,6 +77,7 @@ const style = StyleSheet.create({
 
     view:{
         alignItems:"center", 
+       
     }, 
 
 
@@ -87,13 +87,16 @@ const style = StyleSheet.create({
         shadowRadius: 11,
         elevation: 4, 
         marginBottom: 3,  
-        marginTop: 100, 
+        marginTop: 10, 
         backgroundColor: '#F5F5F5', 
-        height: 220, 
-        borderRadius: 10, 
-        width: 380, 
+        // height: 240,
+        height: 300,
+        borderRadius: 10,
+        // width: 380, 
+        width: 290, 
         borderWidth: 1, 
         alignItems:"center", 
+        resizeMode: "contain"
     }, 
     
     title: {
@@ -101,6 +104,7 @@ const style = StyleSheet.create({
         color: 'black',
         fontWeight: "bold", 
         textAlign: 'center', 
+        resizeMode: "contain"
     }, 
 
     text : {
@@ -108,6 +112,7 @@ const style = StyleSheet.create({
         fontWeight: "bold", 
         marginLeft: 22, 
         textAlign: "left", 
+        resizeMode: "contain"
     }, 
 
     img_voiture: {
@@ -115,13 +120,16 @@ const style = StyleSheet.create({
         height: 70,
         marginLeft: 10,
         marginRight: 10,
+        // resizeMode: "contain"
     },
 
     logobande: {
-        width: 25,
-        height: 25,
-        marginRight: 200,
+        width: 20,
+        height: 20,
+        marginRight: 225,
         marginLeft: 40, 
+        marginTop: 5,
+        resizeMode: "contain"
     }, 
 
 
@@ -130,6 +138,8 @@ const style = StyleSheet.create({
         marginBottom: 40, 
         height: 60, 
         width: 60, 
+        marginTop: 10,
+        resizeMode: "contain"
     },
 
     louer: {
@@ -139,12 +149,13 @@ const style = StyleSheet.create({
         height:  25, 
         borderRadius: 7,
         elevation: 3,
-        marginTop: 100, 
+        marginTop: 20, 
         color: 'white', 
         fontWeight: "bold",
         paddingTop: 2, 
         paddingRight: 2, 
-        alignItems: "center", 
+        alignItems: "center",
+        // resizeMode: "contain"
     },  
 
 })

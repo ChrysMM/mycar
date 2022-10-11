@@ -59,12 +59,18 @@ export default function Search({ route, navigation }) {
         <Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text>
             
         <Text style={style.title}  
+         
                 onPress={() => {
                     navigation.navigate('Profil', {
                         prenomUser: prenomUser,
                         username: username,
                         email: email
                     });
+                    
+
+                
+        
+            
                     }}><Image source={ profil }   style={style.logobande} ></Image></Text>
 
        
@@ -78,6 +84,7 @@ export default function Search({ route, navigation }) {
             renderItem={({item}) => (
                 
                 <Text style={style.item}><Text    style={style.nom}  
+                //  <Text style={style.louer}><Text    style={style.nom}  
                 onPress={() => {
                 navigation.navigate('Detail', {
                     nbrePlace: item.nbrePlace, 
@@ -108,7 +115,9 @@ export default function Search({ route, navigation }) {
            
         </Text>
             
-                <Image source={ personne }   style={style.logobande} ></Image>{item.nbrePlace} <Image source={ boiteA }   style={style.logobande} ></Image> {item.boite} <Image source={ Essence }   style={style.logobande} ></Image> {item.carburant} </Text>
+                <Image 
+                
+                source={ personne }  style={style.logobande} ></Image>{item.nbrePlace} <Image source={ boiteA }   style={style.logobande} ></Image> {item.boite} <Image source={ Essence }   style={style.logobande} ></Image> {item.carburant} </Text>
 
 
             )}
@@ -130,11 +139,17 @@ const style = StyleSheet.create({
     bloc: {
         flex: 1, 
         backgroundColor:"#fff", 
-        paddingTop: 40, 
-        paddingHorizontal: 20, 
-        alignItems: "center",       
-    }, 
-
+        // paddingTop: 40, 
+        // paddingHorizontal: 20, 
+        // alignItems: "center",  
+        alignItems: "center",  
+        resizeMode: "contain",
+        height: 300,
+        marginBottom: 3,  
+        marginTop: 10,
+      
+    },
+     
     item: {
         shadowOpacity: 1,
         shadowRadius: 11,
@@ -145,42 +160,67 @@ const style = StyleSheet.create({
         borderRadius:10, 
         borderWidth: 1, 
         fontSize: 12, 
-    
+        resizeMode: "contain"
     }, 
 
+    // title: {
+    //     fontSize: 18, 
+    //     color: 'black',
+    //     fontWeight: "bold", 
+    //     textAlign: 'center', 
+    //     resizeMode: "contain"
+    // }, 
+
+
     title: {
-        fontSize: 18, 
+        fontSize: 22, 
         color: 'black',
         fontWeight: "bold", 
         textAlign: 'center', 
+        resizeMode: "contain"
     }, 
 
-
     logo: {
-        // width:25,
-        // height: 25,
-        width:10,
-        height: 10,
+        width:25,
+        height: 25,
+        
         marginRight: 10, 
         marginLeft: 300, 
         marginTop: -65, 
         margin: 80, 
-        
+        resizeMode: "contain"
     }, 
 
+    // logobande: {
+    //     width: 25,
+    //     height: 25,
+         
+    //     marginRight: 100,
+    //     marginLeft: 40, 
+    //     resizeMode: "contain"
+    // }, 
     logobande: {
-        width: 25,
-        height: 25,
-        marginRight: 100,
+        width: 20,
+        height: 20,
+        marginRight: 225,
         marginLeft: 40, 
-        
+        marginTop: 5,
+        resizeMode: "contain"
     }, 
+
+    // text : {
+    //     fontSize: 14, 
+    //     fontWeight: "bold", 
+    //     resizeMode: "contain"
+    // }, 
 
     text : {
         fontSize: 14, 
         fontWeight: "bold", 
+        marginLeft: 22, 
+        textAlign: "left", 
+        resizeMode: "contain"
     }, 
-
 
 
     mycar: {
@@ -188,6 +228,7 @@ const style = StyleSheet.create({
         marginBottom: 40, 
         height: 60, 
         width: 60, 
+        resizeMode: "contain"
     },
 
     filtre:{
@@ -198,5 +239,21 @@ const style = StyleSheet.create({
 
     view:{
         alignItems:"center",
+        //resizeMode: "contain"
     },
+    
+    louer: {
+        backgroundColor: '#A2273C', 
+        textAlign: "center", 
+        width: 140, 
+        height:  25, 
+        borderRadius: 7,
+        elevation: 3,
+        marginTop: 100, 
+        color: 'white', 
+        fontWeight: "bold",
+        paddingTop: 2, 
+        paddingRight: 2, 
+        alignItems: "center", 
+    },  
 })

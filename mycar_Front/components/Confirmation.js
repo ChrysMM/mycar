@@ -105,13 +105,14 @@ export default function Confirmation({ route, navigation }) {
                 shadowRadius: 11,
                 elevation: 4, 
                 fontSize: 22,   
-                marginTop: 50, 
+                marginTop: 5, 
                 height: 118, 
                 borderRadius: 10, 
                 width: 400, 
                 borderColor: '#A2273C',
                 borderWidth: 1, 
                 textAlign: "center", 
+               
 
             }, 
 
@@ -121,7 +122,7 @@ export default function Confirmation({ route, navigation }) {
                 shadowRadius: 11,
                 elevation: 4, 
                 fontSize: 22,   
-                marginTop: 50, 
+                marginTop: 5, 
                 height: 240, 
                 borderRadius: 10, 
                 width: 400, 
@@ -135,13 +136,15 @@ export default function Confirmation({ route, navigation }) {
                 fontSize: 20, 
                 color: 'black',
                 fontWeight: "bold", 
-                textAlign: 'center', 
+                textAlign: 'left',
+                marginLeft: 60, 
             }, 
 
             
             text : {
                 fontSize: 14, 
-                marginLeft: 22, 
+                marginLeft:60, 
+                marginRight: 100,
                 marginTop:10, 
                 textAlign: "left", 
             
@@ -152,7 +155,7 @@ export default function Confirmation({ route, navigation }) {
                 width: 140, 
                 height:  25, 
                 borderRadius: 7,
-                marginTop: 50, 
+                marginTop: 1, 
                 color: 'white', 
                 fontWeight: "bold",
                 alignItems: "center", 
@@ -163,13 +166,17 @@ export default function Confirmation({ route, navigation }) {
                 marginBottom: 40, 
                 height: 60, 
                 width: 60, 
+                resizeMode: "contain"
+    
             },
 
             logobande: {
-                width: 25,
-                height: 25,
-                marginRight: 200,
-                marginLeft: 40, 
+                width: 20,
+                height: 20,
+                marginRight: 225,
+                marginLeft: 40,
+                marginTop: 5,
+                resizeMode: "contain"
             }, 
 
 

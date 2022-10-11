@@ -82,15 +82,18 @@ const style = StyleSheet.create({
         width: 25,
         height: 25,
         marginRight: 100,
-        marginLeft: 40, 
+        marginLeft: 40,
+        resizeMode: "contain"
     }, 
 
 
     mycar: {
+        
         marginLeft: 300, 
         marginBottom: 40, 
         height: 60, 
         width: 60, 
+        resizeMode: "contain"
     },
 
     reserve:{

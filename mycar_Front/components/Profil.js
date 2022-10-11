@@ -26,6 +26,7 @@ const style =StyleSheet.create({
         marginBottom: 40, 
         height: 60, 
         width: 60, 
+        resizeMode: "contain"
     },
 
     employe: {
