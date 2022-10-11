@@ -78,7 +78,7 @@ class LoginView extends Component {
     }; 
 
     const onFailure = (error) => {
-      console.log(error, error.response);
+      console.log(error.response.data);
       this.setState({errors: error.response.data, isLoading: false})
     };
      
@@ -156,9 +156,9 @@ class LoginView extends Component {
             autoCapitalize="none"
             autoCorrect={false}
             returnKeyType="next"
-            onSubmitEditing={event =>
-              this.passwordInput.wrappedInstance.focus()
-            }
+            // onSubmitEditing={event =>
+            //   this.passwordInput.wrappedInstance.focus()
+            // }
             onChangeText={this.onUsernameChange}
             underlineColorAndroid="transparent"
             placeholderTextColor="#999"

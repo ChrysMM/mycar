@@ -7,10 +7,8 @@ import profil from "../assets/PROFIL.png";
 import personne from "../assets/PERSONNE.png";
 import mycar from "../assets/My_Car.png";
 import axios from 'axios';
-
-
-
-const URLvoiture = "http://localhost:8080/api/voiture"; 
+ 
+const URLvoiture = "http://10.81.201.211:8080/api/voiture"; 
 
 
 export default function Search({ route, navigation }) {
@@ -99,12 +97,16 @@ export default function Search({ route, navigation }) {
              
                 });
                 }}>
-                {item.nomMarque} {item.nomModele}</Text>  
+                {item.nomMarque} {item.nomModele}{'\n'}</Text>  
+                {/* <br></br> */}
+                <Text>{item.nomStatut}{'\n'}</Text>
+                {/* <br></br>
                 <br></br>
-                <Text>{item.nomStatut}</Text>
-                <br></br>
-                <br></br>
-                <br></br>
+                <br></br> */}
+                <Text>
+           {'\n'}
+           
+        </Text>
             
                 <Image source={ personne }   style={style.logobande} ></Image>{item.nbrePlace} <Image source={ boiteA }   style={style.logobande} ></Image> {item.boite} <Image source={ Essence }   style={style.logobande} ></Image> {item.carburant} </Text>
 
@@ -155,8 +157,10 @@ const style = StyleSheet.create({
 
 
     logo: {
-        width:25,
-        height: 25,
+        // width:25,
+        // height: 25,
+        width:10,
+        height: 10,
         marginRight: 10, 
         marginLeft: 300, 
         marginTop: -65, 
