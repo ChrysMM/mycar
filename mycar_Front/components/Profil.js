@@ -37,12 +37,14 @@ const style =StyleSheet.create({
         
     }, 
     donneemp: {
+        marginTop: 10,
+        marginStart:20,
         fontWeight: "bold", 
-        textAlign: "center", 
+        textAlign: "left", 
 
     }, 
 
     view:{
-        alignItems: "center", 
+        alignItems: "baseline", 
     },
 })

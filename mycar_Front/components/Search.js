@@ -86,7 +86,7 @@ export default function Search({ route, navigation }) {
                 <Text style={style.item}><Text    style={style.nom}  
                 //  <Text style={style.louer}><Text    style={style.nom}  
                 onPress={() => {
-                navigation.navigate('Detail', {
+                    navigation.navigate('Detail', {
                     nbrePlace: item.nbrePlace, 
                     marque: item.nomMarque,
                     modele: item.nomModele,
@@ -111,15 +111,12 @@ export default function Search({ route, navigation }) {
                 <br></br>
                 <br></br> */}
                 <Text>
-           {'\n'}
+           {'\n'}{'\n'}{'\n'}
            
         </Text>
             
-                <Image 
-                
-                source={ personne }  style={style.logobande} ></Image>{item.nbrePlace} <Image source={ boiteA }   style={style.logobande} ></Image> {item.boite} <Image source={ Essence }   style={style.logobande} ></Image> {item.carburant} </Text>
-
-
+                <Image source={ personne } style={style.logobande}></Image>{item.nbrePlace}<Image source={ boiteA }   style={style.logobande} ></Image> {item.boite} <Image source={ Essence }   style={style.logobande} ></Image> {item.carburant} </Text>
+                 
             )}
             />
             
@@ -156,11 +153,12 @@ const style = StyleSheet.create({
         marginTop: 24, 
         padding: 30, 
         fontSize: 12, 
-        marginHorizontal: 10, 
+        // marginHorizontal: 10, 
         borderRadius:10, 
         borderWidth: 1, 
         fontSize: 12, 
-        resizeMode: "contain"
+        // resizeMode: "contain",
+        textAlign: 'center'
     }, 
 
     // title: {
@@ -203,9 +201,10 @@ const style = StyleSheet.create({
         width: 20,
         height: 20,
         marginRight: 225,
-        marginLeft: 40, 
-        marginTop: 5,
-        resizeMode: "contain"
+        marginLeft: 25, 
+        marginHorizontal: 10,
+        resizeMode: "contain",
+        
     }, 
 
     // text : {
@@ -255,5 +254,9 @@ const style = StyleSheet.create({
         paddingTop: 2, 
         paddingRight: 2, 
         alignItems: "center", 
-    },  
+    },
+
+         
+
+    
 })
