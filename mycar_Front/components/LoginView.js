@@ -156,9 +156,13 @@ class LoginView extends Component {
             autoCapitalize="none"
             autoCorrect={false}
             returnKeyType="next"
+
+//onSubmitEditing à masquer si necessaire
             // onSubmitEditing={event =>
             //   this.passwordInput.wrappedInstance.focus()
             // }
+
+
             onChangeText={this.onUsernameChange}
             underlineColorAndroid="transparent"
             placeholderTextColor="#999"

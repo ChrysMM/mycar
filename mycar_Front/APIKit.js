@@ -2,8 +2,12 @@ import axios from "axios";
 
 
 let APIKit =   axios.create({
-    // baseURL:  "http://localhost:8080/api/auth/signin",
-    baseURL:  "http://10.81.201.211:8080/api/auth/signin",
+    //baseURL:  "http://localhost:8080/api/auth/signin",
+    //baseURL:  "http://10.81.201.211:8080/api/auth/signin",
+     baseURL: "http://172.20.10.4:8080/api/auth/signin",
+    //baseURL:  "http://192.168.1.76:19000/api/auth/signin",
+
+     
     headers: {
         "Content-Type": "application/json",
       },
