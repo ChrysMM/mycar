@@ -1,16 +1,14 @@
-
-import React, {useState} from 'react';
-import {SafeAreaView, StyleSheet, View, Text} from 'react-native';
-import CalendarPicker from 'react-native-calendar-picker';
-import { useNavigation,NavigationContainer } from '@react-navigation/native';
+import React, { useState } from "react";
+import { SafeAreaView, StyleSheet, View, Text } from "react-native";
+import CalendarPicker from "react-native-calendar-picker";
+import { useNavigation, NavigationContainer } from "@react-navigation/native";
 
 const App = ({ route, navigation }) => {
   const [selectedStartDate, setSelectedStartDate] = useState(null);
   const [selectedEndDate, setSelectedEndDate] = useState(null);
-  const { email, prenomUser, username, password} = route.params;
+  const { email, prenomUser, username, password } = route.params;
   const onDateChange = (date, type) => {
-
-    if (type === 'END_DATE') {
+    if (type === "END_DATE") {
       setSelectedEndDate(date);
     } else {
       setSelectedEndDate(null);
@@ -18,67 +16,61 @@ const App = ({ route, navigation }) => {
     }
   };
 
-
   function navigateSearch() {
     navigation.navigate("Search");
-}
+  }
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
-      
         <CalendarPicker
           startFromMonday={true}
           allowRangeSelection={true}
-          minDate={new Date}
+          minDate={new Date()}
           maxDate={new Date(2050, 6, 3)}
-          weekdays={
-            [
-              'Lun', 
-              'Mar', 
-              'Mer', 
-              'Jeu', 
-              'Ven', 
-              'Sam', 
-              'Dim'
-            ]}
+          weekdays={["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"]}
           months={[
-            'Janvier',
-            'Febrier',
-            'Mars',
-            'Avril',
-            'Mai',
-            'Juin',
-            'Juillet',
-            'Aout',
-            'Saptembre',
-            'Octobre',
-            'Novembre',
-            'Decembre',
+            "Janvier",
+            "Febrier",
+            "Mars",
+            "Avril",
+            "Mai",
+            "Juin",
+            "Juillet",
+            "Aout",
+            "Saptembre",
+            "Octobre",
+            "Novembre",
+            "Decembre",
           ]}
           previousTitle="Précédent"
           nextTitle="Suivant"
-          todayBackgroundColor='#A2273C'
-          selectedDayColor='#A2273C'
+          todayBackgroundColor="#A2273C"
+          selectedDayColor="#A2273C"
           selectedDayTextColor="#000000"
           scaleFactor={375}
           textStyle={{
-            fontFamily: 'Cochin',
-            color: '#000000',
+            fontFamily: "Cochin",
+            color: "#000000",
           }}
           onDateChange={onDateChange}
         />
-        <Text style={styles.date} onPress={() => {
-                navigation.navigate('Search', {
-                    dateD: selectedStartDate, 
-                    dateF: selectedEndDate,
+        <Text
+          style={styles.date}
+          onPress={() => {
+            navigation.navigate("Search", {
+              dateD: selectedStartDate,
+              dateF: selectedEndDate,
 
-                          email: email, 
-                          prenomUser: prenomUser, 
-                          username: username, 
-                          password : password
-                      });
-                      }}>Valider</Text>
+              email: email,
+              prenomUser: prenomUser,
+              username: username,
+              password: password,
+            });
+          }}
+        >
+          Valider
+        </Text>
       </View>
     </SafeAreaView>
   );
@@ -87,9 +79,8 @@ export default App;
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center", 
-    marginTop: 30, 
-
+    alignItems: "center",
+    marginTop: 30,
   },
 
   textStyle: {
@@ -97,17 +88,16 @@ const styles = StyleSheet.create({
   },
 
   date: {
-    backgroundColor: '#A2273C', 
-    textAlign: "center", 
-    width: 140, 
-    height:  25, 
+    backgroundColor: "#A2273C",
+    textAlign: "center",
+    width: 140,
+    height: 25,
     borderRadius: 7,
     elevation: 3,
-    color: 'white', 
+    color: "white",
     fontWeight: "bold",
-    paddingTop: 2, 
-    paddingRight: 2, 
-    alignItems: "center", 
-
-}, 
+    paddingTop: 2,
+    paddingRight: 2,
+    alignItems: "center",
+  },
 });

@@ -1,13 +1,17 @@
 {
   "name": "mycar_front",
   "version": "1.0.0",
+  "homepage": "https://ChrysMM.github.io/MyCar",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+    
   },
   "dependencies": {
     "@mantine/core": "^4.2.12",
