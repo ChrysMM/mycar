@@ -101,12 +101,16 @@ export default function Search({ route, navigation }) {
             >
               {item.nomMarque} {item.nomModele}
               {"\n"}
-            </Text>
-             
-            <Text>
+              <Text>
               {item.nomStatut}
               {"\n"}
             </Text>
+            </Text>
+             
+            {/* <Text>
+              {item.nomStatut}
+              {"\n"}
+            </Text> */}
              
             <Text>
               {"\n"}
@@ -122,11 +126,11 @@ export default function Search({ route, navigation }) {
             <Text style={style.logob}>{item.nbrePlace} </Text>
             
             <Text>
-            <Image source={boiteA} style={style.logobande}></Image> {item.boite}{" "}
+            <Image source={boiteA} style={style.logobande}></Image> {item.boite}{"\n"}
             </Text>
             <Text>
-            <Image source={Essence} style={style.logobande}></Image>{" "}
-            {item.carburant}{" "}
+            <Image source={Essence} style={style.logobande}></Image>{"\n"}
+            {item.carburant}{"\n"}
             </Text>
            
           </Text>
@@ -155,6 +159,8 @@ const style = StyleSheet.create({
     height: 300,
     marginBottom: 3,
     marginTop: 10,
+    paddingLeft:10,
+    paddingRight: 10
   },
 
   item: {
@@ -169,7 +175,8 @@ const style = StyleSheet.create({
     fontSize: 12,
     // resizeMode: "contain",
     //textAlign: "center",
-    textAlign: "right",
+    textAlign: "left",
+    paddingTop: 5
   },
 
   // title: {
@@ -194,9 +201,10 @@ const style = StyleSheet.create({
 
     marginRight: 10,
     marginLeft: 300,
-    marginTop: -65,
+    marginTop: 65,
     margin: 80,
     resizeMode: "contain",
+ 
   },
 
   // logobande: {
@@ -269,8 +277,7 @@ const style = StyleSheet.create({
     height: 20,
     marginRight: 225,
     marginLeft: 25,
-    // marginHorizontal: 10,
-    resizeMode: "contain",
+  marginHorizontal:10
  
  
    },
