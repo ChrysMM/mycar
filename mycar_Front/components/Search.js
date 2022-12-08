@@ -126,8 +126,9 @@ export default function Search({ route, navigation }) {
             <Text style={style.logob}>{item.nbrePlace} </Text>
             
             <Text>
-            <Image source={boiteA} style={style.logobande}></Image> {item.boite}{"\n"}
+            <Image source={boiteA} style={style.logobande}></Image> 
             </Text>
+            <Text  style={style.logob}>{item.boite}{"\n"}</Text>
             <Text>
             <Image source={Essence} style={style.logobande}></Image>{"\n"}
             {item.carburant}{"\n"}
