@@ -1,16 +1,15 @@
 import React from "react";
 import {  View, Text, Image, StyleSheet} from 'react-native'
 import { DataTable } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
 import calendrier from "../assets/CALENDRIER.png";
 
 
 
-export default function date({ route, navigation }) {
+export default function Date({ route, navigation }) {
         console.log(route)
     const { email, prenomUser, username, password} = route.params;
 
-
+// on utilise la dependance datatable pour faire notre tableau 
     
         return(
 <View style={style.view}>

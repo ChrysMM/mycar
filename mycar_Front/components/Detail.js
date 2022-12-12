@@ -12,23 +12,22 @@ import mycar from "../assets/My_Car.png";
 
 export default function Detail({ route, navigation })  {
 
-    const {  email, prenomUser, username, password} = route.params; 
 
- 
+    const { email, prenomUser, username, password,nbrePlace, marque, modele,boite, carburant,nomStatut, nomCategorie, annee, immatriculation, dateD,dateF} = route.params;
+//    on recupere nos données de nos routes parametres JSON.parse( qui va d'abord convertir du texte en objet javascript et qui va afficher avec JSON.stringify
+
+
     function navigateLogo() {
-        navigation.navigate("Search");
+        navigation.navigate("Recherche");
     }
     
 
-    const { nbrePlace, marque, modele,boite, carburant,nomStatut, nomCategorie, annee, immatriculation, dateD,dateF} = route.params;
-   
     return (
         
         <View style={style.view}>
         <Text onPress= {()=>navigateLogo()}  ><Image source={mycar} style={style.mycar} ></Image></Text>
-        <Text style={style.title} onPress={() => {
+        <Text style={style.profil} onPress={() => {
                 navigation.navigate('Profil', {
-                   
                     username: username, 
                     prenomUser: prenomUser, 
                     email: email, 
@@ -87,7 +86,7 @@ const style = StyleSheet.create({
         shadowRadius: 11,
         elevation: 4, 
         marginBottom: 3,  
-        marginTop: 100, 
+        marginTop: 60, 
         backgroundColor: '#F5F5F5', 
         height: 220, 
         borderRadius: 10, 
@@ -101,35 +100,30 @@ const style = StyleSheet.create({
         color: 'black',
         fontWeight: "bold", 
         textAlign: 'center', 
+        
     }, 
 
-    text : {
-        fontSize: 14, 
-        fontWeight: "bold", 
-        marginLeft: 22, 
-        textAlign: "left", 
-    }, 
 
-    img_voiture: {
-        width:100,
-        height: 70,
-        marginLeft: 10,
-        marginRight: 10,
-    },
 
     logobande: {
         width: 25,
         height: 25,
         marginRight: 200,
         marginLeft: 40, 
+        resizeMode: "contain", 
     }, 
-
+    profil: {
+        textAlign: 'center', 
+        maxWidth:100, 
+        height:'auto', 
+    }, 
 
     mycar: {
         marginLeft: 300, 
         marginBottom: 40, 
         height: 60, 
         width: 60, 
+        resizeMode: "contain", 
     },
 
     louer: {
@@ -139,10 +133,9 @@ const style = StyleSheet.create({
         height:  25, 
         borderRadius: 7,
         elevation: 3,
-        marginTop: 100, 
+        marginTop: 60, 
         color: 'white', 
         fontWeight: "bold",
-        paddingTop: 2, 
         paddingRight: 2, 
         alignItems: "center", 
     },  

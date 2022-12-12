@@ -9,13 +9,13 @@ exports.create = (req, res) => {
       });
     }
 
-//fonction create Categorie
+//fonction de creation de Categorie
 
 const categorie = new Categorie({
     nomCategorie : req.body.nomCategorie
 })
 
- // Save  Categorie  database
+ // Sauvegarder Categorie en base de donnée
  Categorie.create(categorie, (err, data) => {
     if (err)
       res.status(500).send({
@@ -27,7 +27,7 @@ const categorie = new Categorie({
 };
 
 
- // Recup toutes les categories
+ // Recuperer toutes les categories
  exports.findAll = (req, res) => {
     const nomCategorie = req.query.nomCategorie;
     Categorie.getAll(nomCategorie, (err, data) => {
@@ -40,7 +40,7 @@ const categorie = new Categorie({
     });
   };
 
-   //recup une categorie par id
+   //Recuperer une categorie par id
    exports.findOne = (req, res) => {
     Categorie.findById(req.params.id, (err, data) => {
       if (err) {
@@ -87,7 +87,7 @@ const categorie = new Categorie({
     );
   };
 
-  //supprimer un objet
+  //supprimer une categorie
 
 exports.delete = (req, res) => {
     Categorie.remove(req.params.id, (err, data) => {

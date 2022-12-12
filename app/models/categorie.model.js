@@ -24,7 +24,7 @@ console.log("created categorie: ", { id: res.insertId, ...newCategorie });
   };
  
 
-//Get toutes les categories
+//j'affiche toutes les categories
 Categorie.getAll = (nomCategorie, result) => {
   let query = "SELECT * FROM categorie";
   if (nomCategorie) {
@@ -62,7 +62,7 @@ Categorie.findById = (id, result) => {
   });
 };
 
-//Update par id
+//mettre a jour par id
 Categorie.updateById = (id, categorie, result) => {
   sql.query(
     "UPDATE  categorie SET ? WHERE id = ?", [categorie, id], (err, res) => {
@@ -82,7 +82,7 @@ Categorie.updateById = (id, categorie, result) => {
   );
 };
 
-// delete par id
+// supprimer par id
 Categorie.remove = (id, result) => {
     sql.query("DELETE FROM  categorie WHERE id = ?", id, (err, res) => {
       if (err) {

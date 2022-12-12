@@ -23,7 +23,7 @@ function createWindow () {
     
   })
   win.loadURL("http://localhost:8080"); 
-  win.loadFile('./html/index.html'); 
+  win.loadFile('./html/marque.html'); 
   
 }
 

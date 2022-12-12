@@ -14,7 +14,7 @@ body {
 
 body {
     margin: 0;
-    background: linear-gradient(to bottom, #7b798f, #4f4f66);
+    background: linear-gradient(to bottom, #ffdee5, #975b63);
     font-family: sans-serif;
     font-weight: 100;
     align-items: center;
@@ -47,7 +47,7 @@ th {
 
 
 th {
-    background-color: #7180c5;
+    background-color: #994747;
 }
 
 

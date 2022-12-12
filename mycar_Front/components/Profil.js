@@ -4,10 +4,10 @@ import mycar from "../assets/My_Car.png";
 
 
 export default function Profil({ route, navigation }) {
-
+    // parametre de l'utilisateur 
     const {email, prenomUser, username} = route.params; 
     function navigateLogo() {
-        navigation.navigate("Search");
+        navigation.navigate("Recherche");
     }
 
         return(
@@ -26,19 +26,12 @@ const style =StyleSheet.create({
         marginBottom: 40, 
         height: 60, 
         width: 60, 
+        resizeMode: "contain", 
     },
 
-    employe: {
-        borderRadius: 90, 
-        height: 150, 
-        width: 150, 
-        marginLeft: 120, 
-        
-    }, 
     donneemp: {
         fontWeight: "bold", 
         textAlign: "center", 
-
     }, 
 
     view:{

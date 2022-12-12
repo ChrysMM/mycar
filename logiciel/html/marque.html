@@ -3,32 +3,39 @@
 <head>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
     <script type="text/javascript" src="../js/marque.js"></script>
-    <link rel="stylesheet" href="../css/marque.css">
-    <title>Tableau des voitures </title>
+    <link rel="stylesheet" href="../css/voiture.css">
+    <title>Tableau des marques </title>
 </head>
 <body>
     
     <div>
-        <form action="index.html" method="POST" >
-        <a href="Liste.html">Accueil</a>
-        <input type="submit" id='submit' onclick="goToFirstWindow()" value='Deconnexion' >
 
-    </form>
+    
         <h1>Tableau des marques</h1>
+
+
+
         <table >
-        <thead>
+            <thead>
             <tr style="font-weight: bold;">
                 <th>Id</th>
-                <th>Marque</th>
+                <th>Nom marque</th>
                 <th>Supprimer</th>
                 <th>Editer</th>
-            </thead>
-            <tbody id="content">
+                
+                
+            </tr>
+        </thead>
+        <tbody id="content">
 
-            </tbody>
+
+
+        </tbody>
+
+            
         </table>
     </div>
-    
+
     
 </body>
 </html>

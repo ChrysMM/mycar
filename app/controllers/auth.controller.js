@@ -27,7 +27,7 @@ var bcrypt = require("bcryptjs");
 exports.signup = (req, res) => {
 
 
-  // Save User to Database
+  // Sauvegarder un utilisateur en base de donnee
   User.create({
     //nomUser: req.body.nomUser,
     prenomUser: req.body.prenomUser,
@@ -59,6 +59,7 @@ exports.signup = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+// Chercher si le username et le mot de passe sont corrects
 exports.signin = (req, res) => {
   //console.log(req.body.username);
   User.findOne({
@@ -80,6 +81,7 @@ exports.signin = (req, res) => {
           message: "Mot de passe invalide!"
         });
       }
+      // temps d'expiration du token
       var token = jwt.sign({ id: user.id }, config.secret, {
         expiresIn: 86400 // 24 hours
       });

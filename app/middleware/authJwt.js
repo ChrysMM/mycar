@@ -13,7 +13,9 @@ const User = db.user;
 /************************************************************/
 
 
-
+// Verification du token et voir 
+// si le jeton n'est pas fourni
+// si il n'est pas autorisé
 verifyToken = (req, res, next) => {
   let token = req.headers["x-access-token"];
   if (!token) {
@@ -31,6 +33,7 @@ verifyToken = (req, res, next) => {
     next();
   });
 };
+// Tester si il est admin
 isAdmin = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     user.getRoles().then(roles => {
@@ -47,6 +50,7 @@ isAdmin = (req, res, next) => {
     });
   });
 };
+// Tester si il est moderator
 isModerator = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     user.getRoles().then(roles => {
@@ -62,6 +66,7 @@ isModerator = (req, res, next) => {
     });
   });
 };
+// Tester si il est admin ou moderator
 isModeratorOrAdmin = (req, res, next) => {
   User.findByPk(req.userId).then(user => {
     user.getRoles().then(roles => {

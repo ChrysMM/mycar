@@ -2,11 +2,13 @@
 import React, {useState} from 'react';
 import {SafeAreaView, StyleSheet, View, Text} from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
-import { useNavigation,NavigationContainer } from '@react-navigation/native';
+
 
 const App = ({ route, navigation }) => {
+  // mes usestate de mes dates d'arrivée et de retour
   const [selectedStartDate, setSelectedStartDate] = useState(null);
   const [selectedEndDate, setSelectedEndDate] = useState(null);
+  // parametres routes des données de l'utilisateur
   const { email, prenomUser, username, password} = route.params;
   const onDateChange = (date, type) => {
 
@@ -19,9 +21,7 @@ const App = ({ route, navigation }) => {
   };
 
 
-  function navigateSearch() {
-    navigation.navigate("Search");
-}
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -30,6 +30,7 @@ const App = ({ route, navigation }) => {
         <CalendarPicker
           startFromMonday={true}
           allowRangeSelection={true}
+          // date du jour et la date la plus petite séléctionnable
           minDate={new Date}
           maxDate={new Date(2050, 6, 3)}
           weekdays={
@@ -44,14 +45,14 @@ const App = ({ route, navigation }) => {
             ]}
           months={[
             'Janvier',
-            'Febrier',
+            'Fevrier',
             'Mars',
             'Avril',
             'Mai',
             'Juin',
             'Juillet',
             'Aout',
-            'Saptembre',
+            'Septembre',
             'Octobre',
             'Novembre',
             'Decembre',
@@ -69,7 +70,8 @@ const App = ({ route, navigation }) => {
           onDateChange={onDateChange}
         />
         <Text style={styles.date} onPress={() => {
-                navigation.navigate('Search', {
+          // transfere des parametres routes à recherche avec les dates séléctionné par l'utilisateur
+                navigation.navigate('Recherche', {
                     dateD: selectedStartDate, 
                     dateF: selectedEndDate,
 

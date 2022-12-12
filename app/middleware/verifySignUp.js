@@ -11,7 +11,7 @@ const User = db.user;
 /************************************************************/
 
 
-
+// Verifier qu'il n'y est pas de duplication de nom ou d'email de l'utilisateur
 checkDuplicateUsernameOrEmail = (req, res, next) => {
   // Username
   User.findOne({
@@ -41,6 +41,7 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
     });
   });
 };
+// Verifier si le role existe
 checkRolesExisted = (req, res, next) => {
   if (req.body.roles) {
     for (let i = 0; i < req.body.roles.length; i++) {
