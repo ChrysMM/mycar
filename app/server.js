@@ -1,4 +1,6 @@
 const express = require("express");
+
+// importation et modules : expresscors
 const cors = require("cors");
 const app = express();
  
@@ -8,7 +10,9 @@ const Role = db.role;
   //console.log('Drop and Resync Db');
   //initial();
 //});
-
+// **************************************************************************************************************************
+//configurer le serveur web express
+//************************************************************************************************************************ */
  
 //app.use(...);
  

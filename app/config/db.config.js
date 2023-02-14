@@ -12,7 +12,8 @@ module.exports = {
   }
 
   };
-
+  
+//Configurer la base de données MySQL et Sequelize
 //Pour Sequelize max: nombre maximum de connexions dans le pool
 //min: nombre minimum de connexion dans le pool
 //idle: durée maximale, en millisecondes, pendant laquelle une connexion peut être inactive avant d’être libérée

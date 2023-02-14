@@ -9,8 +9,11 @@ import mycar from "../assets/My_Car.png";
 import axios from "axios";
 
 //const URLvoiture =  "http://localhost:8080/api/voiture";
-// const URLvoiture = "http://10.81.201.211:8080/api/voiture";
+
+//URL pour ordi
+//const URLvoiture = "http://10.81.201.105:8080/api/voiture";
 //ipconfig
+//pour tel
 const URLvoiture = "http://172.20.10.4:8080/api/voiture";
 //const URLvoiture = "http://192.168.1.76:19000/api/voiture";
 
